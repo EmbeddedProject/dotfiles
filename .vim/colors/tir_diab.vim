@@ -49,7 +49,7 @@ if version >= 700 " Vim 7.x specific colors
 endif
 
 " Syntax highlighting
-hi Comment guifg=#7C7C7C ctermfg=8 
+hi Comment guifg=#7C7C7C ctermfg=8
 hi String guifg=#A8FF60 ctermfg=155 
 hi Number guifg=#FF73FD ctermfg=207 
 
@@ -67,7 +67,7 @@ hi Statement guifg=#6699CC ctermfg=110
 
 hi Special guifg=#E18964 ctermfg=173 
 hi Delimiter guifg=#00A0A0 ctermfg=37 
-hi Operator guifg=#77b0ea ctermfg=117 
+hi Operator guifg=#96CBFE ctermfg=110
 
 hi link Character Constant
 hi link Boolean Constant

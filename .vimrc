@@ -9,7 +9,6 @@ else
   set t_Co=256
 end
 
-
 set selectmode=
 
 set nocompatible
@@ -30,25 +29,8 @@ set smartindent
 set sidescrolloff=2
 set numberwidth=4
 
-"Windows
-set equalalways
-set splitbelow splitright
-" Fast window resizing with +/- keys (horizontal); / and * keys (vertical)
-if bufwinnr(1)
-  map <kPlus> <C-W>+
-  map <kMinus> <C-W>-
-  map <kDivide> <c-w><
-  map <kMultiply> <c-w>>
-endif
-
-"Vertical split then hop to new buffer
-noremap ,v :vsp^M^W^W<cr>
-noremap ,h :split^M^W^W<cr>
-
-
 "Cursor highlights
 set cursorline
-
 
 "Searching
 set hlsearch
@@ -56,10 +38,28 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Syntax stuff/options
+syntax on
 
 "Colors
-syntax on
 colorscheme tir_diab
+
+let c_char_is_integer=1
+let c_space_errors=1
+let c_gnu=1
+let c_syntax_for_h=1
+let c_C94=1
+let c_C99_warn=1
+let c_conditional_is_operator=1
+let c_cpp_warn=1
+let c_warn_8bitchars=1
+let c_warn_multichar=1
+let c_warn_digraph=1
+let c_warn_trigraph=1
+let c_no_octal=1
+
+let python_highlight_all=1
+let python_highlight_space_errors=0
 
 "Status Line
 set showcmd
@@ -150,24 +150,4 @@ set list
 "set lcs=tab:│\ ,trail:·,extends:>,precedes:<,nbsp:&
 "set lcs=tab:└─,trail:·,extends:>,precedes:<,nbsp:&
 set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
-
-" Syntax stuff/options
-let python_highlight_all=1
-let python_highlight_space_errors=0
-
-let c_char_is_integer = 1
-let c_c_vim_compatible = 0
-let c_space_errors = 1
-let c_gnu = 1
-let c_syntax_for_h = 1
-let c_C94 = 1
-let c_C99_warn = 1
-let c_conditional_is_operator = 1
-let c_cpp_warn = 1
-let c_warn_8bitchars = 1
-let c_warn_multichar = 1
-let c_warn_digraph = 1
-let c_warn_trigraph = 1
-let c_no_octal = 1
-
 

@@ -40,6 +40,7 @@ export EDITOR="vim"
 export PAGER='less'
 
 export CDPATH=~/devel
+
 #--------------#
 # shell prompt #
 #--------------#
@@ -73,8 +74,10 @@ fancy_prompt() {
 		export PS1="[$g\u$NONE] $m\$(__git_ps1 '(%s) ')$NONE$c\w$NONE\n$y\$$NONE "
 	fi
 }
-
 fancy_prompt
+
+# __git_ps1 options
+export GIT_PS1_SHOWDIRTYSTATE=1
 
 
 if [ -f ~/.bash_aliases ]; then

@@ -153,6 +153,7 @@ if exists("b:current_syntax")
   finish
 endif
 
+
 " VIM compatible mode takes precedence over some settings.
 if exists("c_c_vim_compatible")
   " VIM C highlight C99 (sort of) unless c_no_c99 set.
