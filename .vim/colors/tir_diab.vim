@@ -27,7 +27,7 @@ hi Folded guifg=#a0a8b0 guibg=#384048 ctermfg=103 ctermbg=60
 hi Title guifg=#f6f3e8 gui=bold ctermfg=187 cterm=bold
 hi Visual gui=reverse cterm=reverse
 
-hi SpecialKey guifg=#808080 guibg=#343434 ctermfg=8 ctermbg=236
+hi SpecialKey guifg=#3a3a3a guibg=#121212 ctermfg=237 ctermbg=233
 
 hi WildMenu guifg=black guibg=#cae682 ctermfg=0 ctermbg=195
 hi PmenuSbar guifg=black guibg=white ctermfg=0 ctermbg=15
