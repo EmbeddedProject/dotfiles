@@ -76,9 +76,6 @@ fancy_prompt() {
 }
 fancy_prompt
 
-# __git_ps1 options
-export GIT_PS1_SHOWDIRTYSTATE=1
-
 
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
