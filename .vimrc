@@ -57,6 +57,11 @@ let c_warn_multichar=1
 let c_warn_digraph=1
 let c_warn_trigraph=1
 let c_no_octal=1
+let c_ansi_typedefs=1
+let c_ansi_constants=1
+let c_posix=1
+let c_math=1
+
 
 let python_highlight_all=1
 let python_highlight_space_errors=0
