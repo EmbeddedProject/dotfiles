@@ -39,7 +39,7 @@ export PROMPT_COMMAND='history -a'	# write history after each command
 export EDITOR="vim"
 export PAGER='less'
 
-export CDPATH=~/devel
+export CDPATH=.:~/devel
 
 #--------------#
 # shell prompt #
@@ -71,7 +71,7 @@ fancy_prompt() {
 		# custom color for 'root'
 		export PS1="$r[\u]$NONE $c\w$NONE\n$y#$NONE "
 	else
-		export PS1="[$g\u$NONE] $m\$(__git_ps1 '(%s) ')$NONE$c\w$NONE\n$y\$$NONE "
+		export PS1="[$g\u$NONE] $m\$(__git_ps1 '%s ')$NONE$c\w$NONE\n$y\$$NONE "
 	fi
 }
 fancy_prompt

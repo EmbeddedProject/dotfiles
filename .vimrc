@@ -24,6 +24,7 @@ map <F6> :set shiftwidth=4<CR>:set tabstop=4<CR>:set expandtab<CR>:set softtabst
 "Indenting
 set autoindent
 set smartindent
+filetype plugin indent on
 
 "Scrollbars
 set sidescrolloff=2
@@ -62,9 +63,14 @@ let c_ansi_constants=1
 let c_posix=1
 let c_math=1
 
-
 let python_highlight_all=1
 let python_highlight_space_errors=0
+
+
+let g:riv_fold_level = 1
+let g:riv_file_link_style = 2
+
+
 
 "Status Line
 set showcmd
@@ -139,6 +145,7 @@ map ù <C-]>
 map <F3> <C-]>
 map ! :tnext<CR>
 set tags=./tags;../tags;../../tags;../../../tags;../../../../tags;/
+"set tags=./tags
 
 " Display <tab>s etc...
 set list
@@ -155,4 +162,35 @@ set list
 "set lcs=tab:│\ ,trail:·,extends:>,precedes:<,nbsp:&
 "set lcs=tab:└─,trail:·,extends:>,precedes:<,nbsp:&
 set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
+
+
+"define 3 custom highlight groups
+hi User1 ctermfg=red   guifg=red
+hi User2 ctermfg=blue  guifg=blue
+hi User3 ctermfg=green guifg=green
+
+set statusline=
+
+set statusline+=%f    "tail of the filename
+set statusline+=%1*   "switch to User1 highlight
+set statusline+=%h    "help file flag
+set statusline+=%m    "modified flag
+set statusline+=%r    "read only flag
+set statusline+=%*\   "switch back to statusline highlight
+
+set statusline+=%2*   "switch to User2 highlight
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}]   "file format
+set statusline+=%*\   "switch back to statusline highlight
+
+set statusline+=%3*   "switch to User3 highlight
+set statusline+=%y    "filetype
+set statusline+=%*    "switch back to statusline highlight
+
+set statusline+=%=    "left/right separator
+set statusline+=c%c\  "cursor column
+set statusline+=%l/%L "cursor line/total lines
+set statusline+=\ %P  "percent through file
+
+set laststatus=2      "always show statusline
 

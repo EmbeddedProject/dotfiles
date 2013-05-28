@@ -1,6 +1,11 @@
 :HLT	hilinks.txt	/*:HLT*
 :HLT!	hilinks.txt	/*:HLT!*
 :HLTm	hilinks.txt	/*:HLTm*
+:RivInstruction	riv.txt	/*:RivInstruction*
+:RivIntro	riv.txt	/*:RivIntro*
+:RivPrimer	riv.txt	/*:RivPrimer*
+:RivQuickStart	riv.txt	/*:RivQuickStart*
+:RivSpecification	riv.txt	/*:RivSpecification*
 hilinks	hilinks.txt	/*hilinks*
 hilinks-beval	hilinks.txt	/*hilinks-beval*
 hilinks-contents	hilinks.txt	/*hilinks-contents*
@@ -9,6 +14,7 @@ hilinks-history	hilinks.txt	/*hilinks-history*
 hilinks-manual	hilinks.txt	/*hilinks-manual*
 hilinks.txt	hilinks.txt	/*hilinks.txt*
 hlt	hilinks.txt	/*hlt*
+riv.txt	riv.txt	/*riv.txt*
 std_c	std_c.txt	/*std_c*
 std_c-acknowledgements	std_c.txt	/*std_c-acknowledgements*
 std_c-contents	std_c.txt	/*std_c-contents*
