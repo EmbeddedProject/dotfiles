@@ -45,7 +45,7 @@ syntax on
 "Colors
 colorscheme tir_diab
 
-let c_c_vim_compatible=0
+"let c_c_vim_compatible=0
 let c_no_ansi=0
 let c_char_is_integer=1
 let c_space_errors=1
