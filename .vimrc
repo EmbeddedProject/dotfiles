@@ -45,6 +45,8 @@ syntax on
 "Colors
 colorscheme tir_diab
 
+let c_c_vim_compatible=0
+let c_no_ansi=0
 let c_char_is_integer=1
 let c_space_errors=1
 let c_gnu=1
@@ -62,6 +64,7 @@ let c_ansi_typedefs=1
 let c_ansi_constants=1
 let c_posix=1
 let c_math=1
+let c_ansi_constants=1
 
 let python_highlight_all=1
 let python_highlight_space_errors=0
