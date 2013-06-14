@@ -161,7 +161,8 @@ set list
 
 "set lcs=tab:│\ ,trail:·,extends:>,precedes:<,nbsp:&
 "set lcs=tab:└─,trail:·,extends:>,precedes:<,nbsp:&
-set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
+"set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
+set lcs=tab:│-,trail:·,extends:>,precedes:<,nbsp:&
 
 
 "define 3 custom highlight groups

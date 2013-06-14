@@ -294,7 +294,6 @@ if !exists("c_c_vim_compatible") || exists("c_gnu")
   syn cluster     cOperator         add=cGNUOperator
 endif
 
-
 " Digraph handling - highlight differently if warning, C94, or not recognised.
 if exists("c_C94") && !exists("c_warn_digraph")
   syn match       cDigraph          transparent display "%:\|<[:%]\|[:%]>"
@@ -942,6 +941,8 @@ syn keyword cppBoolean		true false
 " The minimum and maximum operators in GNU C++
 syn match cppMinMax "[<>]?"
 
+syn match cPunctuation display '[{}()\[\];,:]'
+
 " Default highlighting
 if version >= 508 || !exists("did_cpp_syntax_inits")
   if version < 508
@@ -995,6 +996,7 @@ hi def link cMathOperator          cOperator
 hi def link cPointerOperator       cOperator
 hi def link cLogicalOperator       cOperator
 hi def link cBinaryOperator        cOperator
+hi def link cPunctuation           Operator
 if exists("c_conditional_is_operator")
   hi def link cConditionalOperator cOperator
 else

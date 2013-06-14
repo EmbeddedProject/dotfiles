@@ -40,6 +40,7 @@ export EDITOR="vim"
 export PAGER='less'
 
 export CDPATH=.:~/devel
+export PATH=${PATH}:/aston/h_debit/deliveries/delivery/packager/master/utils/
 
 #--------------#
 # shell prompt #
