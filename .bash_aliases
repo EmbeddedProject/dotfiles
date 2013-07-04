@@ -72,3 +72,4 @@ alias diff='colordiff -Naup'
 alias less='less -R'
 
 alias component='LOG=`/aston/h_debit/deliveries/infrastructure/admin-tools/build_components_log.sh ; echo -e "Acked-by: Emmanuel Vize <emmanuel.vize@6wind.com>"` ; git commit -s -m "$LOG" -e components.config'
+

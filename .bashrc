@@ -41,6 +41,7 @@ export PAGER='less'
 
 export CDPATH=.:~/devel
 export PATH=${PATH}:/aston/h_debit/deliveries/delivery/packager/master/utils/
+export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/git-tools/scripts/
 
 #--------------#
 # shell prompt #
