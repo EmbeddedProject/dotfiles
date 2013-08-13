@@ -118,7 +118,7 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
 "Misc
 set backspace=indent,eol,start
-set number " Show line numbers
+"set number " Show line numbers
 set matchpairs+=<:>
 set novb
 set t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
@@ -169,14 +169,14 @@ elseif $CSCOPE_DB != ""
 endif
 
 " Basic keymaps
-nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>   " symbol
+nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>   " global definition
+nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>   " functions calling
+nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>   " text string
+nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>   " egrep pattern
+nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>   " file
+nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> " files #including this file
+nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>   " functions called by this function
 
 " Using 'CTRL-spacebar' then a search type makes the vim window
 " split horizontally, with search result displayed in
@@ -254,4 +254,17 @@ set statusline+=%l/%L "cursor line/total lines
 set statusline+=\ %P  "percent through file
 
 set laststatus=2      "always show statusline
+
+
+" add kernel debug lines
+inoremap <F12> <ESC><S-o>printk("%s:%d\n", __FUNCTION__, __LINE__);
+nnoremap <F12> <S-o>printk("%s:%d\n", __FUNCTION__, __LINE__);<ESC>
+
+
+" vim fugitive bindings
+nnoremap <C-g>b :Gblame<CR>
+
+
+let generate_tags = 1
+let g:ctags_statusline = 1
 
