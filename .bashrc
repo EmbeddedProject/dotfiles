@@ -26,9 +26,8 @@ shopt -u mailwarn
 unset MAILCHECK         # Dont want my shell to warn me of incoming mail.
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE=1000
-export HISTFILESIZE=2000
-export HISTTIMEFORMAT="%H:%M > "
+export HISTFILESIZE=4000
+export HISTTIMEFORMAT="%F %T > "
 export HISTIGNORE="&:bg:fg:ll:h:ls:exit"
 # Share the history amongst all terminals
 # This tells bash to save the history after *each* command

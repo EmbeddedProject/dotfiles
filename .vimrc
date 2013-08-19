@@ -45,6 +45,8 @@ syntax on
 "Colors
 colorscheme tir_diab
 
+let &colorcolumn=join(range(81,999),",")
+
 "let c_c_vim_compatible=0
 let c_no_ansi=0
 let c_char_is_integer=1
@@ -209,6 +211,11 @@ nmap <C-Space><C-Space>d
 
 " Display <tab>s etc...
 set list
+nnoremap <C-l> :set list!<CR>
+nnoremap <C-p> :set paste!<CR>
+inoremap <C-p> :set paste!<CR>
+nnoremap <C-n> :set number!<CR>
+
 " Some cool display variants for tabs (which will almost certainly break if
 " your gvim/terminal is not unicode-aware).
 " If you want to make your own I recommend look up the unicode table 2500 on
