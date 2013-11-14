@@ -20,6 +20,8 @@ set modelines=5
 map <F5> :set shiftwidth=8<CR>:set tabstop=8<CR>:set noexpandtab<CR>:set softtabstop=8<CR>
 " <F6> Only spaces (4 spaces by level)
 map <F6> :set shiftwidth=4<CR>:set tabstop=4<CR>:set expandtab<CR>:set softtabstop=4<CR>
+" <F7> Only spaces (2 spaces by level)
+map <F7> :set shiftwidth=2<CR>:set tabstop=2<CR>:set expandtab<CR>:set softtabstop=2<CR>
 
 "Indenting
 set autoindent
@@ -275,3 +277,11 @@ nnoremap <C-g>b :Gblame<CR>
 let generate_tags = 1
 let g:ctags_statusline = 1
 
+
+function InsertAckedBy()
+	let expr = input('Acked-by: ')
+	let cmd = '~/bin/acked-by ' . expr
+	put =system(cmd)
+endfunction
+
+nnoremap <F4> :call InsertAckedBy()<CR>
