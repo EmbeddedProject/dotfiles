@@ -47,7 +47,7 @@ syntax on
 "Colors
 colorscheme tir_diab
 
-let &colorcolumn=join(range(81,999),",")
+set colorcolumn=81
 
 "let c_c_vim_compatible=0
 let c_no_ansi=0
