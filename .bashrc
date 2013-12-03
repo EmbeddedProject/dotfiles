@@ -70,9 +70,9 @@ fancy_prompt() {
 
 	if [ `id -u` = 0 ]; then
 		# custom color for 'root'
-		export PS1="$R\u$NONE@$r\h$NONE:$c\w$NONE\n$y#$NONE "
+		export PS1="$R\u$NONE$r@\h$NONE:$c\w$NONE\n$y#$NONE "
 	else
-		export PS1="$G\u$NONE@$g\h$NONE:$c\w$NONE$m\$(__git_ps1 ' %s')$NONE\n$y\$$NONE "
+		export PS1="$G\u$NONE$g@\h$NONE:$c\w$NONE$m\$(__git_ps1 ' %s')$NONE\n$y\$$NONE "
 	fi
 }
 fancy_prompt
