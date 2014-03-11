@@ -2,8 +2,14 @@
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
+# Use ctrl + arrows to move from word to word
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
+
+# Use alt + backspace to delete previous word
+Meta-RUBOUT: backward-kill-word
+# Use alt + delete to delete current word
+"\e[3;5~": kill-word
 
 # Completion becomes case insensitive
 #set completion-ignore-case on
