@@ -5,7 +5,6 @@
 ulimit -S -c 0          # Don't want any coredumps.
 set -o notify
 set -o noclobber
-set -o ignoreeof	# disable Ctrl+D
 set +o nounset
 
 # Enable options:
@@ -38,7 +37,6 @@ export PROMPT_COMMAND='history -a'	# write history after each command
 export EDITOR="vim"
 export PAGER='less'
 
-export CDPATH=.:~/devel
 export PATH=${PATH}:/aston/h_debit/deliveries/delivery/packager/master/utils/
 export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/git-tools/scripts/
 
