@@ -62,6 +62,8 @@ alias gg='git grep'
 alias gdiff='git diff'
 alias gdf='gdiff'
 
+alias env='env | sort'
+
 # fuzzy find (case insensitive)
 function ff()
 {
