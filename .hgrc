@@ -1,0 +1,24 @@
+[ui]
+username = Robin Jarry <robin.jarry@6wind.com>
+
+[defaults]
+log = --style=$HOME/.hgfiles/map-cmdline.dlog --branch default
+
+[alias]
+slog = log --style=$HOME/.hgfiles/map-cmdline.slog
+nlog = log --style=$HOME/.hgfiles/map-cmdline.nlog
+sglog = log --style=$HOME/.hgfiles/map-cmdline.sglog
+s = status
+
+[diff]
+git = True
+
+[extensions]
+rebase =
+mq =
+color =
+pager =
+
+[pager]
+pager = LESS='FSRX' less -d
+attend = annotate, cat, diff, export, glog, log, qdiff, slog, dlog, sglog, nlog
