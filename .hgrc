@@ -2,23 +2,24 @@
 username = Robin Jarry <robin.jarry@6wind.com>
 
 [defaults]
-log = --style=$HOME/.hgfiles/map-cmdline.dlog --branch default
+log = --style=$HOME/.hgfiles/map-cmdline.dlog --branch .
 
 [alias]
 slog = log --style=$HOME/.hgfiles/map-cmdline.slog
 nlog = log --style=$HOME/.hgfiles/map-cmdline.nlog
 sglog = log --style=$HOME/.hgfiles/map-cmdline.sglog
 s = status
+show = log -pr
+rebase = histedit --outgoing
 
 [diff]
 git = True
 
 [extensions]
-rebase =
-mq =
 color =
 pager =
+histedit = $HOME/.hgfiles/hg_histedit.py
 
 [pager]
 pager = LESS='FSRX' less -d
-attend = annotate, cat, diff, export, glog, log, qdiff, slog, dlog, sglog, nlog
+attend = annotate, cat, diff, export, glog, log, qdiff, slog, dlog, sglog, nlog, show
