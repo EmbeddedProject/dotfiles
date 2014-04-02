@@ -40,7 +40,7 @@ export PAGER='less'
 export PATH=${PATH}:/aston/h_debit/deliveries/delivery/packager/master/utils/
 export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/git-tools/scripts/
 
-export GIT_PS1_PROMPT=no
+export GIT_PS1_PROMPT=yes
 
 #--------------#
 # shell prompt #
@@ -73,7 +73,7 @@ fancy_prompt() {
 		export PS1="$R\u$NONE$r@\h$NONE:$c\w$NONE$y#$NONE "
 	else
 		if [ "$GIT_PS1_PROMPT" == "yes" ]; then
-			export PS1="$G\u$NONE$g@\h$NONE:$c\w$NONE$m\$(__git_ps1 ' %s')$NONE\n$y\$$NONE "
+			export PS1="$G\u$NONE$g@\h$NONE:$c\w$NONE$m\$(__git_ps1 ' %s')$NONE$y\$$NONE "
 		else
 			export PS1="$G\u$NONE$g@\h$NONE:$c\w$NONE$y\$$NONE "
 		fi
