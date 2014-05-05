@@ -19,7 +19,8 @@ git = True
 color =
 pager =
 histedit = $HOME/.hgfiles/hg_histedit.py
+mq =
 
 [pager]
 pager = LESS='FSRX' less -d
-attend = annotate, cat, diff, export, glog, log, qdiff, slog, dlog, sglog, nlog, show
+attend = annotate, cat, diff, export, glog, log, qdiff, slog, dlog, sglog, nlog, show, grep

@@ -2,7 +2,6 @@
 # Some settings
 #-------------------------------------------------------------
 
-ulimit -S -c 0          # Don't want any coredumps.
 set -o notify
 set -o noclobber
 set +o nounset
@@ -36,11 +35,13 @@ export PROMPT_COMMAND='history -a'	# write history after each command
 
 export EDITOR="vim"
 export PAGER='less'
+export LESS='FSRX'
+export LESSOPEN='| source-highlight -f esc -i %s'
 
 export PATH=${PATH}:/aston/h_debit/deliveries/delivery/packager/master/utils/
 export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/git-tools/scripts/
 
-export GIT_PS1_PROMPT=yes
+_GIT_PS1_PROMPT=yes
 
 #--------------#
 # shell prompt #
@@ -57,7 +58,7 @@ fancy_prompt() {
 	local m="\[\033[0;35m\]"	# magenta
 	local c="\[\033[0;36m\]"	# cyan
 	local w="\[\033[0;37m\]"	# white
-	
+
 	# emphasized (bolded) colors
 	local K="\[\033[1;30m\]"
 	local R="\[\033[1;31m\]"
@@ -72,7 +73,7 @@ fancy_prompt() {
 		# custom color for 'root'
 		export PS1="$R\u$NONE$r@\h$NONE:$c\w$NONE$y#$NONE "
 	else
-		if [ "$GIT_PS1_PROMPT" == "yes" ]; then
+		if [ "${_GIT_PS1_PROMPT}" == "yes" ]; then
 			export PS1="$G\u$NONE$g@\h$NONE:$c\w$NONE$m\$(__git_ps1 ' %s')$NONE$y\$$NONE "
 		else
 			export PS1="$G\u$NONE$g@\h$NONE:$c\w$NONE$y\$$NONE "
