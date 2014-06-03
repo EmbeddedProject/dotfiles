@@ -2,44 +2,37 @@
 	email = robin.jarry@6wind.com
 	name = Robin Jarry
 
+[sendemail]
+	suppressfrom = true
+	chainreplyto = false
+	confirm = always
+	envelopesender = auto
+	smtpuser = robin.jarry@6wind.com
+	smtpserver = smtp.gmail.com
+	smtpserverport = 465
+	smtpencryption = ssl
+
 [format]
 	signoff = true
-
-[merge]
-	tool = perforce
-
-[mergetool]
-	keepBackup = false
-
-[mergetool "vimdiff3"]
-	cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
-
-[mergetool "perforce"]
-	cmd = p4merge -dw -tw 8 -le 'unix' -C 'utf8' \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	pretty = oneline
 
 [color]
 	diff = auto
 	ui = auto
 
 [alias]
-	tkdiff = difftool -t tkdiff -y
-	meld = difftool -t meld -y
-	p4merge = difftool -t perforce -y
-	pbackup = push backup b_v3.0.60:master
 	chpick = cherry-pick -sxe
 	s = status --short --branch
 	ci = commit -s
-	rebase = rebase -i
-	re = rebase -i
 	a = add -u
-	logone = log --oneline
+	flog = log --pretty=medium
 
 [url "git@core:/aston/h_debit/scm/git/"]
 	InsteadOf = "/aston/h_debit/scm/git/"
-	pushInsteadOf = "/aston/h_debit/scm/git/"
 
 [log]
 	decorate = true
+	abbrevCommit = true
 
 [pull]
 	rebase = true
