@@ -49,26 +49,18 @@ colorscheme tir_diab
 
 set colorcolumn=81
 
-"let c_c_vim_compatible=0
-let c_no_ansi=0
 let c_char_is_integer=1
 let c_space_errors=1
 let c_gnu=1
 let c_syntax_for_h=1
 let c_C94=1
-let c_C99_warn=1
+let c_C99=1
 let c_conditional_is_operator=1
-let c_cpp_warn=1
-let c_warn_8bitchars=1
-let c_warn_multichar=1
-let c_warn_digraph=1
-let c_warn_trigraph=1
 let c_no_octal=1
 let c_ansi_typedefs=1
 let c_ansi_constants=1
 let c_posix=1
 let c_math=1
-let c_ansi_constants=1
 
 let python_highlight_all=1
 let python_highlight_space_errors=0

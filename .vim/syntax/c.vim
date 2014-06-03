@@ -744,6 +744,7 @@ if !exists("c_no_ansi") || exists("c_ansi_typedefs")
   if exists("c_C99")
     " C99 new typedefs
     syn keyword   c99Typedef        fenv_t fexcept_t float_t double_t
+    syn keyword   c99Typedef        uint8_t uint16_t uint32_t
     syn match     c99Typedef        display "\<u\=int\(_least\|_fast\)\=\d\+_t\>"
     syn keyword   c99Typedef        intptr_t uintptr_t intmax_t uintmax_t
     syn keyword   c99Typedef        lldiv_t imaxdiv_t
@@ -1199,28 +1200,18 @@ if exists("c_C99")
   endif
 endif
 
-if exists("c_c_vim_compatible")
-  if exists("c_gnu")
-    hi def link cGNUType           cType
-    hi def link cGNUStatement      c89Statement
-    hi def link cGNUOperator       cOperator
-    hi def link cGNUStorageClass   cStorageClass
-    hi def link cGNUConstant       cConstant
-  endif
+if exists("c_gnu")
+  hi def link cGNUType           cType
+  hi def link cGNUStatement      c89Statement
+  hi def link cGNUOperator       cOperator
+  hi def link cGNUStorageClass   cStorageClass
+  hi def link cGNUConstant       cConstant
+endif
   if !exists("c_no_utf")
     hi def link cUniversalChar     cSpecialChar
   endif
-  hi def link cPosixConstant       cConstant
-  hi def link cMathConstant        cConstant
-
-else
-  hi def link cGNUError            cError
-  hi def link cGNUStatement        cGNUError
-  hi def link cGNUOperator         cGNUError
-  hi def link cGNUType             cGNUError
-  hi def link cGNUStorageClass     cGNUError
-  hi def link cGNUConstant         cGNUError
-endif
+hi def link cPosixConstant       cConstant
+hi def link cMathConstant        cConstant
 
 let b:current_syntax = "c"
 
