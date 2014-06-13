@@ -14,7 +14,6 @@
 
 [format]
 	signoff = true
-	pretty = oneline
 
 [color]
 	diff = auto
@@ -24,15 +23,15 @@
 	chpick = cherry-pick -sxe
 	s = status --short --branch
 	ci = commit -s
+	co = checkout
 	a = add -u
-	flog = log --pretty=medium
+	l = log --oneline
 
 [url "git@core:/aston/h_debit/scm/git/"]
 	InsteadOf = "/aston/h_debit/scm/git/"
 
 [log]
 	decorate = true
-	abbrevCommit = true
 
 [pull]
 	rebase = true
