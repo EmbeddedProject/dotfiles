@@ -31,6 +31,8 @@ alias vi="vim"
 alias grep='grep --color=auto'
 alias g='grep'
 
+alias gg='git grep'
+
 alias ls="ls -hF --group-directories-first --color=auto --time-style=iso"
 alias la="ls -A"
 alias ll="ls -l"
