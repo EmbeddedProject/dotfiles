@@ -1,0 +1,4 @@
+#!/bin/sh
+set -x
+ctags --file-scope=no --recurse --totals=yes --languages=C,C++ --exclude='.*'
+

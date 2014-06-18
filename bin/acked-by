@@ -1,0 +1,6 @@
+#!/bin/sh
+
+/aston/h_debit/deliveries/infrastructure/admin-tools/acked-by.py $* |
+sed '/jmg/Id' |
+sed 's,\( [A-Z]\)\([A-Z]\+\),\1\L\2,g' |
+sed 's,\(<.*>\),\L\1,'

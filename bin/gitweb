@@ -1,0 +1,130 @@
+#!/usr/bin/env python
+
+import os
+import argparse
+import socket
+
+MY_IP = socket.gethostbyname(socket.gethostname())
+GIT_URL = 'http://%s/git/?p=%%s;a=summary' % MY_IP
+
+#-------------------------------------------------------------------------------
+def parse_args():
+
+    parser = argparse.ArgumentParser(description='Manage the gitweb served '
+                                                 'repositories.')
+
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('-A', '--add',
+                       help='Add the specified repositories to the gitweb '
+                            'served repositories.',
+                       dest='add',
+                       action='store_true',
+                       default=True)
+    group.add_argument('-D', '--delete',
+                       help='Remove the specified repositories from the gitweb '
+                            'served repositories.',
+                       dest='delete',
+                       action='store_true',
+                       default=False)
+    group.add_argument('-C', '--clean',
+                       help='Remove all gitweb served repositories.',
+                       dest='clean',
+                       action='store_true',
+                       default=False)
+    group.add_argument('-L', '--list',
+                       help='Show all gitweb served repositories.',
+                       dest='list',
+                       action='store_true',
+                       default=False)
+
+    parser.add_argument('-R', '--repo-root',
+                        help='Root directory served by gitweb (default: %s)'
+                             % os.path.expanduser('~/.gitweb'),
+                        dest='root',
+                        default=os.path.expanduser('~/.gitweb'))
+
+    parser.add_argument('repositories',
+                        metavar='REPO',
+                        help='Git repositories to manage. If not specified, '
+                             'the current directory is used.',
+                        nargs='*')
+
+    args = parser.parse_args()
+
+    if not args.repositories:
+        args.repositories.append('.')
+
+    return args
+
+#-------------------------------------------------------------------------------
+def resolve_git_dir(path):
+    git_dir = os.path.abspath(os.path.join(path, '.git'))
+    if os.path.isdir(git_dir):
+        return git_dir
+    else:
+        raise UserWarning('%s is not a git repository' % path)
+
+#-------------------------------------------------------------------------------
+def list_served_repos(args):
+    print 'repositories:'
+    for repo in os.listdir(args.root):
+        print '  {:60} {}'.format(repo + ' -> ' + os.path.realpath(os.path.join(args.root, repo)),
+                                  GIT_URL % repo)
+
+#-------------------------------------------------------------------------------
+def delete_served_repo(repo, args):
+    os.remove(os.path.join(args.root, repo))
+    print 'removed %r from served repositories' % repo
+
+#-------------------------------------------------------------------------------
+def add_served_repo(repo, args):
+    repo_name = os.path.basename(os.path.abspath(repo))
+    git_dir = resolve_git_dir(repo)
+    link = os.path.join(args.root, repo_name + '.git')
+    if not os.path.islink(link):
+        os.symlink(git_dir, link)
+        print "added '%s.git' to served repositories" % repo_name
+
+    print GIT_URL % (repo_name + '.git')
+
+#-------------------------------------------------------------------------------
+def clean_served_repos(args):
+    for repo in os.listdir(args.root):
+        delete_served_repo(repo, args)
+
+#-------------------------------------------------------------------------------
+def delete_served_repos(args):
+    for repo in args.repositories:
+        if repo in os.listdir(args.root):
+            # user has specified the name of an already served repo in ROOT
+            delete_served_repo(repo, args)
+            continue
+        # user has specified a local git repo
+        git_dir = resolve_git_dir(repo)
+        for served_repo in os.listdir(args.root):
+            served_repo_link = os.path.join(args.root, served_repo)
+            if os.path.realpath(served_repo_link) == git_dir:
+                # we lookup the corresponding repo in the served repos
+                delete_served_repo(served_repo, args)
+                continue
+
+#-------------------------------------------------------------------------------
+def add_served_repos(args):
+    for repo in args.repositories:
+        add_served_repo(repo, args)
+
+#-------------------------------------------------------------------------------
+def main():
+    args = parse_args()
+    if args.list:
+        list_served_repos(args)
+    elif args.clean:
+        clean_served_repos(args)
+    elif args.delete:
+        delete_served_repos(args)
+    elif args.add:
+        add_served_repos(args)
+
+if __name__ == '__main__':
+    main()
+
