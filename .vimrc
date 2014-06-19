@@ -277,3 +277,9 @@ function InsertAckedBy()
 endfunction
 
 nnoremap <F4> :call InsertAckedBy()<CR>
+
+" Buffer Explorer plugin
+let g:bufExplorerDisableDefaultKeyMapping=1
+noremap <silent> <F12> :BufExplorer<CR>
+noremap <silent> <C-F12> :BufExplorerVerticalSplit<CR>
+noremap <silent> <A-F12> :BufExplorerHorizontalSplit<CR>

@@ -26,6 +26,7 @@
 	co = checkout
 	a = add -u
 	l = log --oneline
+	w = web add
 
 [url "git@core:/aston/h_debit/scm/git/"]
 	InsteadOf = "/aston/h_debit/scm/git/"
@@ -38,3 +39,7 @@
 
 [push]
 	default = current
+
+[gitweb]
+	projectroot = /home/jarry/.gitweb
+	urlprefix = /git/
