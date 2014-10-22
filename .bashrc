@@ -3,12 +3,12 @@
 #-------------------------------------------------------------
 
 set -o notify
-set -o noclobber
 set +o nounset
 
 # Enable options:
 shopt -s cdspell
 shopt -s cdable_vars
+shopt -s autocd
 shopt -s checkhash
 shopt -s checkwinsize	# change line wrapping on terminal resize
 shopt -s sourcepath
@@ -35,11 +35,14 @@ export PROMPT_COMMAND='history -a'	# write history after each command
 
 export EDITOR="vim"
 export PAGER='less'
-export LESS='FSRX'
+export LESS='-RSFX'
 export LESSOPEN='| source-highlight -f esc -i %s'
 
 export PATH=${PATH}:/aston/h_debit/deliveries/delivery/packager/master/utils/
 export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/git-tools/scripts/
+export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/vm-manager/
+
+eval `dircolors`
 
 _GIT_PS1_PROMPT=yes
 

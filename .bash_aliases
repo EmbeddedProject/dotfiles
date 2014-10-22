@@ -17,7 +17,6 @@ alias apt='aptitude'
 alias h='history'
 alias j='jobs -l'
 alias which='type -a'
-alias ..='cd ..'
 alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 
@@ -50,5 +49,12 @@ function ff()
 	find . | grep -i $1
 }
 
-alias diff='colordiff -Naup'
-alias less='less -R'
+if type colordiff >/dev/null 2>&1; then
+	alias diff='colordiff -Naup'
+else
+	alias diff='diff -Naup'
+fi
+if type most >/dev/null 2>&1; then
+	alias man='PAGER=most man'
+	alias info='PAGER=most info'
+fi
