@@ -1,16 +1,14 @@
 
 if has("gui_running")
-  set guioptions-=T
-  set guifont=Terminus
-  set columns=110
-  set lines=40
-  set gtl=%t gtt=%F
+	set guioptions-=T
+	set columns=110
+	set lines=40
+	set gtl=%t gtt=%F
 else
-  set t_Co=256
+	set t_Co=256
 end
 
 set selectmode=
-
 set nocompatible
 set modeline
 set modelines=5
@@ -45,7 +43,7 @@ set smartcase
 syntax on
 
 "Colors
-colorscheme tir_diab
+colorscheme tir_black
 
 set colorcolumn=81
 
@@ -64,12 +62,6 @@ let c_math=1
 
 let python_highlight_all=1
 let python_highlight_space_errors=0
-
-
-let g:riv_fold_level = 1
-let g:riv_file_link_style = 2
-
-
 
 "Status Line
 set showcmd
@@ -114,7 +106,6 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
 "Misc
 set backspace=indent,eol,start
-"set number " Show line numbers
 set matchpairs+=<:>
 set novb
 set t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
@@ -210,21 +201,7 @@ nnoremap <C-p> :set paste!<CR>
 inoremap <C-p> :set paste!<CR>
 nnoremap <C-n> :set number!<CR>
 
-" Some cool display variants for tabs (which will almost certainly break if
-" your gvim/terminal is not unicode-aware).
-" If you want to make your own I recommend look up the unicode table 2500 on
-" the web (or any other that includes your desired characters).
-" Inserting the unicode character 2500 is done by pressing: Ctrl-V Ctrl-U 2500
-
-" Depending on your encoding the following lines might be broken for you, in
-" that case try to view this in utf-8 encoding or just make your own lcs
-" string as described above.
-
-"set lcs=tab:│\ ,trail:·,extends:>,precedes:<,nbsp:&
-"set lcs=tab:└─,trail:·,extends:>,precedes:<,nbsp:&
-"set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
-set lcs=tab:│-,trail:·,extends:>,precedes:<,nbsp:&
-
+set lcs=tab:\ \ ,trail:\ ,extends:>,precedes:<,nbsp:&
 
 "define 3 custom highlight groups
 hi User1 ctermfg=red   guifg=red
@@ -256,19 +233,11 @@ set statusline+=\ %P  "percent through file
 
 set laststatus=2      "always show statusline
 
-
-" add kernel debug lines
-inoremap <F12> <ESC><S-o>printk("%s:%d\n", __FUNCTION__, __LINE__);
-nnoremap <F12> <S-o>printk("%s:%d\n", __FUNCTION__, __LINE__);<ESC>
-
-
 " vim fugitive bindings
 nnoremap <C-g>b :Gblame<CR>
 
-
 let generate_tags = 1
 let g:ctags_statusline = 1
-
 
 function InsertAckedBy()
 	let expr = input('Acked-by: ')
