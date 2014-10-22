@@ -1,0 +1,15 @@
+CVS
+*.orig
+*.rej
+*.a
+*.o
+*.so
+.#*
+.gitignore
+tags
+.*.swp
+.*.cmd
+*~
+*.*~
+*.pyc
+*.py

@@ -2,6 +2,11 @@
 	email = robin.jarry@6wind.com
 	name = Robin Jarry
 
+[core]
+	editor = vim
+	gitproxy = /home/jarry/.gitfiles/gitproxy
+	excludesfile = /home/jarry/.gitfiles/gitignore
+
 [sendemail]
 	suppressfrom = true
 	chainreplyto = false
@@ -12,9 +17,6 @@
 	smtpserverport = 465
 	smtpencryption = ssl
 
-[format]
-	signoff = true
-
 [color]
 	diff = auto
 	ui = auto
@@ -23,6 +25,7 @@
 	chpick = cherry-pick -sxe
 	s = status --short --branch
 	ci = commit -s
+	ca = commit --amend
 	co = checkout
 	a = add -u
 	l = log --oneline

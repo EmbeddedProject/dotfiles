@@ -1,0 +1,5 @@
+#!/bin/bash
+_proxy=core.6wind.com
+_proxyport=8080
+
+exec socat STDIO PROXY:$_proxy:$1:$2,proxyport=$_proxyport
