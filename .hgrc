@@ -18,7 +18,7 @@ git = True
 [extensions]
 color =
 pager =
-histedit = $HOME/.hgfiles/hg_histedit.py
+histedit =
 mq =
 
 [pager]
