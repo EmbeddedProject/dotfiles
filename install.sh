@@ -9,7 +9,7 @@ do
 done
 
 mkdir -p ~/bin
-for script in acked-by ctags-global ctags-local
+for script in acked-by ctags-global ctags-local redemo.py
 do
 	ln -sfv ../$rel_root/bin/$script ~/bin/$script
 done
