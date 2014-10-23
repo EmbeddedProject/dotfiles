@@ -8,7 +8,6 @@ set +o nounset
 # Enable options:
 shopt -s cdspell
 shopt -s cdable_vars
-shopt -s autocd
 shopt -s checkhash
 shopt -s checkwinsize	# change line wrapping on terminal resize
 shopt -s sourcepath
