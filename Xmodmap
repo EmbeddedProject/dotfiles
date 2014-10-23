@@ -1,0 +1,8 @@
+! 49 is the key on the far left of the number row
+keycode 49 =
+keycode 35 = dollar
+keycode 51 = asterisk
+keycode 61 = exclam
+! 66 is caps-lock
+keycode 66 =
+clear Lock
