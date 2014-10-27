@@ -46,7 +46,7 @@ if version >= 700 " Vim 7.x specific colors
 	hi MatchParen guifg=#f6f3e8 guibg=#857b6f gui=bold ctermfg=white ctermbg=darkgray
 	hi Pmenu guifg=#f6f3e8 guibg=#444444 ctermfg=white ctermbg=242
 	hi PmenuSel guifg=#000000 guibg=#cae682 ctermfg=0 ctermbg=195
-	hi Search guifg=white guibg=blue ctermfg=0 ctermbg=226
+	hi Search guifg=white guibg=blue ctermfg=15 ctermbg=21
 endif
 
 " Syntax highlighting
