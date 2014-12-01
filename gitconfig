@@ -34,6 +34,9 @@
 [url "git@core:/aston/h_debit/scm/git/"]
 	InsteadOf = "/aston/h_debit/scm/git/"
 
+[merge]
+	tool = p4merge
+
 [log]
 	decorate = true
 
