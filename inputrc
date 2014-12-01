@@ -8,7 +8,7 @@
 
 # Use alt + backspace to delete previous word
 Meta-RUBOUT: backward-kill-word
-# Use alt + delete to delete current word
+# Use ctrl + delete to delete current word
 "\e[3;5~": kill-word
 
 # Completion becomes case insensitive
@@ -17,9 +17,6 @@ Meta-RUBOUT: backward-kill-word
 # Adds / @ and * after the completion proposals
 # this allows to differentiate files from directories for example
 set visible-stats on
-
-# When ambiguous, show all possible completion items without having to hit Tab twice
-set show-all-if-ambiguous on
 
 # Control-SPACE cycles through completion proposals
 Control-SPACE: menu-complete
