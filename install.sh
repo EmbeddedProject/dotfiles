@@ -1,15 +1,39 @@
 #!/bin/sh
 
-echo "dotfiles root: $(pwd)"
-rel_root=$(python -c "import os.path; print os.path.relpath('$(pwd)', '$HOME')")
+here=$(dirname $(readlink -vf $0))
+echo "dotfiles root: $here"
+echo "home: $HOME"
+rel_root=$(python -c "import os.path; print os.path.relpath('$here', '$HOME')")
+echo "relative root: $rel_root"
 
-for file in bashrc bash_aliases inputrc vim vimrc vrapperrc gitconfig gitfiles hgrc hgfiles Xmodmap xsessionrc Xresources
-do
-	ln -sfv $rel_root/$file ~/.$file
+dotfiles='
+Xmodmap
+Xresources
+bash_aliases
+bashrc
+gitconfig
+gitfiles
+hgfiles
+hgrc
+inputrc
+vim
+vimrc
+vrapperrc
+xsessionrc
+'
+for f in $dotfiles; do
+	[ -e ~/.$f ] && rm -rf ~/.$f
+	ln -sfv $rel_root/$f ~/.$f
 done
 
+binfiles='
+acked-by
+ctags-global
+ctags-local
+redemo.py
+'
 mkdir -p ~/bin
-for script in acked-by ctags-global ctags-local redemo.py
-do
-	ln -sfv ../$rel_root/bin/$script ~/bin/$script
+for f in $binfiles; do
+	[ -e ~/bin/$f ] && rm -rf ~/bin/$f
+	ln -sfv ../$rel_root/bin/$f ~/bin/$f
 done
