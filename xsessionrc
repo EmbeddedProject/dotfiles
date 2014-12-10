@@ -1,0 +1,19 @@
+# vim: ft=sh
+
+# key repeat rate, 200ms delay, 40 repeats/sec.
+xset r rate 200 40
+
+# disable screen saver
+xset s off
+
+# energy saving (standby=5min, suspend=30min, off=1h)
+xset dpms 300 1800 3600
+
+# mouse speed (ratio threshold)
+xset mouse 3/2 0
+
+# enable numlock when starting X
+numlockx on
+
+# apply user Xmodmap
+xmodmap ~/.Xmodmap

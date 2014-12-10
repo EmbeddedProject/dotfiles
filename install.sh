@@ -3,7 +3,7 @@
 echo "dotfiles root: $(pwd)"
 rel_root=$(python -c "import os.path; print os.path.relpath('$(pwd)', '$HOME')")
 
-for file in bashrc bash_aliases inputrc vim vimrc vrapperrc gitconfig gitfiles hgrc hgfiles Xmodmap
+for file in bashrc bash_aliases inputrc vim vimrc vrapperrc gitconfig gitfiles hgrc hgfiles Xmodmap xsessionrc
 do
 	ln -sfv $rel_root/$file ~/.$file
 done
