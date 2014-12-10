@@ -12,6 +12,15 @@ set selectmode=
 set nocompatible
 set modeline
 set modelines=5
+set mouse=vn
+" yank-into/paste-from X selection clipboard (paste with middle mouse)
+" *yy *p
+" yank-into/paste-from X window clipboard (ctrl+c, ctrl+v)
+" +yy +p
+" yank-into/paste-from X selection clipboard (paste with middle mouse) by default
+set clipboard=unnamed
+" yank-into/paste-from X window clipboard (ctrl+c, ctrl+v) by default
+" set clipboard=unnamedplus
 
 " Tabs settings
 " <F5> Only tabs (8 spaces per level)
