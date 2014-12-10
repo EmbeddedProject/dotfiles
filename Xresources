@@ -1,0 +1,43 @@
+! xterm ----------------------------------------------------------------------
+
+xterm*faceName: Terminus
+xterm*faceSize: 12
+xterm*dynamicColors: true
+xterm*color0: black
+xterm*color1: #cd0000
+xterm*color2: #00cd00
+xterm*color3: #cdcd00
+xterm*color4: #1e90ff
+xterm*color5: #cd00cd
+xterm*color6: #00cdcd
+xterm*color7: #cccccc
+xterm*color8: #4c4c4c
+xterm*color9: red
+xterm*color10: green
+xterm*color11: yellow
+xterm*color12: #4682b4
+xterm*color13: magenta
+xterm*color14: cyan
+xterm*color15: white
+xterm*cursorColor: green
+xterm*cursorBlink: false
+
+xterm*utf8: 2
+xterm*eightBitInput: false
+xterm*saveLines: 16384
+xterm*scrollKey: true
+xterm*scrollTtyOutput: false
+xterm*scrollBar: false
+xterm*rightScrollBar: false
+xterm*jumpScroll: true
+xterm*multiScroll: true
+xterm*toolBar: false
+xterm*loginShell: true
+xterm*fullscreen: never
+xterm*VT100*translations: #override\n\
+	Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD)\n\
+	Shift Ctrl <KeyPress> c:copy-selection(CLIPBOARD)
+
+xterm*on2Clicks: regex [[:alnum:]_@/.-]+
+xterm*on3Clicks: regex [[:alpha:]]+://[[:alnum:]_-.]+(:[[:digit:]]+)?(/[^[:space:]]+)?
+xterm*on4Clicks: [^\n]+
