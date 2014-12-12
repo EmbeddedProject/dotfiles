@@ -1,7 +1,7 @@
 -- Common settings for the "clean" styles
 
 de.defstyle("frame", {
-    background_colour = "#000000",
+    background_colour = "#333333",
     de.substyle("quasiactive", {
         -- Something detached from the frame is active
         padding_colour = "#901010",
@@ -16,7 +16,7 @@ de.defstyle("frame", {
 de.defstyle("frame-tiled", {
     shadow_pixels = 0,
     highlight_pixels = 0,
-    spacing = 1,
+    spacing = 0,
 })
 
 --de.defstyle("frame-tiled-alt", {

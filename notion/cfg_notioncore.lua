@@ -34,67 +34,21 @@ defbindings("WScreen", {
     kpress(META.."0", "WScreen.switch_nth(_, 9)"),
 
     bdoc("Switch to next/previous object within current screen."),
-    kpress(META.."comma", "WScreen.switch_prev(_)"),
-    kpress(META.."period", "WScreen.switch_next(_)"),
+    kpress(META.."Shift+Left", "WScreen.switch_prev(_)"),
+    kpress(META.."Shift+Right", "WScreen.switch_next(_)"),
 
-    submap(META.."K", {
-        bdoc("Go to first region demanding attention or previously active one."),
-        kpress("K", "mod_menu.grabmenu(_, _sub, 'focuslist')"),
-        -- Alternative without (cyclable) menu
-        --kpress("K", "ioncore.goto_activity() or ioncore.goto_previous()"),
-
-        --bdoc("Go to previous active object."),
-        --kpress("K", "ioncore.goto_previous()"),
-
-        --bdoc("Go to first object on activity/urgency list."),
-        --kpress("I", "ioncore.goto_activity()"),
-
-        bdoc("Clear all tags."),
-        kpress("T", "ioncore.tagged_clear()"),
-    }),
-
-    bdoc("Go to n:th screen on multihead setup."),
-    kpress(META.."Shift+1", "ioncore.goto_nth_screen(0)"),
-    kpress(META.."Q", "ioncore.goto_nth_screen(0)"),
-    kpress(META.."Shift+2", "ioncore.goto_nth_screen(1)"),
-    kpress(META.."W", "ioncore.goto_nth_screen(1)"),
-    kpress(META.."Shift+3", "ioncore.goto_nth_screen(2)"),
-    kpress(META.."E", "ioncore.goto_nth_screen(2)"),
-
-    bdoc("Go to next/previous screen on multihead setup."),
-    kpress(META.."Shift+comma", "ioncore.goto_prev_screen()"),
-    kpress(META.."I", "ioncore.goto_prev_screen()"),
-    kpress(META.."O", "ioncore.goto_next_screen()"),
-    kpress(META.."grave", "ioncore.goto_next_screen()"),
-
-    bdoc("Create a new workspace of chosen default type."),
-    kpress(META.."F9", "ioncore.create_ws(_)"),
+    bdoc("Go to first region demanding attention or previously active one."),
+    --kpress(META.."Tab", "mod_menu.grabmenu(_, _sub, 'focuslist')"),
+    -- Alternative without (cyclable) menu
+    kpress(META.."Tab", "ioncore.goto_activity() or ioncore.goto_previous()"),
 
     bdoc("Display the main menu."),
-    kpress(ALTMETA.."F12", "mod_query.query_menu(_, _sub, 'mainmenu', 'Main menu:')"),
-    --kpress(ALTMETA.."F12", "mod_menu.menu(_, _sub, 'mainmenu', {big=true})"),
+    kpress(META.."F12", "mod_query.query_menu(_, _sub, 'mainmenu', 'Main menu:')"),
+
     mpress("Button3", "mod_menu.pmenu(_, _sub, 'mainmenu')"),
 
     bdoc("Display the window list menu."),
     mpress("Button2", "mod_menu.pmenu(_, _sub, 'windowlist')"),
-
-    bdoc("Forward-circulate focus."),
-    -- '_chld' used here stands to for an actual child window that may not
-    -- be managed by the screen itself, unlike '_sub', that is likely to be
-    -- the managing group of that window. The right/left directions are
-    -- used instead of next/prev, because they work better in conjunction
-    -- with tilings.
-    kpress(META.."Tab", "ioncore.goto_next(_chld, 'right')",
-           "_chld:non-nil"),
-    submap(META.."K", {
-        bdoc("Backward-circulate focus."),
-        kpress("AnyModifier+Tab", "ioncore.goto_next(_chld, 'left')",
-               "_chld:non-nil"),
-
-        bdoc("Raise focused object, if possible."),
-        kpress("AnyModifier+R", "WRegion.rqorder(_chld, 'front')",
-               "_chld:non-nil"),
-    }),
 
 })
 
@@ -102,22 +56,6 @@ defbindings("WScreen", {
 -- Client window bindings
 --
 -- These bindings affect client windows directly.
-
-defbindings("WClientWin", {
-    submap(META.."K", {
-       bdoc("Nudge the client window. This might help with some "..
-         "programs' resizing problems."),
-       kpress_wait(META.."L", "WClientWin.nudge(_)"),
-
-       bdoc("Kill client owning the client window."),
-       kpress("C", "WClientWin.kill(_)"),
-
-       bdoc("Send next key press to the client window. "..
-            "Some programs may not allow this by default."),
-       kpress("Q", "WClientWin.quote_next(_)"),
-    }),
-})
-
 
 -- Client window group bindings
 
@@ -134,7 +72,9 @@ defbindings("WGroupCW", {
 
 defbindings("WMPlex", {
     bdoc("Close current object."),
-    kpress_wait(META.."C", "WRegion.rqclose_propagate(_, _sub)"),
+    submap(META.."K", {
+        kpress("K", "WRegion.rqclose_propagate(_, _sub)"),
+    }),
 })
 
 -- Frames for transient windows ignore this bindmap
@@ -142,37 +82,25 @@ defbindings("WMPlex.toplevel", {
     bdoc("Toggle tag of current object."),
     kpress(META.."T", "WRegion.set_tagged(_sub, 'toggle')", "_sub:non-nil"),
 
-    bdoc("Lock screen"),
-    kpress(META.."L", "notioncore.exec_on(_, notioncore.lookup_script('notion-lock'))"),
-
-    bdoc("Query for manual page to be displayed."),
-    kpress(ALTMETA.."F1", "mod_query.query_man(_, ':man')"),
-
-    bdoc("Show the Notion manual page."),
-    kpress(META.."F1", "ioncore.exec_on(_, ':man notion')"),
-
     bdoc("Run a terminal emulator."),
-    kpress(ALTMETA.."F2", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
+    kpress(META.."F1", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
 
     bdoc("Query for command line to execute."),
-    kpress(ALTMETA.."F3", "mod_query.query_exec(_)"),
+    kpress(META.."R", "mod_query.query_exec(_)"),
 
-    bdoc("Query for Lua code to execute."),
-    kpress(META.."F3", "mod_query.query_lua(_)"),
+    bdoc("Clementine commands"),
+    kpress("XF86AudioPlay", "mod_query.exec_on_merr(_, 'clementine --play-pause')"),
+    kpress("XF86AudioMute", "mod_query.exec_on_merr(_, 'clementine --play-pause')"),
+    kpress("XF86AudioLowerVolume", "mod_query.exec_on_merr(_, 'clementine --volume-down')"),
+    kpress("XF86AudioRaiseVolume", "mod_query.exec_on_merr(_, 'clementine --volume-up')"),
+    kpress("XF86AudioPrev", "mod_query.exec_on_merr(_, 'clementine --previous')"),
+    kpress("XF86AudioNext", "mod_query.exec_on_merr(_, 'clementine --next')"),
 
-    bdoc("Query for host to connect to with SSH."),
-    kpress(ALTMETA.."F4", "mod_query.query_ssh(_, ':ssh')"),
-
-    bdoc("Query for file to edit."),
-    kpress(ALTMETA.."F5",
-           "mod_query.query_editfile(_, 'run-mailcap --action=edit')"),
-
-    bdoc("Query for file to view."),
-    kpress(ALTMETA.."F6",
-           "mod_query.query_runfile(_, 'run-mailcap --action=view')"),
+    bdoc("Run a web browser."),
+    kpress(META.."F3", "mod_query.exec_on_merr(_, 'firefox')"),
 
     bdoc("Query for workspace to go to or create a new one."),
-    kpress(ALTMETA.."F9", "mod_query.query_workspace(_)"),
+    kpress(META.."F9", "mod_query.query_workspace(_)"),
 
     bdoc("Query for a client window to go to."),
     kpress(META.."G", "mod_query.query_gotoclient(_)"),
@@ -233,40 +161,16 @@ defbindings("WFrame", {
 -- Frames for transient windows ignore this bindmap
 
 defbindings("WFrame.toplevel", {
-    bdoc("Query for a client window to attach."),
-    kpress(META.."A", "mod_query.query_attachclient(_)"),
+    bdoc("Attach tagged clients."),
+    kpress(META.."A", "ioncore.tagged_attach(_)"),
 
-    submap(META.."K", {
-        -- Display tab numbers when modifiers are released
-        submap_wait("ioncore.tabnum.show(_)"),
+    bdoc("Switch to next/previous object within the frame."),
+    kpress(META.."Next", "WFrame.switch_next(_)"),
+    kpress(META.."Prior", "WFrame.switch_prev(_)"),
 
-        bdoc("Switch to n:th object within the frame."),
-        kpress("1", "WFrame.switch_nth(_, 0)"),
-        kpress("2", "WFrame.switch_nth(_, 1)"),
-        kpress("3", "WFrame.switch_nth(_, 2)"),
-        kpress("4", "WFrame.switch_nth(_, 3)"),
-        kpress("5", "WFrame.switch_nth(_, 4)"),
-        kpress("6", "WFrame.switch_nth(_, 5)"),
-        kpress("7", "WFrame.switch_nth(_, 6)"),
-        kpress("8", "WFrame.switch_nth(_, 7)"),
-        kpress("9", "WFrame.switch_nth(_, 8)"),
-        kpress("0", "WFrame.switch_nth(_, 9)"),
-
-        bdoc("Switch to next/previous object within the frame."),
-        kpress("N", "WFrame.switch_next(_)"),
-        kpress("P", "WFrame.switch_prev(_)"),
-
-        bdoc("Move current object within the frame left/right."),
-        kpress("comma", "WFrame.dec_index(_, _sub)", "_sub:non-nil"),
-        kpress("period", "WFrame.inc_index(_, _sub)", "_sub:non-nil"),
-
-        bdoc("Maximize the frame horizontally/vertically."),
-        kpress("H", "WFrame.maximize_horiz(_)"),
-        kpress("V", "WFrame.maximize_vert(_)"),
-
-        bdoc("Attach tagged objects to this frame."),
-        kpress("A", "ioncore.tagged_attach(_)"),
-    }),
+    bdoc("Move current object within the frame left/right."),
+    kpress(META.."Shift+Next", "WFrame.inc_index(_, _sub)", "_sub:non-nil"),
+    kpress(META.."Shift+Prior", "WFrame.dec_index(_, _sub)", "_sub:non-nil"),
 })
 
 -- Bindings for floating frames

@@ -4,26 +4,17 @@
 
 -- Bindings for the tilings. 
 defbindings("WTiling", {
+    bdoc("Split current frame horizontally."),
+    kpress(META.."H", "WTiling.split_at(_, _sub, 'bottom', false):goto_()"),
     bdoc("Split current frame vertically."),
-    kpress(META.."S", "WTiling.split_at(_, _sub, 'bottom', true)"),
-    
-    bdoc("Go to frame above/below current frame."),
-    kpress(META.."P", "ioncore.goto_next(_sub, 'up', {no_ascend=_})"),
-    kpress(META.."N", "ioncore.goto_next(_sub, 'down', {no_ascend=_})"),
-    mclick(META.."Shift+Button4", "ioncore.goto_next(_sub, 'up', {no_ascend=_})"),
-    mclick(META.."Shift+Button5", "ioncore.goto_next(_sub, 'down', {no_ascend=_})"),
+    kpress(META.."V", "WTiling.split_at(_, _sub, 'right', false):goto_()"),
 
     bdoc("Go to frame right/left of current frame."),
-    kpress(META.."Tab", "ioncore.goto_next(_sub, 'right')"),
-    submap(META.."K", {
-        kpress("Tab", "ioncore.goto_next(_sub, 'left')"),
-        
-        bdoc("Split current frame horizontally."),
-        kpress("S", "WTiling.split_at(_, _sub, 'right', true)"),
-        
-        bdoc("Destroy current frame."),
-        kpress("X", "WTiling.unsplit_at(_, _sub)"),
-    }),
+    kpress(META.."Right", "ioncore.goto_next(_chld, 'right')", "_chld:non-nil"),
+    kpress(META.."Left", "ioncore.goto_next(_chld, 'left')", "_chld:non-nil"),
+    bdoc("Go to frame up/down of current frame."),
+    kpress(META.."Up", "ioncore.goto_next(_chld, 'up')", "_chld:non-nil"),
+    kpress(META.."Down", "ioncore.goto_next(_chld, 'down')", "_chld:non-nil"),
 })
 
 -- Frame bindings.
@@ -40,9 +31,9 @@ defctxmenu("WTiling", "Tiling", {
               "WTiling.unsplit_at(_, _sub)"),
 
     menuentry("Split vertically", 
-              "WTiling.split_at(_, _sub, 'bottom', true)"),
+              "WTiling.split_at(_, _sub, 'bottom', false):goto_()"),
     menuentry("Split horizontally", 
-              "WTiling.split_at(_, _sub, 'right', true)"),
+              "WTiling.split_at(_, _sub, 'right', false):goto_()"),
     
     menuentry("Flip", "WTiling.flip_at(_, _sub)"),
     menuentry("Transpose", "WTiling.transpose_at(_, _sub)"),
