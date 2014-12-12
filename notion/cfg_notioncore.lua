@@ -34,8 +34,8 @@ defbindings("WScreen", {
     kpress(META.."0", "WScreen.switch_nth(_, 9)"),
 
     bdoc("Switch to next/previous object within current screen."),
-    kpress(META.."Shift+Left", "WScreen.switch_prev(_)"),
-    kpress(META.."Shift+Right", "WScreen.switch_next(_)"),
+    kpress(META.."Delete", "WScreen.switch_prev(_)"),
+    kpress(META.."End", "WScreen.switch_next(_)"),
 
     bdoc("Go to first region demanding attention or previously active one."),
     --kpress(META.."Tab", "mod_menu.grabmenu(_, _sub, 'focuslist')"),
@@ -83,10 +83,10 @@ defbindings("WMPlex.toplevel", {
     kpress(META.."T", "WRegion.set_tagged(_sub, 'toggle')", "_sub:non-nil"),
 
     bdoc("Run a terminal emulator."),
-    kpress(META.."F1", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
+    kpress("Print", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
 
     bdoc("Query for command line to execute."),
-    kpress(META.."R", "mod_query.query_exec(_)"),
+    kpress("Scroll_Lock", "mod_query.query_exec(_)"),
 
     bdoc("Clementine commands"),
     kpress("XF86AudioPlay", "mod_query.exec_on_merr(_, 'clementine --play-pause')"),
@@ -97,7 +97,7 @@ defbindings("WMPlex.toplevel", {
     kpress("XF86AudioNext", "mod_query.exec_on_merr(_, 'clementine --next')"),
 
     bdoc("Run a web browser."),
-    kpress(META.."F3", "mod_query.exec_on_merr(_, 'firefox')"),
+    kpress("Pause", "mod_query.exec_on_merr(_, 'firefox')"),
 
     bdoc("Query for workspace to go to or create a new one."),
     kpress(META.."F9", "mod_query.query_workspace(_)"),
