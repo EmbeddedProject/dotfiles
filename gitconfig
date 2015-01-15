@@ -24,6 +24,9 @@
 [alias]
 	chpick = cherry-pick -sxe
 	s = status --short --branch
+	ri = rebase -i
+	ra = rebase --abort
+	rc = rebase --continue
 	ci = commit -s
 	ca = commit --amend
 	co = checkout
