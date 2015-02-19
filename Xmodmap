@@ -6,3 +6,5 @@ keycode 61 = exclam
 ! disable Caps_Lock
 clear Lock
 keycode 66 = ISO_Level3_Shift
+! disable non-breakeable space
+keycode 65 = space space space space space space space
