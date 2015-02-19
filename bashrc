@@ -40,6 +40,7 @@ export LESSOPEN='| source-highlight -f esc -i %s'
 export PATH=${PATH}:/aston/h_debit/deliveries/delivery/packager/master/utils/
 export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/git-tools/scripts/
 export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/vm-manager/
+export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/admin-tools/
 
 eval `dircolors`
 
