@@ -6,6 +6,10 @@
 	editor = vim
 	gitproxy = /home/jarry/.gitfiles/gitproxy
 	excludesfile = /home/jarry/.gitfiles/gitignore
+	abbrev = 12
+
+[pretty]
+	fixes = Fixes: %h (\"%s\")
 
 [sendemail]
 	suppressfrom = true
