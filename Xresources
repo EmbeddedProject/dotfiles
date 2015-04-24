@@ -1,7 +1,8 @@
 ! xterm ----------------------------------------------------------------------
 
-xterm*faceName: Terminus
-xterm*faceSize: 12
+xterm*font:-*-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-1
+xterm*background: black
+xterm*foreground: #cccccc
 xterm*dynamicColors: true
 xterm*color0: black
 xterm*color1: #cd0000
