@@ -51,7 +51,7 @@
 	rebase = true
 
 [push]
-	default = current
+	default = nothing
 
 [gitweb]
 	projectroot = /home/jarry/.gitweb
