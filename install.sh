@@ -29,6 +29,7 @@ done
 
 binfiles='
 acked-by
+backup.sh
 ctags-global
 ctags-local
 redemo.py
