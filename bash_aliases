@@ -12,7 +12,6 @@ function op()
 }
 
 alias mkdir='mkdir -p'
-alias apt='aptitude'
 
 alias h='history'
 alias j='jobs -l'
@@ -56,5 +55,8 @@ else
 fi
 if type most >/dev/null 2>&1; then
 	alias man='PAGER=most man'
-	alias info='PAGER=most info'
+fi
+
+if type pinfo >/dev/null 2>&1; then
+	alias info=pinfo
 fi
