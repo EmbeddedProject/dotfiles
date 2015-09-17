@@ -37,10 +37,12 @@ def auto_away(userdata):
             xchat.command('NICK %s' % NICK)
     elif 'Monitor is in Standby' in out or 'Monitor is in Suspend' in out:
         if not is_away:
-            xchat.command('AWAY away from keyboard')
+            xchat.command('AWAY afk')
+
     elif 'Monitor is Off' in out:
         if xchat.get_info('nick') != OFF_NICK:
             xchat.command('NICK %s' % OFF_NICK)
+            xchat.command('AWAY vfafk')
 
     return 1
 

@@ -6,8 +6,8 @@ xset r rate 200 40
 # disable screen saver
 xset s off
 
-# energy saving (standby=5min, suspend=30min, off=1h)
-xset dpms 300 1800 3600
+# energy saving (standby=10min, suspend=1h, off=2h)
+xset dpms 600 3600 7200
 
 # mouse speed (ratio threshold)
 xset mouse 3/2 0
