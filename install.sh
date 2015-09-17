@@ -16,6 +16,7 @@ gitfiles
 hgfiles
 hgrc
 inputrc
+mostrc
 notion
 vim
 vimrc
