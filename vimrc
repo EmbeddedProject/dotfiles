@@ -140,10 +140,10 @@ if has("autocmd")
 endif
 
 " CTags support
-map ù <C-]>
-map <F3> <C-]>
-map ! :tnext<CR>
-set tags=./tags;../tags;../../tags;../../../tags;../../../../tags;/
+"map ù <C-]>
+"map <F3> <C-]>
+"map ! :tnext<CR>
+"set tags=./tags;../tags;../../tags;../../../tags;../../../../tags;/
 "set tags=./tags
 
 " CScope support
@@ -166,8 +166,8 @@ endif
 
 " Basic keymaps
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>   " symbol
-nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>   " global definition
-nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>   " functions calling
+nmap <F3> :cs find g <C-R>=expand("<cword>")<CR><CR>   " global definition
+nmap <C-H> :cs find c <C-R>=expand("<cword>")<CR><CR>   " functions calling
 nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>   " text string
 nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>   " egrep pattern
 nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>   " file
