@@ -21,6 +21,7 @@ notion
 vim
 vimrc
 vrapperrc
+wallpaper.jpg
 xsessionrc
 '
 for f in $dotfiles; do

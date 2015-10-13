@@ -17,3 +17,6 @@ numlockx on
 
 # apply user Xmodmap
 xmodmap ~/.Xmodmap
+
+# change desktop background
+display -window root ~/.wallpaper.jpg
