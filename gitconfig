@@ -4,8 +4,8 @@
 
 [core]
 	editor = vim
-	gitproxy = /home/jarry/.gitfiles/gitproxy
-	excludesfile = /home/jarry/.gitfiles/gitignore
+	gitproxy = /usr/home/jarry/.gitfiles/gitproxy
+	excludesfile = /usr/home/jarry/.gitfiles/gitignore
 	abbrev = 12
 
 [pretty]
@@ -25,6 +25,14 @@
 	diff = auto
 	ui = auto
 
+[color "grep"]
+	filename = magenta
+
+[color "grep-all-components"]
+	filename = magenta
+	component = green
+	branch = reset
+
 [alias]
 	chpick = cherry-pick -sxe
 	s = status --short --branch
@@ -36,10 +44,14 @@
 	co = checkout
 	a = add -u
 	l = log --oneline
+	lfixes = log --pretty=fixes
 	w = web add
 
 [url "git@core:/aston/h_debit/scm/git/"]
 	InsteadOf = "/aston/h_debit/scm/git/"
+
+[url "git@core:/aston/h_debit/scm/git/projects/"]
+	InsteadOf = "/git/"
 
 [merge]
 	tool = p4merge
@@ -54,5 +66,5 @@
 	default = nothing
 
 [gitweb]
-	projectroot = /home/jarry/.gitweb
+	projectroot = /usr/home/jarry/.gitweb
 	urlprefix = /git/
