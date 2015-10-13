@@ -40,5 +40,6 @@ Documents
 
 echo "rsync $opts $folders $backup_user@$backup_machine:~/BACKUP-$(hostname)" >"$logfile"
 rsync $opts $folders $backup_user@$backup_machine:~/BACKUP-$(hostname) >>"$logfile" 2>&1
+&& failed= || failed=' FAILED'
 
-mail -s "Backup to $backup_machine: $now" "$email" <"$logfile"
+mail -s "[BACKUP]$failed: $now" "$email" <"$logfile"
