@@ -44,8 +44,11 @@ alias env='env | sort'
 
 alias sshunsafe='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 alias scpunsafe='scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
-alias sshrbb='ssh -i /aston/h_debit/deliveries/delivery/packager/master/ansible/FS/home/rbb/.ssh/robobuild -l robobuild'
-alias scprbb='scp -i /aston/h_debit/deliveries/delivery/packager/master/ansible/FS/home/rbb/.ssh/robobuild -o User=robobuild'
+key=/aston/h_debit/deliveries/delivery/packager/master/ansible/FS/home/rbb/.ssh/robobuild
+if [ -f $key ]; then
+	alias sshrbb="ssh -i $key -l robobuild"
+	alias scprbb="scp -i $key -o User=robobuild"
+fi
 
 # fuzzy find (case insensitive)
 function ff()
