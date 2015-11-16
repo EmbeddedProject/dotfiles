@@ -250,7 +250,7 @@ let g:ctags_statusline = 1
 
 function InsertAckedBy()
 	let expr = input('Acked-by: ')
-	let cmd = '~/bin/acked-by ' . expr
+	let cmd = '~/bin/acked-by.py ' . expr
 	put =system(cmd)
 endfunction
 

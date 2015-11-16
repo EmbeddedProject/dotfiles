@@ -30,7 +30,6 @@ for f in $dotfiles; do
 done
 
 binfiles='
-acked-by
 auto_away.py
 backup.sh
 ctags-global
