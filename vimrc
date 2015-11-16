@@ -143,7 +143,7 @@ if has("autocmd")
 endif
 
 " CTags support
-"map ù <C-]>
+map ù <C-]>
 "map <F3> <C-]>
 "map ! :tnext<CR>
 "set tags=./tags;../tags;../../tags;../../../tags;../../../../tags;/
