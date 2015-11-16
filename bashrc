@@ -2,26 +2,6 @@
 # Some settings
 #-------------------------------------------------------------
 
-set -o notify
-set +o nounset
-
-# Enable options:
-shopt -s cdspell
-shopt -s cdable_vars
-shopt -s checkhash
-shopt -s checkwinsize	# change line wrapping on terminal resize
-shopt -s sourcepath
-shopt -s no_empty_cmd_completion
-shopt -s cmdhist
-shopt -s extglob        # Necessary for programmable completion.
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
-
-# Disable options:
-shopt -u mailwarn
-unset MAILCHECK         # Dont want my shell to warn me of incoming mail.
-
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTFILESIZE=4000
 export HISTTIMEFORMAT="%F %T > "
@@ -35,12 +15,6 @@ export PROMPT_COMMAND='history -a'	# write history after each command
 export EDITOR="vim"
 export PAGER='less'
 export LESS='-RSFX'
-export LESSOPEN='| source-highlight -f esc -i %s'
-
-export PATH=${PATH}:/aston/h_debit/deliveries/delivery/packager/master/utils/
-export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/git-tools/scripts/
-export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/vm-manager/
-export PATH=${PATH}:/aston/h_debit/deliveries/infrastructure/admin-tools/
 
 eval `dircolors`
 
@@ -85,8 +59,6 @@ fancy_prompt() {
 }
 fancy_prompt
 
-
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
-

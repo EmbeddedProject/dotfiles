@@ -17,6 +17,3 @@ Meta-RUBOUT: backward-kill-word
 # Adds / @ and * after the completion proposals
 # this allows to differentiate files from directories for example
 set visible-stats on
-
-# Control-SPACE cycles through completion proposals
-Control-SPACE: menu-complete
