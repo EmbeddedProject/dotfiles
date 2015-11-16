@@ -34,6 +34,7 @@ auto_away.py
 backup.sh
 ctags-global
 ctags-local
+haste
 redemo.py
 '
 mkdir -p ~/bin

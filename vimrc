@@ -105,6 +105,9 @@ vnoremap <tab> >gv
 "unindent seletction with <Shift-tab> command
 vnoremap <S-tab> <gv
 
+" pipe selection to hastebin and print URL in statusbar
+vnoremap Y <esc>:'<,'>:w !haste<CR>
+
 "Inser New Line
 map <S-Enter> O<ESC>
 map <Enter> o<ESC>
