@@ -264,3 +264,8 @@ let g:bufExplorerDisableDefaultKeyMapping=1
 noremap <silent> <F12> :BufExplorer<CR>
 noremap <silent> <C-F12> :BufExplorerVerticalSplit<CR>
 noremap <silent> <A-F12> :BufExplorerHorizontalSplit<CR>
+
+" vim-pandoc
+let g:pandoc#modules#enabled=["formatting"]
+let g:pandoc#filetypes#handled=["markdown"]
+let g:pandoc#formatting#mode='h'
