@@ -35,7 +35,6 @@ xterm*saveLines: 16384
 xterm*scrollKey: true
 xterm*scrollTtyOutput: false
 xterm*scrollBar: false
-xterm*rightScrollBar: false
 xterm*jumpScroll: true
 xterm*multiScroll: true
 xterm*toolBar: false
@@ -43,8 +42,7 @@ xterm*loginShell: true
 xterm*fullscreen: never
 xterm*VT100*translations: #override\n\
 	Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD)\n\
-	Shift Ctrl <KeyPress> c:copy-selection(CLIPBOARD)
-
-xterm*on2Clicks: regex [[:alnum:]_@/.-]+
-xterm*on3Clicks: regex [[:alpha:]]+://[[:alnum:]_-.]+(:[[:digit:]]+)?(/[^[:space:]]+)?
-xterm*on4Clicks: [^\n]+
+	Shift Ctrl <KeyPress> c:copy-selection(CLIPBOARD)\n\
+	~Meta Shift <Btn1Down>: exec-formatted("firefox '%t'", PRIMARY)
+xterm*charClass: 45-47:48, 58:48, 64:48, 126:48
+xterm*on3Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
