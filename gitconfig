@@ -1,3 +1,5 @@
+# vim: ft=gitconfig
+
 [user]
 	email = robin.jarry@6wind.com
 	name = Robin Jarry
@@ -7,6 +9,7 @@
 	gitproxy = /usr/home/jarry/.gitfiles/gitproxy
 	excludesfile = /usr/home/jarry/.gitfiles/gitignore
 	abbrev = 12
+	pager = less -RSFX
 
 [pretty]
 	fixes = Fixes: %h (\"%s\")

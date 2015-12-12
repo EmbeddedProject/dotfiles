@@ -61,10 +61,6 @@ if type colordiff >/dev/null 2>&1; then
 else
 	alias diff='diff -Naup'
 fi
-if type most >/dev/null 2>&1; then
-	alias man='PAGER=most man'
-fi
-
 if type pinfo >/dev/null 2>&1; then
 	alias info=pinfo
 fi
