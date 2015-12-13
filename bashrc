@@ -24,7 +24,7 @@ _GIT_PS1_PROMPT=yes
 # shell prompt #
 #--------------#
 fancy_prompt() {
-	local NONE="\[\033[0m\]"	# unsets color to term's fg color
+	local Z="\[\033[0m\]"		# unset all colors
 
 	# regular colors
 	local k="\[\033[0;30m\]"	# black
@@ -48,12 +48,12 @@ fancy_prompt() {
 
 	if [ `id -u` = 0 ]; then
 		# custom color for 'root'
-		export PS1="$R\u$NONE$r@\h$NONE:$c\w$NONE$y#$NONE "
+		export PS1="$R\u$Z$r@\h$Z:$c\w$Z$y#$Z "
 	else
 		if [ "${_GIT_PS1_PROMPT}" == "yes" ]; then
-			export PS1="$G\u$NONE$g@\h$NONE:$c\w$NONE$m\$(__git_ps1 ' %s')$NONE$y\$$NONE "
+			export PS1="$G\u$Z$g@\h$Z:$c\w$Z$m\$(__git_ps1 ' %s')$Z$y\$$Z "
 		else
-			export PS1="$G\u$NONE$g@\h$NONE:$c\w$NONE$y\$$NONE "
+			export PS1="$G\u$Z$g@\h$Z:$c\w$Z$y\$$Z "
 		fi
 	fi
 }
