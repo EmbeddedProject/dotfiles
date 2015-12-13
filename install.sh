@@ -42,3 +42,7 @@ for f in $binfiles; do
 	[ -e ~/bin/$f ] && rm -rf ~/bin/$f
 	ln -sfv ../$rel_root/bin/$f ~/bin/$f
 done
+
+if ! strings $(which less) | grep -q LESSUSEMOUSE; then
+	make -C less-mouse
+fi
