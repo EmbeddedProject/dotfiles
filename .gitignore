@@ -1,1 +1,3 @@
 *.py[co]
+less-*
+*.tar.gz

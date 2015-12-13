@@ -1,4 +1,4 @@
-From f13e2158996656c6d9d758d51d54d1696baf6f0b Mon Sep 17 00:00:00 2001
+From eb1ac153c796fe8a7d3de4655652de4d4500ee7a Mon Sep 17 00:00:00 2001
 From: Robin Jarry <robin.jarry@6wind.com>
 Date: Sun, 13 Dec 2015 13:25:34 +0100
 Subject: less mouse support
@@ -49,7 +49,7 @@ index 8a943d1522dc..55c57f2c139a 100644
 +#define MOD_ALT    2
 +#define MOD_CTRL		4
 diff --git a/command.c b/command.c
-index c31fa81a3218..c1a7f4fa807b 100644
+index c31fa81a3218..b6fd6d05b87e 100644
 --- a/command.c
 +++ b/command.c
 @@ -1012,6 +1012,7 @@ commands()
@@ -74,20 +74,20 @@ index c31fa81a3218..c1a7f4fa807b 100644
  
 +		case A_F_MOUSE_SCROLL:
 +			/*
-+			 * Forward 3 lines.
++			 * Forward 5 lines.
 +			 */
 +			cmd_exec();
 +			if (show_attn == OPT_ONPLUS)
 +				set_attnpos(bottompos);
-+			forward(3, 0, 0);
++			forward(5, 0, 0);
 +			break;
 +
 +		case A_B_MOUSE_SCROLL:
 +			/*
-+			 * Backward 3 lines.
++			 * Backward 5 lines.
 +			 */
 +			cmd_exec();
-+			backward(3, 0, 0);
++			backward(5, 0, 0);
 +			break;
 +
 +		case A_MOUSE:
