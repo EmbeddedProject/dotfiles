@@ -23,12 +23,6 @@ xterm*color15: white
 xterm*cursorColor: green
 xterm*cursorBlink: false
 
-xterm*colorBDMode: true
-xterm*colorBD: red
-xterm*colorULMode: true
-xterm*colorUL: green
-xterm*veryBoldColors: 4
-
 xterm*utf8: 2
 xterm*eightBitInput: false
 xterm*saveLines: 16384
