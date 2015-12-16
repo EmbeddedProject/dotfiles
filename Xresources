@@ -38,4 +38,5 @@ xterm*VT100*translations: #override\n\
 	~Meta Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD)\n\
 	~Meta Shift Ctrl <KeyPress> c:copy-selection(CLIPBOARD)\n\
 	Meta ~Shift ~Ctrl <Btn1Down>: exec-formatted("firefox '%t'", PRIMARY)
-xterm*charClass: 45-47:48, 58:48, 64:48, 126:48
+# double-click selects filenames (including those starting with ~)
+xterm*charClass: 45-47:48, 64:48, 126:48
