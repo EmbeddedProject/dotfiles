@@ -108,6 +108,10 @@ vnoremap <S-tab> <gv
 " pipe selection to hastebin and print URL in statusbar
 vnoremap Y <esc>:'<,'>:w !haste<CR>
 
+" reflow current paragraph with F
+set formatoptions=tcq
+nnoremap F gqap
+
 "Inser New Line
 map <S-Enter> O<ESC>
 map <Enter> o<ESC>
