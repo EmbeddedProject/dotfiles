@@ -11,6 +11,10 @@ sglog = log --style=$HOME/.hgfiles/map-cmdline.sglog
 s = status
 show = log -pr
 rebase = histedit --outgoing
+ri = histedit --outgoing
+ci = commit
+l = slog
+ca = commit --amend
 
 [diff]
 git = True
@@ -23,4 +27,4 @@ mq =
 
 [pager]
 pager = LESS='FSRX' less -d
-attend = annotate, cat, diff, export, glog, log, qdiff, slog, dlog, sglog, nlog, show, grep
+attend = annotate, cat, diff, export, glog, log, qdiff, slog, dlog, sglog, nlog, show, grep, l
