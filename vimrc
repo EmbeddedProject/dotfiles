@@ -1,4 +1,3 @@
-
 if has("gui_running")
 	set guioptions-=T
 	set columns=110
@@ -33,6 +32,11 @@ map <F7> :set shiftwidth=2<CR>:set tabstop=2<CR>:set expandtab<CR>:set softtabst
 "Indenting
 set autoindent
 set smartindent
+" cintent options:
+"    :0 --> Align "case" statements with "switch" (instead of intented)
+"    j1 --> Indent Java anonymous classes correctly
+"    J1 --> Indent JavaScript object declarations correctly
+set cinoptions=:0,j1,J1
 filetype plugin indent on
 
 "Scrollbars

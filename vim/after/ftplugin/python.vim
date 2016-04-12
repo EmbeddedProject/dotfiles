@@ -5,3 +5,4 @@ setlocal softtabstop=4
 setlocal formatoptions=vcq
 setlocal textwidth=80
 setlocal nosmartindent
+setlocal cindent
