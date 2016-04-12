@@ -11,7 +11,8 @@ set selectmode=
 set nocompatible
 set modeline
 set modelines=5
-set mouse=vn
+" disable mouse completely
+set mouse=
 " yank-into/paste-from X selection clipboard (paste with middle mouse)
 " *yy *p
 " yank-into/paste-from X window clipboard (ctrl+c, ctrl+v)
@@ -83,6 +84,9 @@ set ruler
 "Line Wrapping
 set wrap
 set linebreak
+
+set wildmode=longest,list,full
+set wildmenu
 
 "Mappings
 "delete line with <ctrl-d>
