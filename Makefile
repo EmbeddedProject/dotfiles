@@ -1,11 +1,8 @@
-HERE := $(shell readlink -ve .)
-REL_ROOT := $(shell python -c "import os.path; print os.path.relpath('$(HERE)', '$(HOME)')")
-
-.PHONY: all
-all: install
-
 .PHONY: install
 install:
+
+HERE = $(shell readlink -ve .)
+REL_ROOT = $(shell python -c "import os.path; print os.path.relpath('$(HERE)', '$(HOME)')")
 
 DOTFILES := Xmodmap
 DOTFILES += Xresources
