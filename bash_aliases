@@ -27,8 +27,8 @@ alias v="vim"
 alias vi="vim"
 
 alias grep='grep --color=auto'
-alias g='grep'
 
+alias g='git'
 alias gg='git grep'
 
 alias ls="ls -hF --group-directories-first --color=auto --time-style=iso"
