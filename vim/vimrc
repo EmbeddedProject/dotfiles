@@ -1,0 +1,72 @@
+"-----------------------------------------------------------------------------
+"General parameters
+"-----------------------------------------------------------------------------
+
+set nocompatible
+set selectmode=
+
+set modeline
+set modelines=5
+
+"Disable mouse completely
+set mouse=
+
+"Yank-into/paste-from X selection clipboard (paste with middle mouse) by default
+set clipboard=unnamed
+
+"Show tabs, trailing spaces, etc.
+set list
+set lcs=tab:\ \ ,trail:\ ,extends:>,precedes:<,nbsp:&
+
+if has("gui_running")
+	set guioptions-=T
+	set columns=110
+	set lines=40
+	set gtl=%t gtt=%F
+else
+	set t_Co=256
+end
+
+"Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+"Indenting
+set autoindent
+set smartindent
+"Cindent options:
+"    :0 --> Align "case" statements with "switch" (instead of indented)
+"    j1 --> Indent Java anonymous classes correctly
+"    J1 --> Indent JavaScript object declarations correctly
+set cinoptions=:0,j1,J1
+filetype plugin indent on
+
+"Line Wrapping
+set wrap
+set linebreak
+
+"Completion menu
+set wildmode=longest,list,full
+set wildmenu
+
+"Misc
+set backspace=indent,eol,start
+set matchpairs+=<:>
+set novb
+set t_vb= " Turn off bell
+
+"Wrap cursor to next line when reaching end of line
+set whichwrap+=<,>,h,l,[,]
+
+"Sets what is saved when you save a session
+set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
+
+"When editing a file, always jump to the last cursor position
+if has("autocmd")
+	autocmd BufReadPost *
+	\	if line("'\"") > 0 && line ("'\"") <= line("$") |
+	\		exe "normal g'\"" |
+	\	endif
+endif
