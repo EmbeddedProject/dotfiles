@@ -1,8 +1,7 @@
 .PHONY: install
 install:
 
-HERE = $(shell readlink -ve .)
-REL_ROOT = $(shell python -c "import os.path; print os.path.relpath('$(HERE)', '$(HOME)')")
+REL_ROOT := $(shell python -c "import os.path; print os.path.relpath('$(CURDIR)', '$(HOME)')")
 
 DOTFILES := Xmodmap
 DOTFILES += Xresources
@@ -24,8 +23,8 @@ install: $(addprefix $(HOME)/.,$(DOTFILES))
 
 $(HOME)/.%: %
 	@ ! test -e "$@" || rm -rf -- "$@"
-	@ ln -sf "$(REL_ROOT)/$<" "$@"
 	@ echo '$@ -> $(REL_ROOT)/$<'
+	@ ln -sf "$(REL_ROOT)/$<" "$@"
 
 BINFILES := auto_away.py
 BINFILES += backup.sh
@@ -41,5 +40,5 @@ $(HOME)/bin:
 
 $(HOME)/bin/%: bin/%
 	@ ! test -e "$@" || rm -rf -- "$@"
-	@ ln -sf "../$(REL_ROOT)/$<" "$@"
 	@ echo '$@ -> ../$(REL_ROOT)/$<'
+	@ ln -sf "../$(REL_ROOT)/$<" "$@"
