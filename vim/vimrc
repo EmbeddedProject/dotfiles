@@ -70,3 +70,10 @@ if has("autocmd")
 	\		exe "normal g'\"" |
 	\	endif
 endif
+
+"-----------------------------------------------------------------------------
+"source other files
+"-----------------------------------------------------------------------------
+
+runtime mappings.vim
+runtime look_and_feel.vim

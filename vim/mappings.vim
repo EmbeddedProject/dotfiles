@@ -31,12 +31,11 @@ vnoremap <tab> >gv
 vnoremap <S-tab> <gv
 
 "Reflow current paragraph with F
-set formatoptions=tcq
 nnoremap F gqap
 
 "Insert New Line
 map <S-Enter> O<ESC>
-map <Enter> o<ESC>
+nnoremap <Enter> o<ESC>
 
 "Display <tab>s etc...
 nnoremap <C-p> :set paste!<CR>
@@ -72,6 +71,24 @@ nnoremap <F4> :call InsertAckedBy()<CR>
 
 "Pipe selection to hastebin and print URL in statusbar
 vnoremap Y <esc>:'<,'>:w !haste<CR>
+
+function InsertLicense()
+	let license = 'Copyright ' . strftime('%Y') . ' 6WIND S.A.'
+
+	if b:current_syntax == 'rst'
+		let copyright = '.. ' . license
+	elseif b:current_syntax == 'c'
+		let copyright = '/* ' . license . ' */'
+	elseif b:current_syntax == 'vim'
+		let copyright = '"' . license
+	else "shell, python, Makefile, etc.
+		let copyright = '# ' . license
+	endif
+
+	put =copyright
+endfunction
+
+nnoremap <C-l> :call InsertLicense()<CR>
 
 "-----------------------------------------------------------------------------
 "CTags
@@ -118,6 +135,8 @@ nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>   " file
 nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> " files #including this file
 nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>   " functions called by this function
 
+nmap <F3> gUU<C-E>s0
+
 "Using 'CTRL-spacebar' then a search type makes the vim window
 "split horizontally, with search result displayed in
 "the new window.
@@ -146,3 +165,6 @@ nmap <C-Space><C-Space>i
 	\:vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-Space><C-Space>d
 	\:vert scs find d <C-R>=expand("<cword>")<CR><CR>
+
+nmap <F9> o{% if not CONFIG_DOC_DATASHEET %}<ESC>
+nmap <F10> o{% endif %}<ESC>
