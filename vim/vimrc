@@ -77,6 +77,12 @@ if has("autocmd")
 	\	endif
 endif
 
+"Riv configuration
+let g:riv_disable_folding=1
+let g:riv_auto_format_table=0
+let g:riv_code_indicator=1
+let g:riv_highlight_code=''
+
 "-----------------------------------------------------------------------------
 "source other files
 "-----------------------------------------------------------------------------
