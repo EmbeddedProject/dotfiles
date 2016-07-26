@@ -38,9 +38,13 @@ set autoindent
 set smartindent
 "Cindent options:
 "    :0 --> Align "case" statements with "switch" (instead of indented)
+"    (0 --> Align continuation line after unclosed parentheses
+"    u0 --> (same)
+"    U0 --> (same)
 "    j1 --> Indent Java anonymous classes correctly
 "    J1 --> Indent JavaScript object declarations correctly
-set cinoptions=:0,j1,J1
+"    l1 --> Align with case label
+set cinoptions=:0,(0,u0,U0,j1,J1,l1
 filetype plugin indent on
 
 "Line Wrapping
