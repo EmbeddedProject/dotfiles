@@ -60,6 +60,8 @@ set backspace=indent,eol,start
 set matchpairs+=<:>
 set novb
 set t_vb= " Turn off bell
+set nojoinspaces  "only 1 space after [.!?] when joining lines
+set formatoptions=tcq
 
 "Wrap cursor to next line when reaching end of line
 set whichwrap+=<,>,h,l,[,]
