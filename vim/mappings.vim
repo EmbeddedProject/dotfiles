@@ -25,6 +25,9 @@ inoremap <A-up> <Esc>:m-2<CR>==gi
 vnoremap <A-down> :m'>+<CR>gv=gv
 vnoremap <A-up> :m-2<CR>gv=gv
 
+nnoremap <A-left> [m
+nnoremap <A-right> ]m
+
 "Indent selection with <tab> key
 vnoremap <tab> >gv
 "Unindent seletction with <Shift-tab> command
@@ -134,8 +137,6 @@ nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>   " egrep pattern
 nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>   " file
 nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> " files #including this file
 nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>   " functions called by this function
-
-nmap <F3> gUU<C-E>s0
 
 "Using 'CTRL-spacebar' then a search type makes the vim window
 "split horizontally, with search result displayed in
