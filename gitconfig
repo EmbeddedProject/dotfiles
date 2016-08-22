@@ -9,7 +9,7 @@
 	gitproxy = /usr/home/jarry/.gitfiles/gitproxy
 	excludesfile = /usr/home/jarry/.gitfiles/gitignore
 	abbrev = 12
-	pager = less -dRSX
+	pager = less -RSFX
 
 [pretty]
 	fixes = Fixes: %h (\"%s\")
