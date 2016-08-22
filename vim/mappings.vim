@@ -97,9 +97,9 @@ nnoremap <C-l> :call InsertLicense()<CR>
 "CTags
 "-----------------------------------------------------------------------------
 
-map ù <C-]>
+nnoremap ù <C-]>
 "map <F3> <C-]>
-"map ! :tnext<CR>
+nnoremap ! :tnext<CR>
 "set tags=./tags;../tags;../../tags;../../../tags;../../../../tags;/
 "set tags=./tags
 
@@ -129,43 +129,23 @@ elseif $CSCOPE_DB != ""
 endif
 
 "Basic keymaps
-nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>   " symbol
-nmap <F3> :cs find g <C-R>=expand("<cword>")<CR><CR>   " global definition
-nmap <C-H> :cs find c <C-R>=expand("<cword>")<CR><CR>   " functions calling
-nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>   " text string
-nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>   " egrep pattern
-nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>   " file
-nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> " files #including this file
-nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>   " functions called by this function
+nnoremap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>   " symbol
+nnoremap <F3> :cs find g <C-R>=expand("<cword>")<CR><CR>   " global definition
+nnoremap <C-H> :cs find c <C-R>=expand("<cword>")<CR><CR>   " functions calling
+nnoremap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>   " text string
+nnoremap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>   " egrep pattern
+nnoremap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>   " file
+nnoremap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> " files #including this file
+nnoremap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>   " functions called by this function
 
 "Using 'CTRL-spacebar' then a search type makes the vim window
 "split horizontally, with search result displayed in
 "the new window.
-nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
-
-"Hitting CTRL-space *twice* before the search type does a vertical
-"split instead of a horizontal one
-nmap <C-Space><C-Space>s
-	\:vert scs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space><C-Space>g
-	\:vert scs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space><C-Space>c
-	\:vert scs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space><C-Space>t
-	\:vert scs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space><C-Space>e
-	\:vert scs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space><C-Space>i
-	\:vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-Space><C-Space>d
-	\:vert scs find d <C-R>=expand("<cword>")<CR><CR>
-
-nmap <F9> o{% if not CONFIG_DOC_DATASHEET %}<ESC>
-nmap <F10> o{% endif %}<ESC>
+nnoremap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nnoremap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
