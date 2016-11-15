@@ -15,6 +15,7 @@ export PROMPT_COMMAND='history -a'	# write history after each command
 export EDITOR="vim"
 export PAGER='less'
 export LESS='-RS'
+export TERM='xterm-256color'
 
 eval `dircolors`
 

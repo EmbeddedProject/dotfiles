@@ -1,0 +1,105 @@
+# A basic .muttrc for use with Gmail
+
+set from = "robin.jarry@6wind.com"
+set realname = "Robin Jarry"
+set smtp_url = "smtps://$from@smtp.gmail.com/"
+set smtp_pass = ""
+set hostname = "6wind.com"
+
+set imap_user = $from
+set imap_pass = $smtp_pass
+
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set mbox = "+[Gmail]/All Mail"
+
+mailboxes +INBOX
+
+set editor = "vim +/^$ ++1"
+set edit_headers
+
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+set sort = "threads"
+set sort_aux = "reverse-last-date-received"
+set sort_re
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set date_format = "%a %F %R"
+set index_format = "[%Z]  %-20.20L  %s"
+set attribution = "%{%F}, %n:"
+set fast_reply
+set autoedit
+
+set quote_regexp="^([ \t]*[>%:|])+"
+
+set envelope_from
+unset record			# do not record sent mail, gmail does that
+set nomove			# do not move to $mbox when an email is read
+set include			# quote messages when replying
+set nobeep			# quiet
+set nobeep_new			# quiet
+set mail_check = 60		# check new mail every 60 seconds
+set timeout = 30
+set delete
+set noconfirmappend
+set quit
+set nomark_old			# read/new is good enough for me
+set nowait_key			# shut up, mutt
+
+# look and feel
+set pager_index_lines = 8
+set pager_context = 5
+set pager_stop			# do not skip to next when reaching end of email
+set menu_scroll
+set smart_wrap
+set tilde
+unset markers
+
+set text_flowed			# send emails with format=flowed
+set reflow_text			# reflow format=flowed emails in pager
+set reflow_wrap = 72		# format=flowed emails reflow width
+#set wrap = 78			# wrap at 78 columns instead of term width
+set xterm_set_titles		# pretty window title
+
+bind index gg       first-entry
+bind pager gg       top
+bind index G        last-entry
+bind pager G        bottom
+bind index,pager R        group-reply
+bind editor <space> noop
+macro index,pager a "<save-message>=[Gmail]/All Mail<enter>" "Archive"
+
+alternative_order text/plain text/html *
+auto_view text/html
+
+set query_command = "goobook query %s"
+
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop
+bind pager <up> previous-line
+bind pager <down> next-line
+bind index q noop
+bind index x noop
+
+macro index <tab> "<change-folder>!<enter>" "refresh inbox"
+macro index <f5> "<change-folder>!<enter>" "refresh inbox"
+macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "go to sent mail"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "go to archive"
+
+# Colours for items in the index
+color search white color21
+color status color242 color233
+color indicator default color235
+color index brightwhite black ~N	# new
+color index red black ~D		# deleted
+color index brightyellow black ~F	# flagged
+
+# Highlights inside the body of a message.
+color body cyan  black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+color body cyan  black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body cyan  black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body green black " [;:]-*[D)>(<|]"	# smileys
