@@ -1,7 +1,6 @@
 #!/bin/sh
 
 server=${HASTE_SERVER:-http://paste.dev.6wind.com}
-http_proxy= HTTP_PROXY= https_proxy= HTTPS_PROXY=
 
 if [ $# -eq 0 ]; then
 	contents=$(cat)
