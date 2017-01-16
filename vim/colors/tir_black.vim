@@ -130,3 +130,6 @@ hi link javaScriptNumber Number
 
 " Special for CSharp
 hi link csXmlTag Keyword
+
+" Special for emails
+hi def link mailQuoted2 Special

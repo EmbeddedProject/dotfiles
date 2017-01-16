@@ -23,16 +23,15 @@ set header_cache = "~/.mutt/cache/headers"
 set message_cachedir = "~/.mutt/cache/bodies"
 set certificate_file = "~/.mutt/certificates"
 
-set sort = "threads"
-set sort_aux = "reverse-last-date-received"
+set hide_thread_subject = no
+set sort = reverse-date
 set sort_re
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 set date_format = "%a %F %R"
-set index_format = "[%Z]  %-20.20L  %s"
+set index_format = "%Z  %-20.20L  %s%* %<[y?%<[d?%[      %H:%M]&%[     %d %b]>&%[%d %b %Y]>"
 set attribution = "%{%F}, %n:"
 set fast_reply
 set autoedit
-
 set quote_regexp="^([ \t]*[>%:|])+"
 
 set envelope_from
@@ -64,42 +63,77 @@ set reflow_wrap = 72		# format=flowed emails reflow width
 #set wrap = 78			# wrap at 78 columns instead of term width
 set xterm_set_titles		# pretty window title
 
-bind index gg       first-entry
-bind pager gg       top
-bind index G        last-entry
-bind pager G        bottom
-bind index,pager R        group-reply
-bind editor <space> noop
-macro index,pager a "<save-message>=[Gmail]/All Mail<enter>" "Archive"
-
 alternative_order text/plain text/html *
 auto_view text/html
+
+ignore *
+unignore From:
+unignore To:
+unignore Subject:
+unignore Date:
+unignore CC:
+unignore BCC:
+hdr_order Date: From: To: CC: BCC: Subject: \
+	Organization: User-Agent: X-Mailer: Message-ID:
 
 set query_command = "goobook query %s"
 
 bind editor <Tab> complete-query
 bind editor ^T complete
 bind editor <space> noop
+bind editor <space> noop
 bind pager <up> previous-line
 bind pager <down> next-line
+bind pager gg top
+bind pager G bottom
 bind index q noop
 bind index x noop
+bind index gg first-entry
+bind index G last-entry
+bind index,pager R group-reply
+macro index,pager a "<save-message>=[Gmail]/All Mail<enter><change-folder>!<enter>" "Archive"
 
-macro index <tab> "<change-folder>!<enter>" "refresh inbox"
-macro index <f5> "<change-folder>!<enter>" "refresh inbox"
-macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "go to sent mail"
-macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "go to archive"
+macro index,pager <tab> "<change-folder>!<enter>" "refresh inbox"
+macro index,pager <f5> "<change-folder>!<enter>" "refresh inbox"
+macro index,pager gs "<change-folder>=[Gmail]/Sent Mail<enter>" "go to sent mail"
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "go to archive"
 
 # Colours for items in the index
 color search white color21
 color status color242 color233
 color indicator default color235
-color index brightwhite black ~N	# new
-color index red black ~D		# deleted
-color index brightyellow black ~F	# flagged
+color index_date blue default
+color index_flags brightcyan default ~N		# new
+color index_flags red default ~D		# deleted
+color index_flags brightyellow default ~F	# flagged
+color index_author cyan default .
+color tree  red default
+color tilde red default
+
+color hdrdefault cyan default
+color header brightwhite default "^(From|Subject):"
+color attachment brightyellow default
+color quoted color34 default
+color quoted1 color166 default
+color quoted2 color25 default
+color quoted3 color34 default
+color quoted4 color166 default
+color quoted5 color25 default
+color signature color27 default
 
 # Highlights inside the body of a message.
-color body cyan  black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
-color body cyan  black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
-color body cyan  black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
-color body green black " [;:]-*[D)>(<|]"	# smileys
+message-hook . "uncolor body *"
+message-hook . "color body yellow  default '(http|https|ftp)://[^ \"\t\r\n]*'"
+message-hook . "color body yellow  default 'mailto:[-a-z_0-9.]+@[-a-z_0-9.]+'"
+message-hook . "color body yellow  default '[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+'"
+message-hook . "color body green default ' [;:]-*[D)>(<|]'"
+
+# patches
+message-hook '~h "Subject: .*\\[PATCH"' "color body magenta default '^index [a-f0-9].*$'"
+message-hook '~h "Subject: .*\\[PATCH"' "color body magenta default '^--- .*$'"
+message-hook '~h "Subject: .*\\[PATCH"' "color body magenta default '^[\+]{3} .*$'"
+message-hook '~h "Subject: .*\\[PATCH"' "color body cyan    default '^@@ [^@]+ @@'"
+message-hook '~h "Subject: .*\\[PATCH"' "color body red     default '^-[^-].*$'"
+message-hook '~h "Subject: .*\\[PATCH"' "color body green   default '^[\+][^\+].*$'"
+message-hook '~h "Subject: .*\\[PATCH"' "color body red     default '^-$'"
+message-hook '~h "Subject: .*\\[PATCH"' "color body green   default '^[\+]$'"
