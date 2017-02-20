@@ -3,8 +3,8 @@
 set from = "robin.jarry@6wind.com"
 set realname = "Robin Jarry"
 set smtp_url = "smtps://$from@smtp.gmail.com/"
-set smtp_pass = ""
 set hostname = "6wind.com"
+source ~/.muttrc.local
 
 set imap_user = $from
 set imap_pass = $smtp_pass
