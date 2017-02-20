@@ -5,7 +5,6 @@ CVS
 *.o
 *.so
 .#*
-.gitignore
 tags
 .*.swp
 .*.cmd
@@ -13,4 +12,3 @@ tags
 *.*~
 *.pyc
 *.pyo
-.*

@@ -22,7 +22,6 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 alias du='du -kh'       # Makes a more readable output.
 alias df='df -kTh'
 
-alias cls="clear"       # for windows fans
 alias v="vim"
 alias vi="vim"
 
@@ -36,9 +35,6 @@ alias la="ls -A"
 alias ll="ls -l"
 alias l="ls -l"
 alias lla="ls -lA"
-alias lm='ll | more'    # pipe through 'more'
-alias lg='ll | grep'    # pipe through 'grep'
-alias lr='ll -tr'
 
 alias env='env | sort'
 
@@ -51,8 +47,7 @@ if [ -f $key ]; then
 fi
 
 # fuzzy find (case insensitive)
-function ff()
-{
+function ff() {
 	find . | grep -i $1
 }
 
