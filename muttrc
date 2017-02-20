@@ -90,6 +90,7 @@ bind index q noop
 bind index x noop
 bind index gg first-entry
 bind index G last-entry
+bind generic,index,pager N search-opposite
 bind index,pager R group-reply
 macro index,pager a "<save-message>=[Gmail]/All Mail<enter><change-folder>!<enter>" "Archive"
 
