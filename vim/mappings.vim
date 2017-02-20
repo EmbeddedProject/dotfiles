@@ -51,14 +51,11 @@ map <F6> :set shiftwidth=4<CR>:set tabstop=4<CR>:set expandtab<CR>:set softtabst
 "Only spaces (2 spaces by level)
 map <F7> :set shiftwidth=2<CR>:set tabstop=2<CR>:set expandtab<CR>:set softtabstop=2<CR>
 
-"Vim fugitive bindings
-nnoremap <C-g>b :Gblame<CR>
-
-"Buffer Explorer plugin
-let g:bufExplorerDisableDefaultKeyMapping=1
-noremap <silent> <F12> :BufExplorer<CR>
-noremap <silent> <C-F12> :BufExplorerVerticalSplit<CR>
-noremap <silent> <A-F12> :BufExplorerHorizontalSplit<CR>
+"Allow switching buffers without saving
+set hidden
+"Switch buffers bindings
+nnoremap <C-PageUp> :bprev<CR>
+nnoremap <C-PageDown> :bnext<CR>
 
 "-----------------------------------------------------------------------------
 "6WIND
@@ -92,19 +89,6 @@ function InsertLicense()
 endfunction
 
 nnoremap <C-l> :call InsertLicense()<CR>
-
-"-----------------------------------------------------------------------------
-"CTags
-"-----------------------------------------------------------------------------
-
-nnoremap ù <C-]>
-"map <F3> <C-]>
-nnoremap ! :tnext<CR>
-"set tags=./tags;../tags;../../tags;../../../tags;../../../../tags;/
-"set tags=./tags
-
-let generate_tags = 1
-let g:ctags_statusline = 1
 
 "-----------------------------------------------------------------------------
 "Cscope

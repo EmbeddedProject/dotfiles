@@ -29,9 +29,6 @@ hi Visual gui=reverse cterm=reverse
 
 hi SpecialKey guifg=#303030 guibg=#070707 ctermfg=236 ctermbg=233
 
-hi WildMenu guifg=black guibg=#cae682 ctermfg=0 ctermbg=195
-hi PmenuSbar guifg=black guibg=white ctermfg=0 ctermbg=15
-
 hi Error               gui=undercurl ctermfg=white       ctermbg=red         guisp=#FF6C60 " undercurl color
 hi ErrorMsg guifg=white guibg=#FF6C60 gui=bold ctermfg=white ctermbg=203 cterm=bold
 hi WarningMsg guifg=white guibg=#FF6C60 gui=bold ctermfg=white ctermbg=203 cterm=bold
@@ -44,8 +41,17 @@ if version >= 700 " Vim 7.x specific colors
 	hi ColorColumn guibg=#121212 gui=none ctermbg=232 cterm=none
 	hi CursorColumn guibg=#121212 gui=none ctermbg=232 cterm=none
 	hi MatchParen guifg=#f6f3e8 guibg=#857b6f gui=bold ctermfg=white ctermbg=darkgray
-	hi Pmenu guifg=#f6f3e8 guibg=#444444 ctermfg=white ctermbg=242
-	hi PmenuSel guifg=#000000 guibg=#cae682 ctermfg=0 ctermbg=195
+
+	hi TabLine guifg=#8F908A guibg=#111111 gui=NONE ctermfg=102 ctermbg=233 cterm=NONE
+	hi TabLineSel guifg=#F8F8F2 guibg=#334455 gui=NONE ctermfg=15 ctermbg=59 cterm=NONE
+	hi TabLineFill guifg=#111111 guibg=#111111 gui=NONE ctermfg=233 ctermbg=233 cterm=NONE
+
+	hi Pmenu guifg=#F8F8F8 guibg=#223344 gui=NONE ctermfg=15 ctermbg=23 cterm=NONE
+	hi PmenuSet guifg=#66D9EF guibg=#111111 gui=NONE ctermfg=81 ctermbg=233 cterm=NONE
+	hi PmenuSBar guifg=#66D9EF guibg=#334455 gui=NONE ctermfg=81 ctermbg=59 cterm=NONE
+	hi PmenuSel guifg=#66D9EF guibg=#334455 gui=NONE ctermfg=81 ctermbg=59 cterm=NONE
+	hi PmenuThumb guifg=#778899 guibg=#778899 gui=NONE ctermfg=103 ctermbg=103 cterm=NONE
+
 	hi Search guifg=white guibg=blue ctermfg=15 ctermbg=21
 endif
 

@@ -1,3 +1,4 @@
 *.py[co]
 less-*
 *.tar.gz
+vim/bundle/*

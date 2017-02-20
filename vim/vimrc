@@ -87,5 +87,6 @@ let g:riv_highlight_code=''
 "source other files
 "-----------------------------------------------------------------------------
 
+runtime vundle.vim
 runtime mappings.vim
 runtime look_and_feel.vim
