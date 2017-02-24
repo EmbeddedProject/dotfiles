@@ -37,12 +37,12 @@ vnoremap <S-tab> <gv
 nnoremap F gqap
 
 "Insert New Line
-map <S-Enter> O<ESC>
-nnoremap <Enter> o<ESC>
+map <S-Enter> O<Esc>
+nnoremap <Enter> o<Esc>
 
 "Display <tab>s etc...
-nnoremap <C-p> :set paste!<CR>
-nnoremap <C-n> :set number!<CR>
+nnoremap <Esc>p :set paste!<CR>
+nnoremap <Esc>n :set number!<CR>
 
 "Only tabs (8 spaces per level)
 map <F5> :set shiftwidth=8<CR>:set tabstop=8<CR>:set noexpandtab<CR>:set softtabstop=8<CR>
@@ -89,6 +89,13 @@ function InsertLicense()
 endfunction
 
 nnoremap <C-l> :call InsertLicense()<CR>
+
+"-----------------------------------------------------------------------------
+"tags
+"-----------------------------------------------------------------------------
+
+nnoremap <silent> ù <C-]>
+nnoremap <silent> ! :silent tnext<CR>
 
 "-----------------------------------------------------------------------------
 "Cscope
