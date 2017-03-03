@@ -30,7 +30,20 @@ alias grep='grep --color=auto'
 alias g='git'
 alias gg='git grep'
 
-alias ls="ls -hF --group-directories-first --color=auto --time-style=iso"
+if dircolors >/dev/null 2>&1; then
+	eval `dircolors`
+elif uname -s | grep -qE 'Darwin|FreeBSD'; then
+	export CLICOLOR=1
+	export LSCOLORS=ExgxfxdxCxegedabagacad
+fi
+
+lsopt="-hF"
+if ls --group-directories-first >/dev/null 2>&1; then
+	lsopt="$lsopt --group-directories-first --color=auto --time-style=iso"
+fi
+
+alias ls="ls $lsopt"
+unset lsopt
 alias la="ls -A"
 alias ll="ls -l"
 alias l="ls -l"

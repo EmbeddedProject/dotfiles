@@ -19,10 +19,6 @@ export TERM='xterm-256color'
 export LC_ALL='en_US.utf-8'
 export LANG=$LC_ALL
 
-eval `dircolors`
-
-_GIT_PS1_PROMPT=yes
-
 #--------------#
 # shell prompt #
 #--------------#
@@ -53,7 +49,7 @@ fancy_prompt() {
 		# custom color for 'root'
 		export PS1="$R\u$Z$r@\h$Z:$c\w$Z$y#$Z "
 	else
-		if [ "${_GIT_PS1_PROMPT}" == "yes" ]; then
+		if [ "${_GIT_PS1_PROMPT}" != "no" ]; then
 			export PS1="$G\u$Z$g@\h$Z:$c\w$Z$m\$(__git_ps1 ' %s')$Z$y\$$Z "
 		else
 			export PS1="$G\u$Z$g@\h$Z:$c\w$Z$y\$$Z "
