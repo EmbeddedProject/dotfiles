@@ -41,8 +41,8 @@ map <S-Enter> O<Esc>
 nnoremap <Enter> o<Esc>
 
 "Display <tab>s etc...
-nnoremap <Esc>p :set paste!<CR>
-nnoremap <Esc>n :set number!<CR>
+nnoremap <Esc>P :set paste!<CR>
+nnoremap <Esc>N :set number!<CR>
 
 "Only tabs (8 spaces per level)
 map <F5> :set shiftwidth=8<CR>:set tabstop=8<CR>:set noexpandtab<CR>:set softtabstop=8<CR>
