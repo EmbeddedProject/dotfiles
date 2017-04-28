@@ -10,3 +10,5 @@ au BufNewFile,BufRead doc.files			setf docfiles
 
 au BufNewFile,BufRead components		setf make
 au BufNewFile,BufRead *.inc			setf rst
+
+au BufRead,BufNewFile /etc/nginx/*		setf nginx
