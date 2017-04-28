@@ -42,14 +42,20 @@ if ls --group-directories-first >/dev/null 2>&1; then
 	lsopt="$lsopt --group-directories-first --color=auto --time-style=iso"
 fi
 
-alias ls="ls $lsopt"
+alias ls="LC_ALL=C ls $lsopt"
 unset lsopt
 alias la="ls -A"
 alias ll="ls -l"
 alias l="ls -l"
 alias lla="ls -lA"
 
-alias env='env | sort'
+function env() {
+	if [ $# -eq 0 ]; then
+		command env | sort
+	else
+		command env "$@"
+	fi
+}
 
 alias sshunsafe='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 alias scpunsafe='scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
@@ -76,4 +82,10 @@ fi
 alias makedoc='make -f ~/devel/doc-tools/doc-tools.mk'
 
 # enable color in man pages: bold is CYAN, underline is GREEN
-alias man="LESS_TERMCAP_md=$'\e[1;36m' LESS_TERMCAP_me=$'\e[0m' LESS_TERMCAP_us=$'\e[1;32m' LESS_TERMCAP_ue=$'\e[0m' man"
+function man() {
+	LESS_TERMCAP_md=$'\e[1;36m' \
+	LESS_TERMCAP_me=$'\e[0m' \
+	LESS_TERMCAP_us=$'\e[1;32m' \
+	LESS_TERMCAP_ue=$'\e[0m' \
+	command man "$@"
+}
