@@ -57,7 +57,7 @@ set smart_wrap
 set tilde
 unset markers
 
-set text_flowed			# send emails with format=flowed
+#set text_flowed			# send emails with format=flowed
 set reflow_text			# reflow format=flowed emails in pager
 set reflow_wrap = 72		# format=flowed emails reflow width
 #set wrap = 78			# wrap at 78 columns instead of term width
