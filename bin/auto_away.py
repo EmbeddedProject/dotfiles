@@ -9,9 +9,6 @@ import xchat
 import shlex
 import subprocess
 
-NICK = xchat.get_info('nick')
-OFF_NICK = NICK + '_off'
-
 def exec_cmd(cmd, **popenargs):
     try:
         process = subprocess.Popen(shlex.split(cmd),
@@ -27,6 +24,12 @@ def exec_cmd(cmd, **popenargs):
     return stdout
 
 def auto_away(userdata):
+    nick = xchat.get_info('nick')
+    if nick.endswith('_off'):
+        off_nick = nick
+        nick = off_nick.replace('_off', '')
+    else:
+        off_nick = nick + '_off'
     is_away = xchat.get_info('away')
 
     out = exec_cmd('xset q')
@@ -34,14 +37,14 @@ def auto_away(userdata):
     if 'Monitor is On' in out:
         if is_away:
             xchat.command('BACK')
-            xchat.command('NICK %s' % NICK)
+            xchat.command('NICK %s' % nick)
     elif 'Monitor is in Standby' in out or 'Monitor is in Suspend' in out:
         if not is_away:
             xchat.command('AWAY afk')
 
     elif 'Monitor is Off' in out:
-        if xchat.get_info('nick') != OFF_NICK:
-            xchat.command('NICK %s' % OFF_NICK)
+        if xchat.get_info('nick') != off_nick:
+            xchat.command('NICK %s' % off_nick)
             xchat.command('AWAY vfafk')
 
     return 1
