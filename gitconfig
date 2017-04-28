@@ -56,11 +56,14 @@
 	lfixes = log --pretty=fixes
 	w = web add
 
-[url "git@core:/aston/h_debit/scm/git/"]
-	InsteadOf = "/aston/h_debit/scm/git/"
+[url "git://scm/"]
+	InsteadOf = "/aston/h_debit/scm/git/projects/"
 
-[url "git@core:/aston/h_debit/scm/git/projects/"]
-	InsteadOf = "/git/"
+[url "git@scm:projects/"]
+	pushInsteadOf = "git://scm/"
+
+[url "git@scm:projects/"]
+	pushInsteadOf = "/aston/h_debit/scm/git/projects/"
 
 [merge]
 	tool = p4merge
