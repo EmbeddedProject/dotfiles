@@ -38,8 +38,10 @@ devel
 Documents
 '
 
-echo "rsync $opts $folders $backup_user@$backup_machine:~/BACKUP-$(hostname)" >"$logfile"
-rsync $opts $folders $backup_user@$backup_machine:~/BACKUP-$(hostname) >>"$logfile" 2>&1
-&& failed= || failed=' FAILED'
+exec >$logfile 2>&1
+set -x
 
-mail -s "[BACKUP]$failed: $now" "$email" <"$logfile"
+eval rsync $opts $folders "$backup_user@$backup_machine:BACKUP-$(hostname)" \
+	&& failed= || failed=' FAILED'
+
+mail -s "[BACKUP]$failed: $now" "$email" <$logfile
