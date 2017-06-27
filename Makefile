@@ -7,6 +7,7 @@ DOTFILES := Xmodmap
 DOTFILES += Xresources
 DOTFILES += bash_aliases
 DOTFILES += bashrc
+DOTFILES += colordiffrc
 DOTFILES += gitconfig
 DOTFILES += gitfiles
 DOTFILES += goobookrc
