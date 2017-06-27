@@ -42,6 +42,8 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'tpope/vim-fugitive'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'digitaltoad/vim-pug'
 
 call vundle#end()
 
