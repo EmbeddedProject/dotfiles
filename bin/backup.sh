@@ -24,6 +24,7 @@ excludes='
 **vmlinux
 **vmlinuz
 **/build/
+**/.venv/
 **.img
 **.qcow2
 '
@@ -33,6 +34,8 @@ done
 
 cd ~
 folders='
+.config
+.ssh
 bin
 devel
 Documents
@@ -44,4 +47,8 @@ set -x
 eval rsync $opts $folders "$backup_user@$backup_machine:BACKUP-$(hostname)" \
 	&& failed= || failed=' FAILED'
 
-mail -s "[BACKUP]$failed: $now" "$email" <$logfile
+{
+	head $logfile
+	echo "[... truncated ...]"
+	tail $logfile
+} | mail -s "[BACKUP]$failed: $now" "$email"
