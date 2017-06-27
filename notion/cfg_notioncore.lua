@@ -97,7 +97,7 @@ defbindings("WMPlex.toplevel", {
     kpress("XF86AudioNext", "mod_query.exec_on_merr(_, 'clementine --next')"),
 
     bdoc("Run a web browser."),
-    kpress("Pause", "mod_query.exec_on_merr(_, 'firefox')"),
+    kpress("Pause", "mod_query.exec_on_merr(_, 'chromium')"),
 
     bdoc("Query for workspace to go to or create a new one."),
     kpress(META.."F9", "mod_query.query_workspace(_)"),
