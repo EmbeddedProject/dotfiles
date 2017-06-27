@@ -42,7 +42,7 @@ if ls --group-directories-first >/dev/null 2>&1; then
 	lsopt="$lsopt --group-directories-first --color=auto --time-style=iso"
 fi
 
-alias ls="LC_ALL=C ls $lsopt"
+alias ls="ls $lsopt"
 unset lsopt
 alias la="ls -A"
 alias ll="ls -l"
