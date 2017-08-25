@@ -10,6 +10,7 @@ DOTFILES += bashrc
 DOTFILES += colordiffrc
 DOTFILES += gitconfig
 DOTFILES += gitfiles
+DOTFILES += gtkrc-2.0
 DOTFILES += goobookrc
 DOTFILES += inputrc
 DOTFILES += mostrc
