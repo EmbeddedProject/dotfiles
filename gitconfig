@@ -79,4 +79,4 @@
 
 [gitweb]
 	projectroot = /usr/home/jarry/.gitweb
-	urlprefix = /git/
+	urlprefix = /gitweb/
