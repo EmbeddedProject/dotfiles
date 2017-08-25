@@ -57,6 +57,12 @@ function env() {
 	fi
 }
 
+tracker=/aston/h_debit/deliveries/infrastructure/tracker
+if [ -f $tracker/extras/bash_completion.d/trk ]; then
+	. $tracker/extras/bash_completion.d/trk
+fi
+unset tracker
+
 alias sshunsafe='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 alias scpunsafe='scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 key=/aston/h_debit/deliveries/delivery/packager/master/ansible/FS/home/rbb/.ssh/robobuild
