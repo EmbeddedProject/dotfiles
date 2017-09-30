@@ -4,13 +4,21 @@
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTFILESIZE=4000
-export HISTTIMEFORMAT="%F %T > "
-export HISTIGNORE="&:bg:fg:ll:h:ls:exit"
+
 # Share the history amongst all terminals
 # This tells bash to save the history after *each* command
 # default behaviour is to save history on terminal exit
 shopt -s histappend histreedit histverify
-export PROMPT_COMMAND='history -a'	# write history after each command
+__prompt_command() {
+	# append history lines from this session to the history file
+	history -a
+	# read all history lines not already read from the history file and
+	# append them to the history list
+	history -n
+	# set terminal title to the current directory
+	echo -en "\e]0;bash: ${PWD/#$HOME/\~}\a"
+}
+export PROMPT_COMMAND='__prompt_command'
 
 export EDITOR="vim"
 export PAGER='less'

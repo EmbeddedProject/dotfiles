@@ -11,6 +11,8 @@ function op()
 	fi
 }
 
+unalias -a
+
 alias mkdir='mkdir -p'
 
 alias h='history'
@@ -24,24 +26,26 @@ alias df='df -kTh'
 
 alias v="vim"
 alias vi="vim"
+alias e="emacs -nw"
 
 alias grep='grep --color=auto'
 
 alias g='git'
 alias gg='git grep'
 
-if dircolors >/dev/null 2>&1; then
+if dircolors &>/dev/null; then
 	eval `dircolors`
 elif uname -s | grep -qE 'Darwin|FreeBSD'; then
 	export CLICOLOR=1
 	export LSCOLORS=ExgxfxdxCxegedabagacad
 fi
-
 lsopt="-hF"
-if ls --group-directories-first >/dev/null 2>&1; then
-	lsopt="$lsopt --group-directories-first --color=auto --time-style=iso"
+if command ls --time-style=iso &>/dev/null; then
+	lsopt="$lsopt --time-style=iso"
 fi
-
+if command ls --color=auto &>/dev/null; then
+	lsopt="$lsopt --color=auto"
+fi
 alias ls="ls $lsopt"
 unset lsopt
 alias la="ls -A"
