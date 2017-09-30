@@ -31,40 +31,25 @@ export LANG=$LC_ALL
 # shell prompt #
 #--------------#
 fancy_prompt() {
-	local Z="\[\033[0m\]"		# unset all colors
+	local Z="\[\e[0m\]"		# unset all colors
 
-	# regular colors
-	local k="\[\033[0;30m\]"	# black
-	local r="\[\033[0;31m\]"	# red
-	local g="\[\033[0;32m\]"	# green
-	local y="\[\033[0;33m\]"	# yellow
-	local b="\[\033[0;34m\]"	# blue
-	local m="\[\033[0;35m\]"	# magenta
-	local c="\[\033[0;36m\]"	# cyan
-	local w="\[\033[0;37m\]"	# white
-
-	# emphasized (bolded) colors
-	local K="\[\033[1;30m\]"
-	local R="\[\033[1;31m\]"
-	local G="\[\033[1;32m\]"
-	local Y="\[\033[1;33m\]"
-	local B="\[\033[1;34m\]"
-	local M="\[\033[1;35m\]"
-	local C="\[\033[1;36m\]"
-	local W="\[\033[1;37m\]"
+	local y="\[\e[38;5;220m\]"	# prompt char: yellow 220
+	local R="\[\e[1;38;5;196m\]"	# root username: bold red 196
+	local r="\[\e[38;5;160m\]"	# root host: red 160
+	local G="\[\e[1;38;5;39m\]"	# username: bold blue 39
+	local g="\[\e[38;5;39m\]"	# host: blue 39
+	local p="\[\e[38;5;197m\]"	# git: pink 197
+	local c="\[\e[38;5;47m\]"	# current directory: green 47
 
 	if [ `id -u` = 0 ]; then
 		# custom color for 'root'
-		export PS1="$R\u$Z$r@\h$Z:$c\w$Z$y#$Z "
+		export PS1="$R\u$Z$r@\h$Z:$c\w$Z$y\$$Z "
 	else
-		if [ "${_GIT_PS1_PROMPT}" != "no" ]; then
-			export PS1="$G\u$Z$g@\h$Z:$c\w$Z$m\$(__git_ps1 ' %s')$Z$y\$$Z "
-		else
-			export PS1="$G\u$Z$g@\h$Z:$c\w$Z$y\$$Z "
-		fi
+		export PS1="$G\u$Z$g@\h$Z:$c\w$Z$p\$(__git_ps1 ' %s')$Z$y\$$Z "
 	fi
 }
 fancy_prompt
+unset -f fancy_prompt
 
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
