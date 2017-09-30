@@ -54,7 +54,12 @@
 	a = add -u
 	l = log --oneline
 	lfixes = log --pretty=fixes
-	w = web add
+	web = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-web
+	grep-all = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-grep-all-components
+	components = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-components
+	list-pr = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-list-pr
+	remote-add-backport = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-remote-add-backport
+	w = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-web add
 
 [url "git://scm/"]
 	InsteadOf = "/aston/h_debit/scm/git/projects/"
