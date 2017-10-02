@@ -37,7 +37,7 @@ folders='
 .config
 .ssh
 bin
-devel
+dev
 Documents
 '
 
