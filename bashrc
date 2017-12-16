@@ -23,7 +23,6 @@ export PROMPT_COMMAND='__prompt_command'
 export EDITOR="vim"
 export PAGER='less'
 export LESS='-RS'
-export TERM='xterm-256color'
 export LC_ALL='en_US.utf-8'
 export LANG=$LC_ALL
 

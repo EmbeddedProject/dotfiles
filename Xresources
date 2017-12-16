@@ -42,3 +42,4 @@ xterm*VT100*translations: #override\n\
 xterm*charClass: 45-47:48, 64:48, 126:48
 xterm*on2clicks: word
 xterm*on3clicks: line
+xterm*termName: xterm-256color
