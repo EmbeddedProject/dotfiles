@@ -7,7 +7,9 @@ runtime syntax/jinja.vim
 unlet b:current_syntax
 
 syn match docfilesComment "#.*$"
+syn match docfilesOperator " -> "
 
 hi def link docfilesComment Comment
+hi def link docfilesOperator Operator
 
 let b:current_syntax = "docfiles"
