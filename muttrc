@@ -9,6 +9,9 @@ source ~/.muttrc.local
 set imap_user = $from
 set imap_pass = $smtp_pass
 
+set ts_enabled = yes
+set ts_status_format = "6WIND Mutt [%n new messages]"
+
 set folder = "imaps://imap.gmail.com/"
 set spoolfile = "+INBOX"
 set postponed = "+[Gmail]/Drafts"
