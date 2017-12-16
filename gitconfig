@@ -18,6 +18,7 @@
 
 [pretty]
 	fixes = Fixes: %h (\"%s\")
+	line = %C(auto)%h %C(auto,cyan)%cd%C(auto)%d %C(auto,reset)%s
 
 [sendemail]
 	suppressfrom = true
@@ -41,6 +42,10 @@
 	component = green
 	branch = reset
 
+[color "find-all-components"]
+	branch = magenta
+	component = green
+
 [alias]
 	chpick = cherry-pick -sxe
 	s = status --short --branch
@@ -50,12 +55,15 @@
 	rc = rebase --continue
 	ci = commit -s
 	ca = commit --amend
+	can = commit --amend --no-edit
 	co = checkout
 	a = add -u
-	l = log --oneline
+	l = log --pretty=line --date=short --abbrev=12
 	lfixes = log --pretty=fixes
 	web = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-web
-	grep-all = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-grep-all-components
+	grep-all-components = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-grep-all-components
+	grep-all-branches = !git branch -r | grep -v -- '->' | xargs git grep
+	find-all-components = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-find-all-components
 	components = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-components
 	list-pr = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-list-pr
 	remote-add-backport = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-remote-add-backport
@@ -85,3 +93,6 @@
 [gitweb]
 	projectroot = /usr/home/jarry/.gitweb
 	urlprefix = /gitweb/
+
+[uploadArchive]
+	allowUnreachable = true
