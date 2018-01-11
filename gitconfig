@@ -18,7 +18,7 @@
 
 [pretty]
 	fixes = Fixes: %h (\"%s\")
-	line = %C(auto)%h %C(auto,cyan)%cd%C(auto)%d %C(auto,reset)%s
+	line = %C(auto)%h %C(auto,cyan)%ad%C(auto)%d %C(auto,reset)%s
 
 [sendemail]
 	suppressfrom = true
