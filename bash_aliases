@@ -99,3 +99,5 @@ function man() {
 	LESS_TERMCAP_ue=$'\e[0m' \
 	command man "$@"
 }
+
+alias ncal='ncal -Mw3'
