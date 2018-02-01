@@ -2,6 +2,10 @@
 "Colors
 "-----------------------------------------------------------------------------
 
+set guioptions=aAp
+set guifont=Terminus\ 12
+set guifontwide=Inconsolata\ Medium\ 13
+
 syntax on
 
 colorscheme tir_black

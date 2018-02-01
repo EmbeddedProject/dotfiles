@@ -18,15 +18,6 @@ set clipboard=unnamed
 set list
 set lcs=tab:\ \ ,trail:\ ,extends:>,precedes:<,nbsp:&
 
-if has("gui_running")
-	set guioptions-=T
-	set columns=110
-	set lines=40
-	set gtl=%t gtt=%F
-else
-	set t_Co=256
-end
-
 "Searching
 set hlsearch
 set incsearch

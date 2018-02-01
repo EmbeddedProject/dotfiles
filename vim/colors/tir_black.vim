@@ -16,7 +16,7 @@ let colors_name = "tir_black"
 hi Normal guifg=white guibg=black ctermfg=white ctermbg=0
 hi NonText guifg=#070707 guibg=black ctermfg=232 ctermbg=0
 
-hi Cursor guifg=black guibg=white ctermfg=0 ctermbg=15
+hi Cursor guifg=black guibg=green ctermfg=0 ctermbg=15
 hi LineNr guifg=#3D3D3D guibg=black ctermfg=239 ctermbg=0
 
 hi VertSplit guifg=#202020 guibg=#202020 ctermfg=235 ctermbg=235
@@ -29,7 +29,7 @@ hi Visual gui=reverse cterm=reverse
 
 hi SpecialKey guifg=#303030 guibg=#070707 ctermfg=236 ctermbg=233
 
-hi Error               gui=undercurl ctermfg=white       ctermbg=red         guisp=#FF6C60 " undercurl color
+hi Error               gui=undercurl ctermfg=white       ctermbg=red         guisp=red " undercurl color
 hi ErrorMsg guifg=white guibg=#FF6C60 gui=bold ctermfg=white ctermbg=203 cterm=bold
 hi WarningMsg guifg=white guibg=#FF6C60 gui=bold ctermfg=white ctermbg=203 cterm=bold
 hi LongLineWarning      guibg=#371F1C     gui=underline     cterm=underline
