@@ -18,8 +18,18 @@ export PROMPT_COMMAND='__prompt_command'
 export EDITOR="vim"
 export PAGER='less'
 export LESS='-RS'
-export LC_ALL='en_US.utf-8'
-export LANG=$LC_ALL
+: ${LC_ALL:=en_US.utf-8}
+: ${LANG:=$LC_ALL}
+: ${XDG_CONFIG_HOME:=$HOME/.config}
+export LC_ALL LANG XDG_CONFIG_HOME
+
+if shopt -q progcomp && [ -z "$BASH_COMPLETION_COMPAT_DIR" ]; then
+	if [ -r /usr/share/bash-completion/bash_completion ]; then
+		. /usr/share/bash-completion/bash_completion
+	elif [ -r /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
+fi
 
 #--------------#
 # shell prompt #
@@ -37,10 +47,16 @@ fancy_prompt() {
 
 	if [ `id -u` = 0 ]; then
 		# custom color for 'root'
-		export PS1="$R\u$Z$r@\h$Z:$c\w$Z$y\$$Z "
+		PS1="$R\u$Z$r@\h$Z:$c\w$Z$y\$$Z "
 	else
-		export PS1="$G\u$Z$g@\h$Z:$c\w$Z$p\$(__git_ps1 ' %s')$Z$y\$$Z "
+		if type -t __git_ps1 >/dev/null; then
+			PS1="$G\u$Z$g@\h$Z:$c\w$Z$p\$(__git_ps1 ' %s')$Z$y\$$Z "
+		else
+			PS1="$G\u$Z$g@\h$Z:$c\w$Z$y\$$Z "
+		fi
 	fi
+
+	export PS1
 }
 fancy_prompt
 unset -f fancy_prompt

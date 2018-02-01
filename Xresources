@@ -32,7 +32,6 @@ xterm*scrollBar: false
 xterm*jumpScroll: true
 xterm*multiScroll: true
 xterm*toolBar: false
-xterm*loginShell: true
 xterm*fullscreen: never
 xterm*VT100*translations: #override\n\
 	~Meta Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD)\n\
