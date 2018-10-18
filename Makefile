@@ -36,6 +36,7 @@ BINFILES += ctags-global
 BINFILES += ctags-local
 BINFILES += git-remote-hg
 BINFILES += haste
+BINFILES += pr_activity.py
 BINFILES += redemo.py
 
 install: $(HOME)/bin | $(addprefix $(HOME)/bin/,$(BINFILES))
