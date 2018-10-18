@@ -88,13 +88,11 @@ defbindings("WMPlex.toplevel", {
     bdoc("Query for command line to execute."),
     kpress("Scroll_Lock", "mod_query.query_exec(_)"),
 
-    bdoc("Clementine commands"),
-    kpress("XF86AudioPlay", "mod_query.exec_on_merr(_, 'clementine --play-pause')"),
-    kpress("XF86AudioMute", "mod_query.exec_on_merr(_, 'clementine --play-pause')"),
-    kpress("XF86AudioLowerVolume", "mod_query.exec_on_merr(_, 'clementine --volume-down')"),
-    kpress("XF86AudioRaiseVolume", "mod_query.exec_on_merr(_, 'clementine --volume-up')"),
-    kpress("XF86AudioPrev", "mod_query.exec_on_merr(_, 'clementine --previous')"),
-    kpress("XF86AudioNext", "mod_query.exec_on_merr(_, 'clementine --next')"),
+    bdoc("Music commands"),
+    kpress("XF86AudioPlay", "mod_query.exec_on_merr(_, 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause')"),
+    kpress("XF86AudioMute", "mod_query.exec_on_merr(_, 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause')"),
+    kpress("XF86AudioPrev", "mod_query.exec_on_merr(_, 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous')"),
+    kpress("XF86AudioNext", "mod_query.exec_on_merr(_, 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next')"),
 
     bdoc("Run a web browser."),
     kpress("Pause", "mod_query.exec_on_merr(_, 'chromium')"),
