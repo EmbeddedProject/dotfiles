@@ -2,6 +2,9 @@
 " .INI file for MSDOS
 au BufNewFile,BufRead *.conf			setf dosini
 
+au BufNewFile,BufRead *.yang			setf yang
+au BufNewFile,BufRead *.lark			setf lark
+
 " Kconfig file
 au BufNewFile,BufRead *Mconfig			setf kconfig
 
