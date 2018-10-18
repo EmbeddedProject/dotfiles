@@ -11,9 +11,8 @@
 	pager = less -RSFX
 
 [diff]
-	algorithm = histogram
-	findrenames = true
-	findcopies = true
+	algorithm = minimal
+	renames = copies
 	indentHeuristic = true
 
 [pretty]
