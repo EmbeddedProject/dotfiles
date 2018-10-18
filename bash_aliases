@@ -53,6 +53,8 @@ alias ll="ls -l"
 alias l="ls -l"
 alias lla="ls -lA"
 
+alias pg='pgrep -a'
+
 function env() {
 	if [ $# -eq 0 ]; then
 		command env | sort

@@ -18,6 +18,7 @@ export PROMPT_COMMAND='__prompt_command'
 export EDITOR="vim"
 export PAGER='less'
 export LESS='-RS'
+export LESSOPEN='|/usr/share/source-highlight/src-hilite-lesspipe.sh "%s"'
 : ${LC_ALL:=en_US.utf-8}
 : ${LANG:=$LC_ALL}
 : ${XDG_CONFIG_HOME:=$HOME/.config}
