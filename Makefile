@@ -34,6 +34,7 @@ BINFILES := auto_away.py
 BINFILES += backup.sh
 BINFILES += ctags-global
 BINFILES += ctags-local
+BINFILES += git-remote-hg
 BINFILES += haste
 BINFILES += redemo.py
 
