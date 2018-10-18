@@ -820,6 +820,7 @@ if !exists("c_no_ansi") || exists("c_ansi_constants")
     syn keyword cPosixConstant      EMFILE EMLINK EMSGSIZE ENAMETOOLONG ENFILE ENODEV
     syn keyword cPosixConstant      ENOENT ENOEXEC ENOLCK ENOMEM ENOSPC ENOSYS
     syn keyword cPosixConstant      ENOTDIR ENOTEMPTY ENOTSUP ENOTTY ENXIO EPERM
+    syn keyword cPosixConstant      ENOTSUPP EOPNOTSUPP
     syn keyword cPosixConstant      EPIPE EROFS ESPIPE ESRCH ETIMEDOUT EXDEV
     syn cluster cConstant           add=cPosixConstant
   endif
