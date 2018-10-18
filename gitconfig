@@ -78,9 +78,6 @@
 [url "git@scm:projects/"]
 	pushInsteadOf = "/aston/h_debit/scm/git/projects/"
 
-[merge]
-	tool = p4merge
-
 [log]
 	decorate = true
 
@@ -93,6 +90,7 @@
 [gitweb]
 	projectroot = /usr/home/jarry/.gitweb
 	urlprefix = /gitweb/
+	showbranch = true
 
 [uploadArchive]
 	allowUnreachable = true
