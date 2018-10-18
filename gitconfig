@@ -17,7 +17,7 @@
 
 [pretty]
 	fixes = Fixes: %h (\"%s\")
-	line = %C(auto)%h %C(auto,cyan)%ad%C(auto)%d %C(auto,reset)%s
+	line = %C(auto)%h %C(auto,cyan)%ad %C(auto,magenta)%<(10,trunc)%an%C(auto)%d %C(auto,reset)%s
 
 [sendemail]
 	suppressfrom = true
@@ -57,7 +57,7 @@
 	can = commit --amend --no-edit
 	co = checkout
 	a = add -u
-	l = log --pretty=line --date=short --abbrev=12
+	l = log --pretty=line --date=short
 	lfixes = log --pretty=fixes
 	web = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-web
 	grep-all-components = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-grep-all-components
