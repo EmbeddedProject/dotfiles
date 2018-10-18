@@ -60,6 +60,7 @@
 	l = log --pretty=line --date=short
 	lfixes = log --pretty=fixes
 	web = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-web
+	wip = commit -asm 'wip'
 	grep-all-components = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-grep-all-components
 	grep-all-branches = !git branch -r | grep -v -- '->' | xargs git grep
 	find-all-components = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-find-all-components
