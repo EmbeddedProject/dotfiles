@@ -38,7 +38,7 @@ folders='
 .ssh
 bin
 dev
-Documents
+documents
 '
 
 exec >$logfile 2>&1
