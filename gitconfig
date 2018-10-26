@@ -80,6 +80,7 @@
 
 [log]
 	decorate = true
+	follow = true
 
 [pull]
 	rebase = true
