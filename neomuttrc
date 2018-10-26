@@ -8,6 +8,9 @@ source ~/.muttrc.local
 
 set imap_user = $from
 set imap_pass = $smtp_pass
+set imap_idle = yes
+set imap_list_subscribed = yes
+set imap_check_subscribed = yes
 
 set ts_enabled = yes
 set ts_status_format = "6WIND Mutt [%n new messages]"
@@ -26,6 +29,7 @@ set header_cache = "~/.mutt/cache/headers"
 set message_cachedir = "~/.mutt/cache/bodies"
 set certificate_file = "~/.mutt/certificates"
 
+set header_cache_backend = "kyotocabinet"
 set hide_thread_subject = no
 set sort = reverse-date
 set sort_re
@@ -36,6 +40,7 @@ set attribution = "%{%F}, %n:"
 set fast_reply
 set autoedit
 set quote_regexp="^([ \t]*[>%:|])+"
+set sleep_time = 0
 
 set envelope_from
 unset record			# do not record sent mail, gmail does that
@@ -43,9 +48,6 @@ set nomove			# do not move to $mbox when an email is read
 set include			# quote messages when replying
 set nobeep			# quiet
 set nobeep_new			# quiet
-set mail_check = 60		# check new mail every 60 seconds
-set imap_keepalive = 120
-set timeout = 30
 set delete
 set noconfirmappend
 set quit
@@ -64,6 +66,14 @@ unset markers
 set reflow_text			# reflow format=flowed emails in pager
 set reflow_wrap = 72		# format=flowed emails reflow width
 set xterm_set_titles		# pretty window title
+
+set sidebar_visible = no
+set sidebar_width = 15
+set sidebar_short_path = yes
+bind index,pager \Cp sidebar-prev
+bind index,pager \Cn sidebar-next
+bind index,pager \Co sidebar-open
+bind index,pager \Cb sidebar-toggle-visible
 
 alternative_order text/plain text/html *
 auto_view text/html
@@ -86,10 +96,12 @@ bind editor <space> noop
 bind editor <space> noop
 bind pager <up> previous-line
 bind pager <down> next-line
+bind pager g noop
 bind pager gg top
 bind pager G bottom
 bind index q noop
 bind index x noop
+bind index g noop
 bind index gg first-entry
 bind index G last-entry
 bind generic,index,pager N search-opposite
