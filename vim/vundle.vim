@@ -44,6 +44,7 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'neomutt/neomutt.vim'
 
 call vundle#end()
 
