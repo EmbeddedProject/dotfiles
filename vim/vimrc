@@ -49,8 +49,11 @@ set formatoptions=tcq
 "Wrap cursor to next line when reaching end of line
 set whichwrap+=<,>,h,l,[,]
 
+"Disable folding
+set nofoldenable
+
 "Sets what is saved when you save a session
-set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
+set sessionoptions=blank,buffers,curdir,help,resize,tabpages,winsize
 
 "When editing a file, always jump to the last cursor position
 if has("autocmd")
