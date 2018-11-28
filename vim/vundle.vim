@@ -7,7 +7,7 @@ let g:buftabline_show = 1
 let g:buftabline_indicators = 1
 
 "ctrlp
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_user_command = ['.git', 'cd %s; { git ls-files -com --exclude-standard; git submodule --quiet foreach --recursive "git ls-files -com --exclude-standard | sed s,^,\$path/,"; } | sort -u']
 
 "fugitive
 nnoremap <C-g>b :Gblame<CR>
