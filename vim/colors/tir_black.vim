@@ -13,71 +13,66 @@ endif
 let colors_name = "tir_black"
 
 " General colors
-hi Normal           guifg=white   ctermfg=white
-hi NonText          guifg=#070707 ctermfg=232
+hi Normal           ctermfg=white
+hi NonText          ctermfg=232
 
-hi Cursor           guifg=black   guibg=green ctermfg=0 ctermbg=15
-hi LineNr           guifg=#3D3D3D ctermfg=239
+hi Cursor           ctermfg=0 ctermbg=15
+hi LineNr           ctermfg=239
 
-hi VertSplit        guifg=#202020 guibg=#202020 ctermfg=235 ctermbg=235
-hi StatusLine       guifg=#CCCCCC guibg=#202020 gui=italic ctermfg=235 ctermbg=254
-hi StatusLineNC     guifg=black   guibg=#202020 ctermfg=0 ctermbg=235
+hi VertSplit        ctermfg=235 ctermbg=235
+hi StatusLine       ctermfg=235 ctermbg=254
+hi StatusLineNC     ctermfg=0 ctermbg=235
 
-hi Folded           guifg=#a0a8b0 guibg=#384048 ctermfg=103 ctermbg=60
-hi Title            guifg=#f6f3e8 gui=bold ctermfg=187 cterm=bold
-hi Visual           gui=reverse   cterm=reverse
+hi Folded           ctermfg=103 ctermbg=60
+hi Title            ctermfg=187 cterm=bold
+hi Visual           cterm=reverse
 
-hi SpecialKey       guifg=#303030 guibg=#070707 ctermfg=236 ctermbg=233
+hi SpecialKey       ctermfg=236 ctermbg=233
 
-hi Error            gui=undercurl ctermfg=white       ctermbg=red         guisp=red " undercurl color
-hi ErrorMsg         guifg=white   guibg=#FF6C60 gui=bold ctermfg=white ctermbg=203 cterm=bold
-hi WarningMsg       guifg=white   guibg=#FF6C60 gui=bold ctermfg=white ctermbg=203 cterm=bold
-hi LongLineWarning  guibg=#371F1C gui=underline     cterm=underline
+hi Error            ctermfg=white ctermbg=red
+hi ErrorMsg         ctermfg=white ctermbg=203 cterm=bold
+hi WarningMsg       ctermfg=white ctermbg=203 cterm=bold
+hi LongLineWarning  cterm=underline
 
-hi ModeMsg          guifg=black guibg=#C6C5FE gui=bold ctermfg=0 ctermbg=189 cterm=bold
+hi ModeMsg          ctermfg=0 ctermbg=189 cterm=bold
 
-hi CursorLine       guibg=#121212 gui=none ctermbg=233 cterm=none
-hi ColorColumn      guibg=#121212 gui=none ctermbg=234 cterm=none
-hi CursorColumn     guibg=#121212 gui=none ctermbg=233 cterm=none
-hi MatchParen       guifg=#f6f3e8 guibg=#857b6f gui=bold ctermfg=white ctermbg=darkgray
+hi CursorLine       ctermbg=233 cterm=none
+hi ColorColumn      ctermbg=234 cterm=none
+hi CursorColumn     ctermbg=233 cterm=none
+hi MatchParen       ctermfg=white ctermbg=darkgray
 
-hi TabLine          guifg=#8F908A guibg=#111111 gui=NONE ctermfg=102 ctermbg=233 cterm=NONE
-hi TabLineSel       guifg=#F8F8F2 guibg=#334455 gui=NONE ctermfg=15 ctermbg=59 cterm=NONE
-hi TabLineFill      guifg=#111111 guibg=#111111 gui=NONE ctermfg=233 ctermbg=233 cterm=NONE
+hi TabLine          ctermfg=102 ctermbg=233 cterm=NONE
+hi TabLineSel       ctermfg=15 ctermbg=59 cterm=NONE
+hi TabLineFill      ctermfg=233 ctermbg=233 cterm=NONE
 
-hi Pmenu            guifg=#F8F8F8 guibg=#223344 gui=NONE ctermfg=15 ctermbg=23 cterm=NONE
-hi PmenuSet         guifg=#66D9EF guibg=#111111 gui=NONE ctermfg=81 ctermbg=233 cterm=NONE
-hi PmenuSBar        guifg=#66D9EF guibg=#334455 gui=NONE ctermfg=81 ctermbg=59 cterm=NONE
-hi PmenuSel         guifg=#66D9EF guibg=#334455 gui=NONE ctermfg=81 ctermbg=59 cterm=NONE
-hi PmenuThumb       guifg=#778899 guibg=#778899 gui=NONE ctermfg=103 ctermbg=103 cterm=NONE
+hi Pmenu            ctermfg=15 ctermbg=23 cterm=NONE
+hi PmenuSet         ctermfg=81 ctermbg=233 cterm=NONE
+hi PmenuSBar        ctermfg=81 ctermbg=59 cterm=NONE
+hi PmenuSel         ctermfg=81 ctermbg=59 cterm=NONE
+hi PmenuThumb       ctermfg=103 ctermbg=103 cterm=NONE
 
-hi Search           guifg=white guibg=blue ctermfg=15 ctermbg=21
+hi Search           ctermfg=15 ctermbg=21
 
 " Syntax highlighting
-hi Comment          guifg=#FF0000 ctermfg=9
-hi String           guifg=#A8FF60 ctermfg=155
-hi Number           guifg=#FF73FD ctermfg=207
+hi Comment          ctermfg=9
+hi String           ctermfg=155
+hi Number           ctermfg=207
 
-hi Keyword          guifg=#96CBFE ctermfg=117
-hi PreProc          guifg=#96CBFE ctermfg=117
-hi Conditional      guifg=#6699CC ctermfg=110
+hi Keyword          ctermfg=117
+hi PreProc          ctermfg=117
+hi Conditional      ctermfg=110
 
-hi Todo             guifg=#FF00FF guibg=black gui=bold ctermfg=207 ctermbg=0 cterm=bold
-hi Constant         guifg=#99CC99 ctermfg=151
+hi Todo             ctermfg=207 ctermbg=0 cterm=bold
+hi Constant         ctermfg=151
 
-hi Identifier       guifg=#C6C5FE ctermfg=189
-hi Function         guifg=#FFD2A7 ctermfg=223
-hi Type             guifg=#FFFFB6 ctermfg=229
-hi Statement        guifg=#6699CC ctermfg=110
+hi Identifier       ctermfg=189
+hi Function         ctermfg=223
+hi Type             ctermfg=229
+hi Statement        ctermfg=110
 
-hi Special          guifg=#E18964 ctermfg=173
-hi Delimiter        guifg=#00A0A0 ctermfg=37
-hi Operator         guifg=#96CBFE ctermfg=110
-
-hi DiffAdd ctermbg=NONE guibg=NONE guifg=green ctermfg=10
-hi DiffChange ctermbg=NONE guibg=NONE guifg=green ctermfg=10
-hi DiffDelete ctermbg=NONE guibg=NONE guifg=red ctermfg=9
-hi DiffText ctermbg=NONE guibg=NONE gui=reverse cterm=reverse
+hi Special          ctermfg=173
+hi Delimiter        ctermfg=37
+hi Operator         ctermfg=110
 
 hi link Character Constant
 hi link Boolean Constant
@@ -98,12 +93,12 @@ hi link SpecialComment Special
 hi link Debug Special
 
 " Special for Ruby
-hi rubyRegexp guifg=#B18A3D ctermfg=brown
-hi rubyRegexpDelimiter guifg=#FF8000 ctermfg=brown
-hi rubyEscape guifg=white ctermfg=cyan
-hi rubyInterpolationDelimiter guifg=#00A0A0 ctermfg=blue
-hi rubyControl guifg=#6699CC ctermfg=blue "and break, etc
-hi rubyStringDelimiter guifg=#336633 ctermfg=lightgreen
+hi rubyRegexp ctermfg=brown
+hi rubyRegexpDelimiter ctermfg=brown
+hi rubyEscape ctermfg=cyan
+hi rubyInterpolationDelimiter ctermfg=blue
+hi rubyControl ctermfg=blue "and break, etc
+hi rubyStringDelimiter ctermfg=lightgreen
 hi link rubyClass Keyword
 hi link rubyModule Keyword
 hi link rubyKeyword Keyword
@@ -121,8 +116,8 @@ hi link javaDocTags javaDocSeeTag
 hi link javaDocParam javaDocSeeTag
 hi link javaDocSeeTagParam javaDocSeeTag
 
-hi javaDocSeeTag guifg=#CCCCCC ctermfg=darkgray
-hi javaDocSeeTag guifg=#CCCCCC ctermfg=darkgray
+hi javaDocSeeTag ctermfg=darkgray
+hi javaDocSeeTag ctermfg=darkgray
 
 " Special for XML
 hi link xmlTag Keyword

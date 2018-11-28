@@ -2,11 +2,8 @@
 "Colors
 "-----------------------------------------------------------------------------
 
-set guioptions=aAp
-set guifont=Terminus\ 12
-set guifontwide=Inconsolata\ Medium\ 13
-
 syntax on
+nnoremap <F12> :syntax sync fromstart<CR>
 
 colorscheme tir_black
 
@@ -31,6 +28,16 @@ let c_math=1
 let python_highlight_all=1
 let python_highlight_space_errors=0
 let g:jinja_syntax_html=0
+
+" Display the highlight group for under the cursor
+function! SynStack()
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunction
+
+nnoremap <C-h> :call SynStack()<CR>
 
 "-----------------------------------------------------------------------------
 "Status Line
