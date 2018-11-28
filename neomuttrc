@@ -8,7 +8,6 @@ source ~/.muttrc.local
 
 set imap_user = $from
 set imap_pass = $smtp_pass
-set imap_idle = yes
 set imap_list_subscribed = yes
 set imap_check_subscribed = yes
 
