@@ -137,3 +137,6 @@ hi link csXmlTag Keyword
 
 " Special for emails
 hi def link mailQuoted2 Special
+
+hi diffAdded        ctermbg=NONE ctermfg=10
+hi diffRemoved      ctermbg=NONE ctermfg=9
