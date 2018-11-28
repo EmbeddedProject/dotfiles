@@ -57,7 +57,8 @@
 	can = commit --amend --no-edit
 	co = checkout
 	a = add -u
-	l = log --pretty=line --date=short
+	l = log --oneline
+	ll = log --pretty=line --date=short
 	lfixes = log --pretty=fixes
 	web = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-web
 	wip = commit -asm 'wip'
@@ -68,6 +69,8 @@
 	list-pr = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-list-pr
 	remote-add-backport = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-remote-add-backport
 	w = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-web add
+	next-tag = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-next-tag
+	tag-auto = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-tag-auto
 
 [url "git://scm/"]
 	InsteadOf = "/aston/h_debit/scm/git/projects/"
