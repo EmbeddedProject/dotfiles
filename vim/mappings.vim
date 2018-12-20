@@ -2,6 +2,8 @@
 "Key mappings
 "-----------------------------------------------------------------------------
 
+let mapleader = ','
+
 "Cursor Movement
 "Make cursor move by visual lines instead of file lines (when wrapping)
 map <up> gk
