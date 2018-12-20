@@ -79,7 +79,12 @@ fi
 
 # fuzzy find (case insensitive)
 function ff() {
-	find . | grep -i $1
+	local pattern="$1"
+	shift
+	if [ $# -eq 0 ]; then
+		set -- .
+	fi
+	find "$@" | grep -i -- "$pattern"
 }
 
 if type colordiff >/dev/null 2>&1; then
