@@ -14,6 +14,7 @@
 	algorithm = minimal
 	renames = copies
 	indentHeuristic = true
+	noprefix = true
 
 [pretty]
 	fixes = Fixes: %h (\"%s\")
@@ -84,6 +85,9 @@
 [log]
 	decorate = true
 	follow = true
+
+[fetch]
+	prune = true
 
 [pull]
 	rebase = true
