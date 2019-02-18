@@ -15,3 +15,5 @@ au BufNewFile,BufRead components		setf make
 au BufNewFile,BufRead *.inc			setf rst
 
 au BufRead,BufNewFile /etc/nginx/*		setf nginx
+
+au BufRead,BufNewFile *.NEWS			setf debchangelog
