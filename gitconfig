@@ -14,7 +14,7 @@
 	algorithm = minimal
 	renames = copies
 	indentHeuristic = true
-	noprefix = true
+	noprefix = false
 
 [pretty]
 	fixes = Fixes: %h (\"%s\")
