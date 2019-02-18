@@ -37,6 +37,7 @@ vnoremap <S-tab> <gv
 
 "Reflow current paragraph with F
 nnoremap F gqap
+vnoremap F gq
 
 "Insert New Line
 map <S-Enter> O<Esc>
