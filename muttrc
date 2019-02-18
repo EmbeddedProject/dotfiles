@@ -26,7 +26,10 @@ set header_cache = "~/.mutt/cache/headers"
 set message_cachedir = "~/.mutt/cache/bodies"
 set certificate_file = "~/.mutt/certificates"
 
-set header_cache_backend = "kyotocabinet"
+set attach_charset = "ascii:utf-8"
+set assumed_charset = "ascii:utf-8"
+set send_charset = "ascii:utf-8"
+
 set hide_thread_subject = no
 set sort = reverse-date
 set sort_re
