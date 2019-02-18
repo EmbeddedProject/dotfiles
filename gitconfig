@@ -58,8 +58,8 @@
 	can = commit --amend --no-edit
 	co = checkout
 	a = add -u
-	l = log --oneline
-	ll = log --pretty=line --date=short
+	l = log --oneline --topo-order
+	ll = log --pretty=line --date=short --topo-order
 	lfixes = log --pretty=fixes
 	web = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-web
 	wip = commit -asm 'wip'
@@ -102,3 +102,5 @@
 
 [uploadArchive]
 	allowUnreachable = true
+[commit]
+	verbose = true
