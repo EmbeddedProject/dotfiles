@@ -74,6 +74,11 @@ hi Special          ctermfg=173
 hi Delimiter        ctermfg=37
 hi Operator         ctermfg=110
 
+hi SpellBad         ctermfg=white ctermbg=52
+hi clear SpellCap
+hi clear SpellRare
+hi clear SpellLocal
+
 hi link Character Constant
 hi link Boolean Constant
 hi link Float Number

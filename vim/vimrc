@@ -44,7 +44,9 @@ set matchpairs+=<:>
 set novb
 set t_vb= " Turn off bell
 set nojoinspaces  "only 1 space after [.!?] when joining lines
-set formatoptions=tcq
+set formatoptions=tcq1j
+set formatlistpat=^\ *[0-9]\\+[)\\.]\ *\\\|^\ *[-*+]\ *
+set noswapfile
 
 "Wrap cursor to next line when reaching end of line
 set whichwrap+=<,>,h,l,[,]
@@ -54,6 +56,11 @@ set nofoldenable
 
 "Sets what is saved when you save a session
 set sessionoptions=blank,buffers,curdir,help,resize,tabpages,winsize
+
+set spelllang=en_us
+augroup our_filetype_spelling
+	autocmd FileType markdown,mkd,mail,rst,text,gitcommit setlocal spell
+augroup END
 
 "When editing a file, always jump to the last cursor position
 if has("autocmd")

@@ -59,6 +59,10 @@ set hidden
 nnoremap <C-PageUp> :bprev<CR>
 nnoremap <C-PageDown> :bnext<CR>
 
+nnoremap <F9> :set spell!<CR>
+
+nnoremap bb :bd<CR>
+
 "-----------------------------------------------------------------------------
 "6WIND
 "-----------------------------------------------------------------------------
