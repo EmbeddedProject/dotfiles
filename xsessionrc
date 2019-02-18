@@ -16,6 +16,7 @@ xset mouse 3/2 0
 numlockx on
 
 # apply user Xmodmap
+setxkbmap fr
 xmodmap ~/.Xmodmap
 
 # change desktop background
