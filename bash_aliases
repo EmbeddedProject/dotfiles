@@ -119,3 +119,7 @@ function termcolors() {
 		fi
 	done
 }
+
+function gpg_update_tty() {
+	gpg-connect-agent updatestartuptty /bye
+}
