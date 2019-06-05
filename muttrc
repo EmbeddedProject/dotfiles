@@ -8,6 +8,10 @@ source ~/.muttrc.local
 
 set imap_user = $from
 set imap_pass = $smtp_pass
+unset imap_passive
+set imap_keepalive = 120
+set timeout = 30
+set mail_check = 60
 
 set ts_enabled = yes
 set ts_status_format = "6WIND Mutt [%n new messages]"
