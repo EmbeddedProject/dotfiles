@@ -76,6 +76,14 @@ endfunction
 
 nnoremap <F4> :call InsertAckedBy()<CR>
 
+function InsertFixes()
+	let commitid = input('Fixes: ')
+	let cmd = 'git lfixes -n1 ' . commitid
+	put =system(cmd)
+endfunction
+
+nnoremap <F2> :call InsertFixes()<CR>
+
 "Pipe selection to hastebin and print URL in statusbar
 vnoremap Y <esc>:'<,'>:w !haste<CR>
 
