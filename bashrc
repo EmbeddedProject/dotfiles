@@ -25,8 +25,8 @@ export LESSOPEN='|/usr/share/source-highlight/src-hilite-lesspipe.sh "%s"'
 : ${LANG:=$LC_ALL}
 : ${XDG_CONFIG_HOME:=$HOME/.config}
 export LC_ALL LANG XDG_CONFIG_HOME
-unset SSH_AGENT_PID
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+: ${SSH_AUTH_SOCK:=$(gpgconf --list-dirs agent-ssh-socket)}
+export SSH_AUTH_SOCK
 export GPG_TTY=$(tty)
 
 if shopt -q progcomp && [ -z "$BASH_COMPLETION_COMPAT_DIR" ]; then
