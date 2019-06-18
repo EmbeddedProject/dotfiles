@@ -57,6 +57,7 @@
 	ca = commit --amend
 	can = commit --amend --no-edit
 	co = checkout
+	clone-component = "!f() { git clone git://scm/$1 $2; }; f"
 	a = add -u
 	l = log --oneline --topo-order
 	ll = log --pretty=line --date=short --topo-order

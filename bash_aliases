@@ -127,3 +127,11 @@ function gpg_update_tty() {
 _completion_loader pass
 alias pass-it='PASSWORD_STORE_DIR=~/.passwords-it pass'
 complete -o filenames -F _pass pass-it
+
+function _git_clone_component() {
+	if [ "$cword" = 2 ]; then
+		COMPREPLY=($(ssh git@scm "cd projects; compgen -d -S / -- $cur"))
+	else
+		COMPREPLY=($(compgen -d -S / -- $cur))
+	fi
+}
