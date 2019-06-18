@@ -123,3 +123,7 @@ function termcolors() {
 function gpg_update_tty() {
 	gpg-connect-agent updatestartuptty /bye
 }
+
+_completion_loader pass
+alias pass-it='PASSWORD_STORE_DIR=~/.passwords-it pass'
+complete -o filenames -F _pass pass-it
