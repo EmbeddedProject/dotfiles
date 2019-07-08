@@ -43,7 +43,9 @@ vnoremap F gq
 map <S-Enter> O<Esc>
 nnoremap <Enter> o<Esc>
 
-"Display <tab>s etc...
+"Disable cursor blink (t_RC) and cursor style (t_RS) term responses to allow
+"esc-based mappings with recent vim versions
+set t_RC= t_RS=
 nnoremap <Esc>P :set paste!<CR>
 nnoremap <Esc>N :set number!<CR>
 
