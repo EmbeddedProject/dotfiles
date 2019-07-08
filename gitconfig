@@ -98,8 +98,9 @@
 
 [gitweb]
 	projectroot = /usr/home/jarry/.gitweb
-	urlprefix = /gitweb/
+	urlprefix = /git/
 	showbranch = true
+	showhostname = true
 
 [uploadArchive]
 	allowUnreachable = true
