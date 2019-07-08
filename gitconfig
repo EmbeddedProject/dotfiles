@@ -105,3 +105,5 @@
 	allowUnreachable = true
 [commit]
 	verbose = true
+[protocol]
+	version = 2
