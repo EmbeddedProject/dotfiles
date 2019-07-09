@@ -124,14 +124,31 @@ function gpg_update_tty() {
 	gpg-connect-agent updatestartuptty /bye
 }
 
-_completion_loader pass
-alias pass-it='PASSWORD_STORE_DIR=~/.passwords-it pass'
-complete -o filenames -F _pass pass-it
+if type _completion_loader &>/dev/null; then
+	_completion_loader pass
+	alias pass-it='PASSWORD_STORE_DIR=~/.passwords-it pass'
+	complete -o filenames -F _pass pass-it
 
-function _git_clone_component() {
-	if [ "$cword" = 2 ]; then
-		COMPREPLY=($(ssh git@scm "cd projects; compgen -d -S / -- $cur"))
-	else
-		COMPREPLY=($(compgen -d -S / -- $cur))
-	fi
-}
+	_completion_loader git
+	function _git_clone() {
+		local prefix path
+		case "$cur" in
+		git://*/*)
+			path=${cur#git://}
+			path=${path#*/}
+			prefix=${cur%$path}
+			prefix=${prefix#git:}
+			#COMPREPLY=($(ssh git@scm \
+			#	"cd projects; compgen -d -S / -X '.*' -P $prefix -- $path"))
+			COMPREPLY=($(cd /aston/h_debit/scm/git/projects; \
+				compgen -d -S / -X '.*' -P $prefix -- $path))
+			;;
+		git://*)
+			COMPREPLY=($(compgen -W '//scm/' -- ${cur#git:}))
+			;;
+		--*)
+			__gitcomp_builtin clone
+			;;
+		esac
+	}
+fi
