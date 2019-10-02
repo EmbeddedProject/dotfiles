@@ -63,7 +63,7 @@ function env() {
 	fi
 }
 
-tracker=/aston/h_debit/deliveries/infrastructure/tracker
+tracker=/mnt/sources/clones/infrastructure/tracker
 if [ -f $tracker/extras/bash_completion.d/trk ]; then
 	. $tracker/extras/bash_completion.d/trk
 fi
@@ -71,7 +71,7 @@ unset tracker
 
 alias sshunsafe='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 alias scpunsafe='scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
-key=/aston/h_debit/deliveries/delivery/packager/master/ansible/FS/home/rbb/.ssh/robobuild
+key=/mnt/sources/clones/delivery/buildbot-server/keys/robobuild.ssh-rsa.priv
 if [ -f $key ]; then
 	alias sshrbb="ssh -i $key -l robobuild"
 	alias scprbb="scp -i $key -o User=robobuild"
@@ -138,9 +138,7 @@ if type _completion_loader &>/dev/null; then
 			path=${path#*/}
 			prefix=${cur%$path}
 			prefix=${prefix#git:}
-			#COMPREPLY=($(ssh git@scm \
-			#	"cd projects; compgen -d -S / -X '.*' -P $prefix -- $path"))
-			COMPREPLY=($(cd /aston/h_debit/scm/git/projects; \
+			COMPREPLY=($(cd /mnt/sources/git; \
 				compgen -d -S / -X '.*' -P $prefix -- $path))
 			;;
 		git://*)

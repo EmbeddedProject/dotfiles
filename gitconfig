@@ -61,26 +61,26 @@
 	l = log --oneline --topo-order
 	ll = log --pretty=line --date=short --topo-order
 	lfixes = log --pretty=fixes
-	web = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-web
+	web = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-web
 	wip = commit -asm 'wip'
-	grep-all-components = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-grep-all-components
+	grep-all-components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-grep-all-components
 	grep-all-branches = !git branch -r | grep -v -- '->' | xargs git grep
-	find-all-components = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-find-all-components
-	components = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-components
-	list-pr = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-list-pr
-	remote-add-backport = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-remote-add-backport
-	w = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-web add
-	next-tag = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-next-tag
-	tag-auto = !/aston/h_debit/deliveries/infrastructure/git-tools/scripts/git-tag-auto
+	find-all-components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-find-all-components
+	components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-components
+	list-pr = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-list-pr
+	remote-add-backport = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-remote-add-backport
+	w = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-web add
+	next-tag = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-next-tag
+	tag-auto = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-tag-auto
 
 [url "git://scm/"]
 	InsteadOf = "/aston/h_debit/scm/git/projects/"
+	InsteadOf = "/mnt/sources/git/"
 
-[url "git@scm:projects/"]
+[url "git@scm:/mnt/sources/git/"]
 	pushInsteadOf = "git://scm/"
-
-[url "git@scm:projects/"]
 	pushInsteadOf = "/aston/h_debit/scm/git/projects/"
+	pushInsteadOf = "/mnt/sources/git/"
 
 [log]
 	decorate = true
