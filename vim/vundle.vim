@@ -22,6 +22,7 @@ autocmd FileType python setlocal completeopt-=preview
 let g:ale_virtualenv_dir_names = ['.venv']
 let g:ale_linters_explicit = 1
 let g:ale_linters = { 'python': ['flake8', 'pylint'] }
+let g:ale_python_pylint_executable = 'pylint3'
 let g:ale_set_signs = 0
 let g:ale_cache_executable_check_failures = 1
 let g:ale_use_global_executables = 0
@@ -45,7 +46,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'neomutt/neomutt.vim'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 
 
 call vundle#end()
