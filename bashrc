@@ -50,15 +50,16 @@ fancy_prompt() {
 	local g="\[\e[38;5;39m\]"	# host: blue 39
 	local p="\[\e[38;5;197m\]"	# git: pink 197
 	local c="\[\e[38;5;47m\]"	# current directory: green 47
+	local H='\$'
 
 	if [ `id -u` = 0 ]; then
 		# custom color for 'root'
-		PS1="$R\u$Z$r@\h$Z:$c\w$Z$y\$$Z "
+		PS1="$R\u$Z$r@\h$Z:$c\w$Z$y$H$Z "
 	else
 		if type -t __git_ps1 >/dev/null; then
-			PS1="$G\u$Z$g@\h$Z:$c\w$Z$p\$(__git_ps1 ' %s')$Z$y\$$Z "
+			PS1="$G\u$Z$g@\h$Z:$c\w$Z$p\$(__git_ps1 ' %s')$Z$y$H$Z "
 		else
-			PS1="$G\u$Z$g@\h$Z:$c\w$Z$y\$$Z "
+			PS1="$G\u$Z$g@\h$Z:$c\w$Z$y$H$Z "
 		fi
 	fi
 

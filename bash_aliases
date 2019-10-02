@@ -17,7 +17,6 @@ alias mkdir='mkdir -p'
 
 alias h='history'
 alias j='jobs -l'
-alias which='type -a'
 alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 
@@ -29,8 +28,6 @@ alias vi="vim"
 alias e="emacs -nw"
 
 alias grep='grep --color=auto'
-
-alias g='git'
 alias gg='git grep'
 
 if dircolors &>/dev/null; then
@@ -95,8 +92,6 @@ fi
 if type pinfo >/dev/null 2>&1; then
 	alias info=pinfo
 fi
-
-alias makedoc='make -f ~/devel/doc-tools/doc-tools.mk'
 
 # enable color in man pages: bold is CYAN, underline is GREEN
 function man() {
