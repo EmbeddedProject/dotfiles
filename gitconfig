@@ -113,3 +113,5 @@
 	verbose = true
 [protocol]
 	version = 2
+[completion]
+	commands = -checkpatches -restore
