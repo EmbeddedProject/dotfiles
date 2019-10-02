@@ -30,17 +30,22 @@
 	smtpserverport = 465
 	smtpencryption = ssl
 
+[grep]
+	linenumber = true
+
 [color]
 	diff = auto
 	ui = auto
 
 [color "grep"]
 	filename = magenta
+	lineNumber = green
+	separator = blue
 
 [color "grep-all-components"]
 	filename = magenta
 	component = green
-	branch = reset
+	branch = cyan
 
 [color "find-all-components"]
 	branch = magenta
