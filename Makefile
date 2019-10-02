@@ -36,6 +36,7 @@ BINFILES += ctags-global
 BINFILES += ctags-local
 BINFILES += git-remote-hg
 BINFILES += haste
+BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py
 BINFILES += redemo.py
 

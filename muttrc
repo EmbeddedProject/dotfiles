@@ -92,7 +92,7 @@ unignore BCC:
 hdr_order Date: From: To: CC: BCC: Subject: \
 	Organization: User-Agent: X-Mailer: Message-ID:
 
-set query_command = "goobook query %s"
+set query_command = "mutt-ldap-search.py %s"
 
 bind editor <Tab> complete-query
 bind editor ^T complete
