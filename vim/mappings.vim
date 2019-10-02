@@ -72,7 +72,7 @@ nnoremap bb :bd<CR>
 
 function InsertAckedBy()
 	let expr = input('Acked-by: ')
-	let cmd = '~/bin/acked-by.py ' . expr
+	let cmd = '/mnt/sources/clones/infrastructure/admin-tools/acked-by.py ' . expr
 	put =system(cmd)
 endfunction
 
