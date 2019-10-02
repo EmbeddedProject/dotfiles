@@ -58,6 +58,7 @@
 	ri = rebase -i
 	ra = rebase --abort
 	rc = rebase --continue
+	rp = reset -p HEAD^
 	ci = commit -s
 	ca = commit --amend
 	can = commit --amend --no-edit
