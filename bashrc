@@ -3,13 +3,18 @@
 #-------------------------------------------------------------
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTFILESIZE=4000
+export HISTTIMEFORMAT="%a %F %T -- "
+export HISTSIZE=65536
+export HISTFILESIZE=-1
+export HISTIGNORE=ls:ps:history:ll:l:jobs
+export HISTCONTROL=ignoreboth:erasedups
 
 # Share the history amongst all terminals
 # This tells bash to save the history after *each* command
 # default behaviour is to save history on terminal exit
 shopt -s histappend histreedit histverify
 __prompt_command() {
+	history -a
 	# set terminal title to the current directory
 	echo -en "\e]0;bash: ${PWD/#$HOME/\~}\a"
 }
