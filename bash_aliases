@@ -151,4 +151,7 @@ if type _completion_loader &>/dev/null; then
 			;;
 		esac
 	}
+	function _git_tag_auto() {
+		_git_tag "$@"
+	}
 fi
