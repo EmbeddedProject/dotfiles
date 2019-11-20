@@ -25,7 +25,7 @@ xterm*cursorBlink: false
 
 xterm*utf8: 2
 xterm*eightBitInput: false
-xterm*saveLines: 16384
+xterm*saveLines: 65536
 xterm*alternateScroll: true
 xterm*scrollKey: true
 xterm*scrollTtyOutput: false
