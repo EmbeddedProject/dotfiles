@@ -87,6 +87,8 @@
 	pushInsteadOf = "git://scm/"
 	pushInsteadOf = "/aston/h_debit/scm/git/projects/"
 	pushInsteadOf = "/mnt/sources/git/"
+	pushInsteadOf = "git@core:projects/"
+	pushInsteadOf = "git@core:/aston/h_debit/scm/git/projects/"
 
 [log]
 	decorate = true
