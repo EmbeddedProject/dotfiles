@@ -172,13 +172,13 @@ def dump_prs(db, title, bug_list, userid):
     print(title)
     print('=' * len(title))
     print()
-    print('http://core/bug6illa/buglist.cgi?quicksearch=' +
+    print('http://bugzilla.6wind.com/buglist.cgi?quicksearch=' +
           '%2C'.join(map(str, bug_list)))
 
     for bid, (infos, comments) in sorted(infos.items(), key=lambda i: i[0]):
         print()
         print('- %s: %s' % (bid, db.bugid_to_desc(bid)))
-        print('  http://core/bug6illa/show_bug.cgi?id=%d' % bid)
+        print('  http://bugzilla.6wind.com/show_bug.cgi?id=%d' % bid)
         for info in infos:
             print(info)
         for comment in comments:
@@ -216,9 +216,9 @@ def parse_args():
 
     g = p.add_argument_group('Bugzilla DB options')
     g.add_argument('-H', '--dbhost',
-                   default='core',
+                   default='db',
                    help='''
-                   The database host name/address (default: core).
+                   The database host name/address (default: db).
                    ''')
     g.add_argument('-P', '--dbport',
                    default=3306,
