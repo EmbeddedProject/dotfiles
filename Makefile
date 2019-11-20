@@ -39,10 +39,11 @@ BINFILES += haste
 BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py
 BINFILES += redemo.py
+BINFILES += lessterm.sh
 
 install: $(HOME)/bin | $(addprefix $(HOME)/bin/,$(BINFILES))
 
-$(HOME)/bin $(HOME)/.gnupg:
+$(HOME)/bin $(HOME)/.gnupg $(HOME)/.local/share/applications:
 	mkdir -p "$@"
 
 $(HOME)/bin/%: bin/%
@@ -63,3 +64,14 @@ $(HOME)/.gnupg/%: gnupg/%
 	@ echo '$@ -> ../$(REL_ROOT)/$<'
 	@ ln -sf "../$(REL_ROOT)/$<" "$@"
 	@ chmod -c 600 "$<" "$@"
+
+XDGFILES := defaults.list
+XDGFILES += evince-previewer.desktop
+XDGFILES += lessterm.desktop
+
+install: $(HOME)/.local/share/applications | $(addprefix $(HOME)/.local/share/applications/,$(XDGFILES))
+
+$(HOME)/.local/share/applications/%: xdg/%
+	@ ! test -e "$@" || rm -rf -- "$@"
+	@ echo '$@ -> ../../../$(REL_ROOT)/$<'
+	@ ln -sf "../../../$(REL_ROOT)/$<" "$@"
