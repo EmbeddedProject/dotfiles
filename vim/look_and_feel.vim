@@ -10,7 +10,7 @@ colorscheme tir_black
 set sidescrolloff=2
 set numberwidth=4
 set cursorline
-set colorcolumn=81
+set colorcolumn=+1,81
 
 "Syntax highlight options
 let c_char_is_integer=1
