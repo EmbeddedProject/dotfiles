@@ -69,9 +69,9 @@ class BugzillaDB:
                  FROM longdescs as l JOIN profiles AS p ON l.who = p.userid
                  WHERE l.bug_id = %s AND DATE(l.bug_when) >= %s
                  AND l.who != %s AND l.thetext NOT LIKE "%%/cgit.cgi/%%"'''
-        res =  self.req(sql, bug, self.start_date, not_userid)
+        res = self.req(sql, bug, self.start_date, not_userid)
         for text, user, comment_type, x in res:
-            if comment_type == 0: # real comment
+            if comment_type == 0:  # real comment
                 yield text, user
             elif comment_type == 1:
                 yield '%s has been marked as a duplicate of this bug.' % x, user
@@ -129,7 +129,7 @@ def get_pr_info(db, bug, userid):
         info.append('  status changed = %s' % ' -> '.join(status))
     assign = db.get_field_activity('assigned_to', bug)
     if assign:
-        info.append('  assignation changed = %s' %' -> '.join(assign))
+        info.append('  assignation changed = %s' % ' -> '.join(assign))
     priority = db.get_field_activity("priority", bug)
     if priority:
         info.append('  priority changed = %s' % ' -> '.join(priority))
