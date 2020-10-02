@@ -32,7 +32,7 @@ syn match yangIdentifier /\c\<\h\+[A-Za-z0-9_-]*\>/
 syn match yangBadIdentifier /\c\<xml\(\h\+[A-Za-z0-9_-]\)*\>/
 
 " statement keywords
-syn keyword yangStatement anyxml argument augment base belongs-to bit case choice
+syn keyword yangStatement action anyxml argument augment base belongs-to bit case choice
 syn keyword yangStatement config contact container default description enum error-app-tag error-message
 syn keyword yangStatement extension deviation deviate feature fraction-digits grouping identity
 syn keyword yangStatement import include input key leaf leaf-list length
