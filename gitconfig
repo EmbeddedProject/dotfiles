@@ -8,7 +8,14 @@
 	editor = vim
 	excludesfile = /usr/home/jarry/.gitfiles/gitignore
 	abbrev = 12
-	pager = less -RSFX
+	pager = less -RSX
+
+[pager]
+	diff = less -RSFX
+	branch = false
+	tag = false
+	describe = false
+	status = false
 
 [diff]
 	algorithm = minimal
@@ -18,7 +25,8 @@
 
 [pretty]
 	fixes = Fixes: %h (\"%s\")
-	line = %C(auto)%h %C(auto,cyan)%ad %C(auto,magenta)%<(10,trunc)%an%C(auto)%d %C(auto,reset)%s
+	lineauthor = %C(auto)%h %C(auto,cyan)%ad %C(auto,magenta)%<(10,trunc)%an%C(auto)%d %C(auto,reset)%s
+	linepr = %C(auto)%h %C(auto,cyan)%>(5)%(trailers:only=true,key=PR,valueonly,unfold,separator=%x)%C(auto)%d %C(auto,reset)%s
 
 [sendemail]
 	suppressfrom = true
@@ -64,13 +72,14 @@
 	can = commit --amend --no-edit
 	co = checkout
 	a = add -u
-	l = log --oneline --topo-order
-	ll = log --pretty=line --date=short --topo-order
+	l = log --pretty=linepr --topo-order
+	ll = log --pretty=lineauthor --date=short --topo-order
 	lfixes = log --pretty=fixes
+	fixup = commit --fixup
 	web = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-web
 	wip = commit -asm 'wip'
 	grep-all-components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-grep-all-components
-	grep-all-branches = !git branch -r | grep -v -- '->' | xargs git grep
+	grep-all-branches = !git archive --remote=git://scm/delivery/branches.git master branches.config | tar -xO | grep ^[A-Za-z0-9] | cut -d ' ' -f 1 | sed s,^,origin/, | xargs git grep
 	find-all-components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-find-all-components
 	components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-components
 	list-pr = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-list-pr
@@ -104,7 +113,6 @@
 	default = nothing
 
 [gitweb]
-	projectroot = /usr/home/jarry/.gitweb
 	urlprefix = /git/
 	showbranch = true
 	showhostname = true
@@ -117,3 +125,7 @@
 	version = 2
 [completion]
 	commands = -checkpatches -restore
+[rebase]
+	autoSquash = true
+[trailer]
+	separators = :=
