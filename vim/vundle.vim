@@ -16,7 +16,6 @@ nnoremap <C-g>b :Gblame<CR>
 "let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 2
 let g:jedi#goto_command = "<F3>"
-autocmd FileType python setlocal completeopt-=preview
 
 "ale
 let g:ale_virtualenv_dir_names = ['.venv']
