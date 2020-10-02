@@ -72,6 +72,9 @@ nnoremap bb :bd<CR>
 
 function InsertAckedBy()
 	let expr = input('Acked-by: ')
+	if expr == ''
+		return
+	endif
 	let cmd = '/mnt/sources/clones/infrastructure/admin-tools/acked-by.py ' . expr
 	put =system(cmd)
 endfunction
@@ -80,6 +83,9 @@ nnoremap <F4> :call InsertAckedBy()<CR>
 
 function InsertFixes()
 	let commitid = input('Fixes: ')
+	if commitid == ''
+		return
+	endif
 	let cmd = 'git lfixes -n1 ' . commitid
 	put =system(cmd)
 endfunction
