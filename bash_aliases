@@ -92,9 +92,9 @@ function ff() {
 }
 
 if type colordiff >/dev/null 2>&1; then
-	alias diff='colordiff -Naup'
+	alias diff='colordiff -up'
 else
-	alias diff='diff -Naup'
+	alias diff='diff -up'
 fi
 if type pinfo >/dev/null 2>&1; then
 	alias info=pinfo
