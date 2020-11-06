@@ -18,10 +18,10 @@ let g:jedi#show_call_signatures = 2
 let g:jedi#goto_command = "<F3>"
 
 "ale
-let g:ale_virtualenv_dir_names = ['.venv']
+"let g:ale_virtualenv_dir_names = ['.venv']
 let g:ale_linters_explicit = 1
 let g:ale_linters = { 'python': ['flake8', 'pylint'] }
-let g:ale_python_pylint_executable = 'pylint3'
+"let g:ale_python_pylint_executable = 'pylint3'
 let g:ale_set_signs = 0
 let g:ale_cache_executable_check_failures = 1
 let g:ale_use_global_executables = 0
