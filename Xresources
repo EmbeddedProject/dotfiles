@@ -44,3 +44,11 @@ xterm*charClass: 45-47:48, 64:48, 126:48
 xterm*on2clicks: word
 xterm*on3clicks: line
 xterm*termName: xterm-256color
+
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault

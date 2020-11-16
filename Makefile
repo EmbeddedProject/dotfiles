@@ -37,7 +37,7 @@ BINFILES += lessterm.sh
 
 install: $(HOME)/bin | $(addprefix $(HOME)/bin/,$(BINFILES))
 
-$(HOME)/bin $(HOME)/.gnupg $(HOME)/.local/share/applications:
+$(HOME)/bin $(HOME)/.gnupg $(HOME)/.local/share/applications $(HOME)/.config/fontconfig:
 	mkdir -p "$@"
 
 $(HOME)/bin/%: bin/%
@@ -66,3 +66,10 @@ $(HOME)/.local/share/applications/%: xdg/%
 	@ ! test -e "$@" || rm -rf -- "$@"
 	@ echo '$@ -> ../../../$(REL_ROOT)/$<'
 	@ ln -sf "../../../$(REL_ROOT)/$<" "$@"
+
+install: $(HOME)/.config/fontconfig |  $(HOME)/.config/fontconfig/fonts.conf
+
+$(HOME)/.config/fontconfig/fonts.conf: fonts.conf
+	@ ! test -e "$@" || rm -rf -- "$@"
+	@ echo '$@ -> ../../$(REL_ROOT)/$<'
+	@ ln -sf "../../$(REL_ROOT)/$<" "$@"

@@ -1,5 +1,8 @@
 # vim: ft=sh
 
+xrandr -s 1920x1200
+xrandr --dpi 96
+
 # key repeat rate, 200ms delay, 40 repeats/sec.
 xset r rate 200 40
 
