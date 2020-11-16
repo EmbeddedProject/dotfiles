@@ -2,3 +2,4 @@
 less-*
 *.tar.gz
 vim/bundle/*
+gnupg/*.kbx

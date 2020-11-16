@@ -9,15 +9,12 @@ DOTFILES += bash_aliases
 DOTFILES += bashrc
 DOTFILES += colordiffrc
 DOTFILES += gitconfig
-DOTFILES += gitfiles
 DOTFILES += gtkrc-2.0
-DOTFILES += goobookrc
 DOTFILES += inputrc
 DOTFILES += mostrc
 DOTFILES += muttrc
 DOTFILES += notion
 DOTFILES += vim
-DOTFILES += vrapperrc
 DOTFILES += wallpaper.jpg
 DOTFILES += xsessionrc
 
@@ -50,9 +47,6 @@ $(HOME)/bin/%: bin/%
 
 GNUPGFILES := gpg.conf
 GNUPGFILES += gpg-agent.conf
-GNUPGFILES += pubring.gpg
-GNUPGFILES += pubring.kbx
-GNUPGFILES += trustdb.gpg
 
 install: $(HOME)/.gnupg | $(addprefix $(HOME)/.gnupg/,$(GNUPGFILES))
 

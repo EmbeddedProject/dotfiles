@@ -6,7 +6,6 @@
 
 [core]
 	editor = vim
-	excludesfile = /usr/home/jarry/.gitfiles/gitignore
 	abbrev = 12
 	pager = less -RSX
 
