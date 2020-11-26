@@ -1,8 +1,6 @@
 .PHONY: install
 install:
 
-REL_ROOT := $(shell python -c "import os.path; print os.path.relpath('$(CURDIR)', '$(HOME)')")
-
 DOTFILES := Xmodmap
 DOTFILES += Xresources
 DOTFILES += bash_aliases
@@ -23,8 +21,7 @@ install: $(addprefix $(HOME)/.,$(DOTFILES))
 
 $(HOME)/.%: %
 	@ ! test -e "$@" || rm -rf -- "$@"
-	@ echo '$@ -> $(REL_ROOT)/$<'
-	@ ln -sf "$(REL_ROOT)/$<" "$@"
+	@ ln -srvf "$<" "$@"
 
 BINFILES := auto_away.py
 BINFILES += backup.sh
@@ -39,12 +36,11 @@ BINFILES += lessterm.sh
 install: $(HOME)/bin | $(addprefix $(HOME)/bin/,$(BINFILES))
 
 $(HOME)/bin $(HOME)/.gnupg $(HOME)/.local/share/applications $(HOME)/.config/fontconfig:
-	mkdir -p "$@"
+	@ mkdir -pv "$@"
 
 $(HOME)/bin/%: bin/%
 	@ ! test -e "$@" || rm -rf -- "$@"
-	@ echo '$@ -> ../$(REL_ROOT)/$<'
-	@ ln -sf "../$(REL_ROOT)/$<" "$@"
+	@ ln -srvf "$<" "$@"
 
 GNUPGFILES := gpg.conf
 GNUPGFILES += gpg-agent.conf
@@ -53,8 +49,7 @@ install: $(HOME)/.gnupg | $(addprefix $(HOME)/.gnupg/,$(GNUPGFILES))
 
 $(HOME)/.gnupg/%: gnupg/%
 	@ ! test -e "$@" || rm -rf -- "$@"
-	@ echo '$@ -> ../$(REL_ROOT)/$<'
-	@ ln -sf "../$(REL_ROOT)/$<" "$@"
+	@ ln -srvf "$<" "$@"
 	@ chmod -c 600 "$<" "$@"
 
 XDGFILES := defaults.list
@@ -65,12 +60,10 @@ install: $(HOME)/.local/share/applications | $(addprefix $(HOME)/.local/share/ap
 
 $(HOME)/.local/share/applications/%: xdg/%
 	@ ! test -e "$@" || rm -rf -- "$@"
-	@ echo '$@ -> ../../../$(REL_ROOT)/$<'
-	@ ln -sf "../../../$(REL_ROOT)/$<" "$@"
+	@ ln -srvf "$<" "$@"
 
 install: $(HOME)/.config/fontconfig |  $(HOME)/.config/fontconfig/fonts.conf
 
 $(HOME)/.config/fontconfig/fonts.conf: fonts.conf
 	@ ! test -e "$@" || rm -rf -- "$@"
-	@ echo '$@ -> ../../$(REL_ROOT)/$<'
-	@ ln -sf "../../$(REL_ROOT)/$<" "$@"
+	@ ln -srvf "$<" "$@"
