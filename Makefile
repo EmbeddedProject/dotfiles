@@ -14,6 +14,7 @@ DOTFILES += inputrc
 DOTFILES += mostrc
 DOTFILES += muttrc
 DOTFILES += notion
+DOTFILES += screenrc
 DOTFILES += vim
 DOTFILES += wallpaper.jpg
 DOTFILES += xsessionrc
