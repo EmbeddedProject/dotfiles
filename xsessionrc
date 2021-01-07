@@ -24,3 +24,6 @@ xmodmap ~/.Xmodmap
 
 # change desktop background
 display -window root ~/.wallpaper.jpg
+
+xrandr -s 1920x1200
+xrandr --dpi 88
