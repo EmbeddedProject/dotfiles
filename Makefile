@@ -27,6 +27,7 @@ BINFILES := auto_away.py
 BINFILES += backup.sh
 BINFILES += ctags-global
 BINFILES += ctags-local
+BINFILES += gitweb.perl
 BINFILES += haste
 BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py
