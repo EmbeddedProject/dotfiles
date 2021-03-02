@@ -2097,6 +2097,12 @@ sub format_log_line_html {
 					-class => "text"}, $1);
 	}egx;
 
+	if ($line =~ m/^((Old-)?PR(=| was |: ))([0-9]+)/) {
+		$line =~ s{([0-9]+)}{
+			$cgi->a({-href => "http://bugzilla.6wind.com/show_bug.cgi?id=$1"}, $1);
+		}eg;
+	}
+
 	return $line;
 }
 
@@ -4628,6 +4634,7 @@ sub git_print_page_path {
 sub git_print_log {
 	my $log = shift;
 	my %opts = @_;
+	my $skipped = 0;
 
 	if ($opts{'-remove_title'}) {
 		# remove title, i.e. first line of log
@@ -4641,9 +4648,19 @@ sub git_print_log {
 	# print log
 	my $skip_blank_line = 0;
 	foreach my $line (@$log) {
+		if ($line =~ m/^(Old-)?PR(=| was |: )[0-9]+/) {
+			if (! $opts{'-remove_signoff'}) {
+				print "<span class=\"signoff\">" . format_log_line_html($line) .
+				"</span><br/>\n";
+				$skip_blank_line = 1;
+			}
+			next;
+		}
+
 		if ($line =~ m/^\s*([A-Z][-A-Za-z]*-([Bb]y|[Tt]o)|C[Cc]|(Clos|Fix)es): /) {
 			if (! $opts{'-remove_signoff'}) {
-				print "<span class=\"signoff\">" . esc_html($line) . "</span><br/>\n";
+				print "<span class=\"signoff\">" . format_log_line_html($line) .
+				"</span><br/>\n";
 				$skip_blank_line = 1;
 			}
 			next;
@@ -4662,9 +4679,17 @@ sub git_print_log {
 		# print only one empty line
 		# do not print empty line after signoff
 		if ($line eq "") {
-			next if ($skip_blank_line);
+			if ($skip_blank_line) {
+				$skipped = 1;
+				next;
+			}
 			$skip_blank_line = 1;
 		} else {
+			# Blank line skipped but log is not finished
+			if ($skipped) {
+				print "<br/>\n";
+				$skipped = 0;
+			}
 			$skip_blank_line = 0;
 		}
 
