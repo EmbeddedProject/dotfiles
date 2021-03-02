@@ -28,14 +28,9 @@
 	linepr = %C(auto)%h %C(auto,cyan)%>(5)%(trailers:only=true,key=PR,valueonly,unfold,separator=%x)%C(auto)%d %C(auto,reset)%s
 
 [sendemail]
-	suppressfrom = true
 	chainreplyto = false
 	confirm = always
 	envelopesender = auto
-	smtpuser = robin.jarry@6wind.com
-	smtpserver = smtp.gmail.com
-	smtpserverport = 465
-	smtpencryption = ssl
 
 [grep]
 	linenumber = true
