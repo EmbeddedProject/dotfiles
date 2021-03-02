@@ -27,7 +27,7 @@ set editor = "vim +/^$ ++1"
 set edit_headers
 
 set header_cache = "~/.mutt/cache/headers"
-set message_cachedir = "~/.mutt/cache/bodies"
+set header_cache_backend = "tokyocabinet"
 set certificate_file = "~/.mutt/certificates"
 
 set attach_charset = "ascii:utf-8"
@@ -35,7 +35,7 @@ set assumed_charset = "ascii:utf-8"
 set send_charset = "ascii:utf-8"
 
 set hide_thread_subject = no
-set sort = reverse-date
+set sort = reverse-threads
 set sort_re
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 set date_format = "%a %F %R"
