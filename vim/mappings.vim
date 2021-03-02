@@ -12,7 +12,34 @@ imap <up> <C-o>gk
 map <down> gj
 map j gj
 imap <down> <C-o>gj
-map E ge
+
+"Navigate through errors (location list)
+function NextError()
+	try
+		execute "lnext"
+	catch /^Vim\%((\a\+)\)\=:E553/
+		execute "lfirst"
+	catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
+		echohl ErrorMsg
+		echomsg "No errors"
+		echohl None
+	endtry
+endfunction
+
+function PrevError()
+	try
+		execute "lprev"
+	catch /^Vim\%((\a\+)\)\=:E553/
+		execute "llast"
+	catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
+		echohl ErrorMsg
+		echomsg "No errors"
+		echohl None
+	endtry
+endfunction
+
+nnoremap e :call NextError()<CR>
+nnoremap E :call PrevError()<CR>
 
 "Delete line with <ctrl-d>
 inoremap <C-d> <Esc>ddi
