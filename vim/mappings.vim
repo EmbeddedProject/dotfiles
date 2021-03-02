@@ -143,23 +143,5 @@ elseif $CSCOPE_DB != ""
 endif
 
 "Basic keymaps
-nnoremap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>   " symbol
 nnoremap <F3> :cs find g <C-R>=expand("<cword>")<CR><CR>   " global definition
-nnoremap <C-H> :cs find c <C-R>=expand("<cword>")<CR><CR>   " functions calling
-nnoremap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>   " text string
-nnoremap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>   " egrep pattern
-nnoremap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>   " file
-nnoremap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> " files #including this file
-nnoremap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>   " functions called by this function
-
-"Using 'CTRL-spacebar' then a search type makes the vim window
-"split horizontally, with search result displayed in
-"the new window.
-nnoremap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-nnoremap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nnoremap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <F8> :cs find c <C-R>=expand("<cword>")<CR><CR>   " functions calling
