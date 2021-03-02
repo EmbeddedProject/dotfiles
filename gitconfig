@@ -107,9 +107,7 @@
 	default = nothing
 
 [gitweb]
-	urlprefix = /git/
 	showbranch = true
-	showhostname = true
 
 [uploadArchive]
 	allowUnreachable = true
