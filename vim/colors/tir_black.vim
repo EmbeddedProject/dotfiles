@@ -141,7 +141,15 @@ hi link javaScriptNumber Number
 hi link csXmlTag Keyword
 
 " Special for emails
-hi def link mailQuoted2 Special
+hi mailQuoted1 ctermbg=NONE ctermfg=117
+hi mailQuoted2 ctermbg=NONE ctermfg=111
+hi mailQuoted3 ctermbg=NONE ctermfg=105
+
+" email patch reply
+hi mailQuoteDiffMeta ctermbg=NONE ctermfg=225
+hi mailQuoteDiffChunk ctermbg=NONE ctermfg=45
+hi mailQuoteDiffAdded ctermbg=NONE ctermfg=10
+hi mailQuoteDiffRemoved ctermbg=NONE ctermfg=9
 
 hi diffAdded        ctermbg=NONE ctermfg=10
 hi diffRemoved      ctermbg=NONE ctermfg=9
