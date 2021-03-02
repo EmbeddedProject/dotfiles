@@ -148,6 +148,7 @@ message-hook . "color body yellow  default '[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z]
 message-hook . "color body green default ' [;:]-*[D)>(<|]'"
 
 # patches
+message-hook '~h "Subject: .*\\[PATCH"' "color body magenta default '^diff --git .*$'"
 message-hook '~h "Subject: .*\\[PATCH"' "color body magenta default '^index [a-f0-9].*$'"
 message-hook '~h "Subject: .*\\[PATCH"' "color body magenta default '^--- .*$'"
 message-hook '~h "Subject: .*\\[PATCH"' "color body magenta default '^[\+]{3} .*$'"
