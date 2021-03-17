@@ -37,7 +37,7 @@ mod_statusbar.create{
     -- right, respectively, and %systray is a placeholder for system tray
     -- windows and icons.
     --
-    template="%workspace_name_pager %filler %systray [load: %load || %date]",
+    template="%workspace_name_pager %filler%systray  [load: %load_1min]  [%date]",
     --template="[ %date || load:% %>load || mail:% %>mail_new/%>mail_total ] %filler%systray",
     --template="[ %date || load: %05load_1min || mail: %02mail_new/%02mail_total ] %filler%systray",
 }
@@ -65,9 +65,9 @@ mod_statusbar.launch_statusd{
 
     -- Load meter
     load={
-        --update_interval=10*1000,
-        --important_threshold=1.5,
-        --critical_threshold=4.0,
+        update_interval=5*1000,
+        important_threshold=2.5,
+        critical_threshold=6.0,
     },
 
     -- Mail meter
