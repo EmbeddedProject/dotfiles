@@ -17,7 +17,7 @@
 	status = false
 
 [diff]
-	algorithm = minimal
+	algorithm = histogram
 	renames = copies
 	indentHeuristic = true
 	noprefix = false
