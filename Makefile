@@ -1,5 +1,20 @@
-.PHONY: install
-install:
+# Copyright 2021 Robin Jarry
+
+.PHONY: help
+help:
+	@echo "Bonjour, this is Robin config repo."
+	@echo
+	@echo "The following targets are available:"
+	@echo
+	@echo "  dotfiles       install user config files"
+	@echo "  scripts        install user scripts in ~/bin"
+	@echo "  install        all of the above"
+	@echo "  help           show this help message"
+	@echo
+
+.PHONY: install dotfiles scripts
+install: dotfiles scripts
+	:
 
 DOTFILES := Xmodmap
 DOTFILES += Xresources
@@ -16,54 +31,34 @@ DOTFILES += screenrc
 DOTFILES += vim
 DOTFILES += wallpaper.jpg
 DOTFILES += xsessionrc
+DOTFILES += gnupg/gpg.conf
+DOTFILES += gnupg/gpg-agent.conf
+DOTFILES += local/share/applications/defaults.list
+DOTFILES += local/share/applications/evince-previewer.desktop
+DOTFILES += local/share/applications/lessterm.desktop
+DOTFILES += config/fontconfig/fonts.conf
 
-install: $(addprefix $(HOME)/.,$(DOTFILES))
+.PHONY: dotfiles
+dotfiles: $(addprefix $(HOME)/.,$(DOTFILES))
+	:
 
 $(HOME)/.%: %
-	@ ! test -e "$@" || rm -rf -- "$@"
-	@ ln -srvf "$<" "$@"
+	@! [ -e $@ ] || rm -rf -- $@
+	@mkdir -pv $(@D)
+	@ln -srvf $< $@
+	@! [ $(@D) = $(HOME)/.gnupg ] || chmod -c 600 $< $@
 
-BINFILES := auto_away.py
-BINFILES += backup.sh
-BINFILES += ctags-global
-BINFILES += ctags-local
-BINFILES += gitweb.perl
+BINFILES := gitweb.perl
 BINFILES += haste
 BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py
 BINFILES += redemo.py
 
-install: $(HOME)/bin | $(addprefix $(HOME)/bin/,$(BINFILES))
-
-$(HOME)/bin $(HOME)/.gnupg $(HOME)/.local/share/applications $(HOME)/.config/fontconfig:
-	@ mkdir -pv "$@"
+.PHONY: scripts
+scripts: $(addprefix $(HOME)/bin/,$(BINFILES))
+	:
 
 $(HOME)/bin/%: bin/%
-	@ ! test -e "$@" || rm -rf -- "$@"
-	@ ln -srvf "$<" "$@"
-
-GNUPGFILES := gpg.conf
-GNUPGFILES += gpg-agent.conf
-
-install: $(HOME)/.gnupg | $(addprefix $(HOME)/.gnupg/,$(GNUPGFILES))
-
-$(HOME)/.gnupg/%: gnupg/%
-	@ ! test -e "$@" || rm -rf -- "$@"
-	@ ln -srvf "$<" "$@"
-	@ chmod -c 600 "$<" "$@"
-
-XDGFILES := defaults.list
-XDGFILES += evince-previewer.desktop
-XDGFILES += lessterm.desktop
-
-install: $(HOME)/.local/share/applications | $(addprefix $(HOME)/.local/share/applications/,$(XDGFILES))
-
-$(HOME)/.local/share/applications/%: xdg/%
-	@ ! test -e "$@" || rm -rf -- "$@"
-	@ ln -srvf "$<" "$@"
-
-install: $(HOME)/.config/fontconfig |  $(HOME)/.config/fontconfig/fonts.conf
-
-$(HOME)/.config/fontconfig/fonts.conf: fonts.conf
-	@ ! test -e "$@" || rm -rf -- "$@"
-	@ ln -srvf "$<" "$@"
+	@! [ -e $@ ] || rm -rf -- $@
+	@mkdir -pv $(@D)
+	@ln -srvf $< $@
