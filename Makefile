@@ -32,7 +32,6 @@ BINFILES += haste
 BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py
 BINFILES += redemo.py
-BINFILES += lessterm.sh
 
 install: $(HOME)/bin | $(addprefix $(HOME)/bin/,$(BINFILES))
 
