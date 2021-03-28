@@ -30,6 +30,7 @@ DOTFILES += mostrc
 DOTFILES += muttrc
 DOTFILES += notion
 DOTFILES += screenrc
+DOTFILES += tmux.conf
 DOTFILES += vim
 DOTFILES += wallpaper.jpg
 DOTFILES += xsessionrc
