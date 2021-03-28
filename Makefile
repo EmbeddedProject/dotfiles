@@ -12,6 +12,7 @@ help:
 	@echo
 	@echo "  dotfiles       install user config files"
 	@echo "  scripts        install user scripts in ~/bin"
+	@echo "  deb            install system deb packages"
 	@echo "  help           show this help message"
 	@echo
 
@@ -39,7 +40,7 @@ DOTFILES += config/fontconfig/fonts.conf
 
 .PHONY: dotfiles
 dotfiles: $(addprefix $(HOME)/.,$(DOTFILES))
-	:
+	@:
 
 $(HOME)/.%: %
 	@! [ -e $@ ] || rm -rf -- $@
@@ -56,9 +57,48 @@ BINFILES += redemo.py
 
 .PHONY: scripts
 scripts: $(addprefix $(HOME)/bin/,$(BINFILES))
-	:
+	@:
 
 $(HOME)/bin/%: bin/%
 	@! [ -e $@ ] || rm -rf -- $@
 	@mkdir -pv $(@D)
 	@ln -srvf $< $@
+
+DEBS += bash
+DEBS += cscope
+DEBS += curl
+DEBS += dbus-user-session
+DEBS += dunst
+DEBS += feh
+DEBS += firefox
+DEBS += fonts-terminus
+DEBS += git
+DEBS += grep
+DEBS += gzip
+DEBS += hexchat
+DEBS += htop
+DEBS += i3
+DEBS += i3lock
+DEBS += i3status
+DEBS += inputplug
+DEBS += ipython3
+DEBS += libnotify-bin
+DEBS += lz4
+DEBS += nm-tray
+DEBS += numlockx
+DEBS += rsync
+DEBS += screen
+DEBS += source-highlight
+DEBS += suckless-tools
+DEBS += tmux
+DEBS += tree
+DEBS += xbacklight
+DEBS += xfonts-terminus
+DEBS += xserver-xorg-input-synaptics
+DEBS += xss-lock
+DEBS += xterm
+
+.PHONY: deb
+deb:
+	sudo apt update
+	sudo apt install $(DEBS)
