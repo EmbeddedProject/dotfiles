@@ -1,11 +1,5 @@
 # vim: ft=sh
 
-xrandr -s 1920x1200
-xrandr --dpi 96
-
-# key repeat rate, 200ms delay, 40 repeats/sec.
-xset r rate 200 40
-
 # disable screen saver
 xset s off
 
@@ -15,15 +9,13 @@ xset dpms 600 3600 7200
 # mouse speed (ratio threshold)
 xset mouse 3/2 0
 
-# enable numlock when starting X
-numlockx on
-
-# apply user Xmodmap
-setxkbmap fr
-xmodmap ~/.Xmodmap
-
 # change desktop background
 display -window root ~/.wallpaper.jpg
 
-xrandr -s 1920x1200
-xrandr --dpi 88
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock screen.
+xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000033 &
+# add network manager applet in system tray
+nm-applet &
+# monitor input devices activity to apply settings
+inputplug -0 -c ~/bin/inputplug.sh &

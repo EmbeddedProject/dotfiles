@@ -51,6 +51,7 @@ BINFILES := gitweb.perl
 BINFILES += haste
 BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py
+BINFILES += inputplug.sh
 BINFILES += redemo.py
 
 .PHONY: scripts
