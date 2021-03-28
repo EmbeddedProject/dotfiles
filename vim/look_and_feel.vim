@@ -5,6 +5,7 @@
 syntax on
 nnoremap <F12> :syntax sync fromstart<CR>
 
+set t_Co=256
 colorscheme tir_black
 
 set sidescrolloff=2
