@@ -61,7 +61,7 @@ defbindings("WScreen", {
 
 defbindings("WGroupCW", {
     bdoc("Toggle client window group full-screen mode"),
-    kpress_wait(META.."Return", "WGroup.set_fullscreen(_, 'toggle')"),
+    kpress_wait(META.."F", "WGroup.set_fullscreen(_, 'toggle')"),
 })
 
 
@@ -83,19 +83,16 @@ defbindings("WMPlex.toplevel", {
     kpress(META.."T", "WRegion.set_tagged(_sub, 'toggle')", "_sub:non-nil"),
 
     bdoc("Run a terminal emulator."),
-    kpress("Print", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
+    kpress(META.."Return", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
 
     bdoc("Query for command line to execute."),
-    kpress("Scroll_Lock", "mod_query.query_exec(_)"),
+    kpress(META.."X", "mod_query.query_exec(_)"),
 
     bdoc("Music commands"),
     kpress("XF86AudioPlay", "mod_query.exec_on_merr(_, 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause')"),
     kpress("XF86AudioMute", "mod_query.exec_on_merr(_, 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause')"),
     kpress("XF86AudioPrev", "mod_query.exec_on_merr(_, 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous')"),
     kpress("XF86AudioNext", "mod_query.exec_on_merr(_, 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next')"),
-
-    bdoc("Run a web browser."),
-    kpress("Pause", "mod_query.exec_on_merr(_, 'chromium')"),
 
     bdoc("Query for workspace to go to or create a new one."),
     kpress(META.."F9", "mod_query.query_workspace(_)"),
