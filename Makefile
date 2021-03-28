@@ -1,5 +1,9 @@
 # Copyright 2021 Robin Jarry
 
+.PHONY: install
+install: dotfiles scripts
+	@:
+
 .PHONY: help
 help:
 	@echo "Bonjour, this is Robin config repo."
@@ -8,13 +12,8 @@ help:
 	@echo
 	@echo "  dotfiles       install user config files"
 	@echo "  scripts        install user scripts in ~/bin"
-	@echo "  install        all of the above"
 	@echo "  help           show this help message"
 	@echo
-
-.PHONY: install dotfiles scripts
-install: dotfiles scripts
-	:
 
 DOTFILES := Xmodmap
 DOTFILES += Xresources
