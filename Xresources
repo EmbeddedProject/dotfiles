@@ -46,7 +46,8 @@ xterm*VT100*translations: #override\n\
 xterm*charClass: 45-47:48, 64:48, 126:48
 xterm*on2clicks: word
 xterm*on3clicks: line
-
+! allow tmux to use xterm clipboard buffer
+xterm*disallowedWindowOps: 20,21,SetXprop
 Xft.autohint: 0
 Xft.antialias: 1
 Xft.hinting: true
