@@ -3,7 +3,6 @@
 xterm*renderFont: true
 xterm*faceSize: 12
 xterm*faceName: terminus
-!xterm*font:-*-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-1
 xterm*background: black
 xterm*foreground: #cccccc
 xterm*dynamicColors: true
@@ -39,30 +38,6 @@ xterm*multiScroll: true
 xterm*toolBar: false
 xterm*loginShell: true
 xterm*fullscreen: never
-! reclaim <Alt-s> and <Ctrl-Shift-*> shortcuts
-xterm*searchable-scrollback: M-S-s
-xterm*iso14755        : false
-xterm*iso14755_52     : false
-! make Alt-arrow work
-xterm.keysym.M-Up     : \033[1;3A
-xterm.keysym.M-Down   : \033[1;3B
-xterm.keysym.M-Right  : \033[1;3C
-xterm.keysym.M-Left   : \033[1;3D
-xterm.keysym.M-Prior  : \033[5;3~
-xterm.keysym.M-Next   : \033[6;3~
-xterm.keysym.M-End    : \033[1;3F
-xterm.keysym.M-Home   : \033[1;3H
-! make Ctrl-arrow work
-xterm.keysym.C-Up     : \033[1;5A
-xterm.keysym.C-Down   : \033[1;5B
-xterm.keysym.C-Right  : \033[1;5C
-xterm.keysym.C-Left   : \033[1;5D
-xterm.keysym.C-Prior  : \033[5;5~
-xterm.keysym.C-Next   : \033[6;5~
-xterm.keysym.C-End    : \033[1;5F
-xterm.keysym.C-Home   : \033[1;5H
-
-
 xterm*VT100*translations: #override\n\
 	~Meta Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD)\n\
 	~Meta Shift Ctrl <KeyPress> c:copy-selection(CLIPBOARD)\n\
