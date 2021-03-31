@@ -8,6 +8,12 @@ if &term =~ '^tmux'
 	execute "set <xDown>=\e[1;*B"
 	execute "set <xRight>=\e[1;*C"
 	execute "set <xLeft>=\e[1;*D"
+	execute "set <F13>=\e[5;5~"
+	execute "map <F13> <C-PageUp>"
+	execute "map! <F13> <C-PageUp>"
+	execute "set <F14>=\e[6;5~"
+	execute "map <F14> <C-PageDown>"
+	execute "map! <F14> <C-PageDown>"
 endif
 
 let mapleader = ','
