@@ -82,7 +82,7 @@ vnoremap F gq
 
 "Insert New Line
 map <S-Enter> O<Esc>
-nnoremap <Enter> o<Esc>
+map <Enter> o<Esc>
 
 "Disable cursor blink (t_RC) and cursor style (t_RS) term responses to allow
 "esc-based mappings with recent vim versions

@@ -6,11 +6,29 @@
 let g:buftabline_show = 1
 let g:buftabline_indicators = 1
 
-"ctrlp
-let g:ctrlp_user_command = ['.git', 'cd %s; { git ls-files -com --exclude-standard; git submodule --quiet foreach --recursive "git ls-files -com --exclude-standard | sed s,^,\$path/,"; } | sort -u']
+"fzf
+function RipGrep()
+	let expr = input('grep: ')
+	if expr == ''
+		return
+	endif
+	exec 'Rg ' . expr
+endfunction
+"Tell FZF to use RG - so we can skip .gitignore files even if not using
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+function FindDir()
+	let path = input('find in dir: ')
+	if path == ''
+		return
+	endif
+	exec 'Files ' . path
+endfunction
+nnoremap <C-f> :call FindDir()<Cr>
+nnoremap <C-p> :Files<Cr>
+nnoremap <C-g> :call RipGrep()<CR>
 
 "fugitive
-nnoremap <C-g>b :Gblame<CR>
+nnoremap <C-b> :Gblame<CR>
 
 "jedi
 "let g:jedi#popup_on_dot = 0
@@ -40,7 +58,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Plugins
 Plugin 'ap/vim-buftabline'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'neomutt/neomutt.vim'

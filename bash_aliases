@@ -28,7 +28,10 @@ alias vi="vim"
 alias e="emacs -nw"
 
 alias grep='grep --color=auto'
-alias gg='git grep'
+
+function gg() {
+	rg --color=always --no-heading -n "$@" | less -RSXF
+}
 
 if dircolors &>/dev/null; then
 	eval `dircolors`
