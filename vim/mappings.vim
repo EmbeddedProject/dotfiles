@@ -4,17 +4,33 @@
 
 if &term =~ '^tmux'
 	" tmux will send xterm-style keys when its xterm-keys option is on
-	execute "set <xUp>=\e[1;*A"
-	execute "set <xDown>=\e[1;*B"
-	execute "set <xRight>=\e[1;*C"
-	execute "set <xLeft>=\e[1;*D"
 	execute "set <F13>=\e[5;5~"
 	execute "map <F13> <C-PageUp>"
 	execute "map! <F13> <C-PageUp>"
+
 	execute "set <F14>=\e[6;5~"
 	execute "map <F14> <C-PageDown>"
 	execute "map! <F14> <C-PageDown>"
+
+	execute "set <F15>=\e[1;7A"
+	execute "map <F15> <C-A-up>"
+	execute "map! <F15> <C-A-up>"
+
+	execute "set <F16>=\e[1;7B"
+	execute "map <F16> <C-A-down>"
+	execute "map! <F16> <C-A-down>"
+
+	execute "set <F17>=\e[1;5C"
+	execute "map <F17> <C-right>"
+	execute "map! <F17> <C-right>"
+
+	execute "set <F18>=\e[1;5D"
+	execute "map <F18> <C-left>"
+	execute "map! <F18> <C-left>"
 endif
+
+
+
 
 let mapleader = ','
 
@@ -60,16 +76,13 @@ inoremap <C-d> <Esc>ddi
 vnoremap <C-d> d
 nnoremap <C-d> dd
 
-"Move lines up and down with <Alt-up> & <Alt-down> keys
-nnoremap <A-down> :m+<CR>==
-nnoremap <A-up> :m-2<CR>==
-inoremap <A-down> <Esc>:m+<CR>==gi
-inoremap <A-up> <Esc>:m-2<CR>==gi
-vnoremap <A-down> :m'>+<CR>gv=gv
-vnoremap <A-up> :m-2<CR>gv=gv
-
-nnoremap <A-left> [m
-nnoremap <A-right> ]m
+"Move lines up and down with <Ctrl-Alt-up> & <Ctrl-Alt-down> keys
+nnoremap <C-A-down> :m+<CR>==
+nnoremap <C-A-up> :m-2<CR>==
+inoremap <C-A-down> <Esc>:m+<CR>==gi
+inoremap <C-A-up> <Esc>:m-2<CR>==gi
+vnoremap <C-A-down> :m'>+<CR>gv=gv
+vnoremap <C-A-up> :m-2<CR>gv=gv
 
 "Indent selection with <tab> key
 vnoremap <tab> >gv
