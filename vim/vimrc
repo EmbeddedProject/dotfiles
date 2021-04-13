@@ -7,12 +7,13 @@ set selectmode=
 
 set modeline
 set modelines=5
+set lazyredraw
 
 "Disable mouse completely
 set mouse=
 
 "Yank-into/paste-from X selection clipboard (paste with middle mouse) by default
-set clipboard=unnamed
+set clipboard+=unnamed
 
 "Show tabs, trailing spaces, etc.
 set list
@@ -23,6 +24,8 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set ttimeout
+set ttimeoutlen=100
 
 "Indenting
 set autoindent
@@ -37,6 +40,7 @@ set linebreak
 "Completion menu
 set wildmode=longest,list,full
 set wildmenu
+set complete-=i
 
 "Misc
 set backspace=indent,eol,start
@@ -72,11 +76,15 @@ if has("autocmd")
 	augroup END
 endif
 
-"Riv configuration
-let g:riv_disable_folding=1
-let g:riv_auto_format_table=0
-let g:riv_code_indicator=1
-let g:riv_highlight_code=''
+set scrolloff=1
+
+"lookahead when scrolling
+set scrolloff=1
+set sidescrolloff=5
+set display+=lastline
+
+"automatically reload file when changed from outside vim
+set autoread
 
 "-----------------------------------------------------------------------------
 "source other files
