@@ -6,25 +6,35 @@
 let g:buftabline_show = 1
 let g:buftabline_indicators = 1
 
+function GitRoot()
+	let l:d = expand('%:p:h:S')
+	let l:root = system('git -C ' . l:d . ' rev-parse --show-toplevel 2>/dev/null')
+	let l:root = trim(l:root)
+	if l:root == ''
+		let l:root = getcwd()
+	endif
+	return fnamemodify(l:root, ':~:.')
+endfunction
+
 "fzf
 function RipGrep()
-	let expr = input('grep: ')
-	if expr == ''
+	let l:expr = input('grep: ')
+	if l:expr == ''
 		return
 	endif
-	exec 'Rg ' . expr
+	exec 'Rg ' . l:expr
 endfunction
-"Tell FZF to use RG - so we can skip .gitignore files even if not using
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-function FindDir()
-	let path = input('find in dir: ')
-	if path == ''
+"Tell FZF to use RG - so we can skip .gitignore files even if not using git
+"grep
+let $FZF_DEFAULT_COMMAND = 'rg --files'
+function FindDir(path)
+	if a:path == ''
 		return
 	endif
-	exec 'Files ' . path
+	exec 'Files ' . a:path
 endfunction
-nnoremap <C-f> :call FindDir()<Cr>
-nnoremap <C-p> :Files<Cr>
+nnoremap <C-f> :call FindDir(input('find in dir: '))<Cr>
+nnoremap <C-p> :call FindDir(GitRoot())<Cr>
 nnoremap <C-g> :call RipGrep()<CR>
 
 "fugitive
