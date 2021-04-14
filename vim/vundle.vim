@@ -65,8 +65,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'neomutt/neomutt.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'dense-analysis/ale'
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-Plugin 'roxma/vim-tmux-clipboard'
 
 call vundle#end()
 
