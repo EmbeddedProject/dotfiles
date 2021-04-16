@@ -92,4 +92,4 @@ set autoread
 
 runtime mappings.vim
 runtime look_and_feel.vim
-runtime vundle.vim
+runtime plugins.vim

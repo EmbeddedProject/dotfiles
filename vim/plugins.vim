@@ -59,23 +59,18 @@ let g:ale_use_global_executables = 0
 "------------------------------------------------------------------------------
 filetype off
 
-set runtimepath+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-"let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin()
 
 "Plugins
-Plugin 'ap/vim-buftabline'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'neomutt/neomutt.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'dense-analysis/ale'
+Plug 'ap/vim-buftabline'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'neomutt/neomutt.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'dense-analysis/ale'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
