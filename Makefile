@@ -57,6 +57,7 @@ BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py
 BINFILES += inputplug.sh
 BINFILES += redemo.py
+BINFILES += yank
 
 .PHONY: scripts
 scripts: $(addprefix $(HOME)/bin/,$(BINFILES))
