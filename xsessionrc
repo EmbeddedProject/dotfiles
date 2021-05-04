@@ -1,5 +1,7 @@
 # vim: ft=sh
 
+. ~/.profile
+
 # disable screen saver
 xset s off
 

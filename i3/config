@@ -163,7 +163,7 @@ bar {
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id "hexchat"
 for_window [class="HexChat"] move scratchpad
-exec --no-startup-id "google-chrome --proxy-server=socks5://127.0.0.1:1337"
+exec --no-startup-id "chrome-proxy.sh"
 for_window [class="Google-chrome"] move container to workspace number $ws2
 exec --no-startup-id "firefox-esr"
 for_window [class="Firefox"] move container to workspace number $ws3
