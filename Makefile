@@ -51,8 +51,7 @@ $(HOME)/.%: %
 	@ln -srvf $< $@
 	@! [ $(@D) = $(HOME)/.gnupg ] || chmod -c 600 $< $@
 
-BINFILES := chrome-proxy.sh
-BINFILES += gitweb.perl
+BINFILES := gitweb.perl
 BINFILES += haste
 BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py

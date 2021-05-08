@@ -164,7 +164,7 @@ exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id "hexchat"
 for_window [class="Hexchat"] move scratchpad
 for_window [class="Hexchat"] sticky enable
-exec --no-startup-id "chrome-proxy.sh"
+exec --no-startup-id "google-chrome"
 for_window [class="Google-chrome"] move container to workspace number $ws2
 exec --no-startup-id "firefox-esr"
 for_window [class="Firefox"] move container to workspace number $ws3
