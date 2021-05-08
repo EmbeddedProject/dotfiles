@@ -56,6 +56,7 @@ BINFILES += haste
 BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py
 BINFILES += inputplug.sh
+BINFILES += logkeys.py
 BINFILES += redemo.py
 BINFILES += yank
 
