@@ -1,0 +1,154 @@
+#num	symbol	modifiers (optional)
+9	Esc
+10	&
+10	1	Shift
+11	é
+11	2	Shift
+11	~	AltGr
+12	"
+12	3	Shift
+12	#	AltGr
+13	'
+13	4	Shift
+13	{	AltGr
+14	(
+14	5	Shift
+14	[	AltGr
+15	-
+15	6	Shift
+15	|	AltGr
+16	è
+16	7	Shift
+16	`	AltGr
+17	_
+17	8	Shift
+17	\\	AltGr
+18	ç
+18	9	Shift
+18	^	AltGr
+19	à
+19	0	Shift
+19	@	AltGr
+20	)
+20	°	Shift
+20	]	AltGr
+21	=
+21	+	Shift
+21	}	AltGr
+22	BackSpace
+23	Tab
+24	a
+24	A	Shift
+25	z
+25	Z	Shift
+26	e
+26	E	Shift
+27	r
+27	R	Shift
+28	t
+28	T	Shift
+29	y
+29	Y	Shift
+30	u
+30	U	Shift
+31	i
+31	I	Shift
+32	o
+32	O	Shift
+33	p
+33	P	Shift
+34	^
+34	"	Shift
+35	$
+35	`	Shift
+36	Return
+38	q
+38	Q	Shift
+39	s
+39	S	Shift
+40	d
+40	D	Shift
+41	f
+41	F	Shift
+42	g
+42	G	Shift
+43	h
+43	H	Shift
+44	j
+44	J	Shift
+45	k
+45	K	Shift
+46	l
+46	L	Shift
+47	m
+47	M	Shift
+48	ù
+48	%	Shift
+49	@
+51	*
+51	\\	Shift
+52	w
+52	W	Shift
+53	x
+53	X	Shift
+54	c
+54	C	Shift
+55	v
+55	V	Shift
+56	b
+56	B	Shift
+57	n
+57	N	Shift
+58	,
+58	?	Shift
+59	;
+59	.	Shift
+60	:
+60	/	Shift
+61	!
+61	|	Shift
+63	Kp*
+65	Space
+67	F1
+68	F2
+69	F3
+70	F4
+71	F5
+72	F6
+73	F7
+74	F8
+75	F9
+76	F10
+77	NumLock
+78	ScrollLock
+79	Kp7
+80	Kp8
+81	Kp9
+82	Kp-
+83	Kp4
+84	Kp5
+85	Kp6
+86	Kp+
+87	Kp1
+88	Kp2
+89	Kp3
+90	Kp0
+91	Kp.
+94	<
+94	>	Shift
+95	F11
+96	F12
+104	KpEnter
+106	Kp/
+107	PrintScreen
+110	Home
+111	Up
+112	PgUp
+113	Left
+114	Right
+115	End
+116	Down
+117	PgDown
+118	Ins
+119	Del
+127	Break
