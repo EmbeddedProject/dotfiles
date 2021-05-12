@@ -21,11 +21,17 @@ DOTFILES += Xresources
 DOTFILES += bash_aliases
 DOTFILES += bashrc
 DOTFILES += colordiffrc
+DOTFILES += config/fontconfig/fonts.conf
 DOTFILES += gitconfig
+DOTFILES += gnupg/gpg-agent.conf
+DOTFILES += gnupg/gpg.conf
 DOTFILES += gtkrc-2.0
 DOTFILES += i3
 DOTFILES += i3status.conf
 DOTFILES += inputrc
+DOTFILES += local/share/applications/defaults.list
+DOTFILES += local/share/applications/evince-previewer.desktop
+DOTFILES += local/share/applications/lessterm.desktop
 DOTFILES += mostrc
 DOTFILES += muttrc
 DOTFILES += notion
@@ -34,12 +40,6 @@ DOTFILES += tmux.conf
 DOTFILES += vim
 DOTFILES += wallpaper.jpg
 DOTFILES += xsessionrc
-DOTFILES += gnupg/gpg.conf
-DOTFILES += gnupg/gpg-agent.conf
-DOTFILES += local/share/applications/defaults.list
-DOTFILES += local/share/applications/evince-previewer.desktop
-DOTFILES += local/share/applications/lessterm.desktop
-DOTFILES += config/fontconfig/fonts.conf
 
 .PHONY: dotfiles
 dotfiles: $(addprefix $(HOME)/.,$(DOTFILES))
