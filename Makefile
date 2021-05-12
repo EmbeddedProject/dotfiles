@@ -53,7 +53,7 @@ $(HOME)/.%: %
 
 BINFILES := gitweb.perl
 BINFILES += haste
-BINFILES += keyboard_activity.py
+BINFILES += keyboard_stats.py
 BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py
 BINFILES += inputplug.sh
