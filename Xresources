@@ -1,7 +1,9 @@
+! vim: ft=xdefaults
+
 ! xterm ----------------------------------------------------------------------
 
 xterm*renderFont: true
-xterm*faceSize: 12
+xterm*faceSize: 13
 xterm*faceName: terminus
 xterm*background: black
 xterm*foreground: #cccccc
