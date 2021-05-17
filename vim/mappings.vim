@@ -120,7 +120,7 @@ nnoremap bb :bd<CR>
 " copy to attached terminal using the yank(1) script:
 " https://github.com/sunaku/home/blob/master/bin/yank
 function! Yank(text) abort
-	let escape = system('yank', a:text)
+	let escape = system('~/bin/yank', a:text)
 	if v:shell_error
 		echoerr escape
 	else
