@@ -33,7 +33,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/brightness.sh +
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xterm
 
 # kill focused window
 bindsym $mod+Shift+k kill
@@ -91,7 +91,7 @@ set $ws1 "1:term"
 set $ws2 "2:www-6WIND"
 set $ws3 "3:www-perso"
 set $ws4 "4:signal"
-set $ws5 "5"
+set $ws5 "5:spotify"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -109,7 +109,9 @@ bindsym $mod+egrave workspace number $ws7
 bindsym $mod+exclam workspace number $ws8
 bindsym $mod+ccedilla workspace number $ws9
 bindsym $mod+agrave workspace number $ws10
+bindsym Ctrl+$mod+Left workspace prev
 bindsym $mod+Delete workspace prev
+bindsym Ctrl+$mod+Right workspace next
 bindsym $mod+End workspace next
 
 # move focused container to workspace
@@ -123,15 +125,24 @@ bindsym $mod+Shift+egrave move container to workspace number $ws7
 bindsym $mod+Shift+exclam move container to workspace number $ws8
 bindsym $mod+Shift+ccedilla move container to workspace number $ws9
 bindsym $mod+Shift+agrave move container to workspace number $ws10
-bindsym $mod+Shift+Delete move container to workspace prev
-bindsym $mod+Shift+End move container to workspace next
+bindsym Ctrl+$mod+Shift+Left move container to workspace prev
+bindsym Ctrl+$mod+Shift+Right move container to workspace next
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+set $exit " Exit i3? [y/N] "
+mode --pango_markup $exit {
+	bindsym y exit
+	bindsym n mode "default"
+	bindsym q mode "default"
+	bindsym Space mode "default"
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+bindsym $mod+Shift+e mode $exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -161,13 +172,15 @@ bar {
 	position top
 }
 
-exec --no-startup-id i3-sensible-terminal
-exec --no-startup-id "hexchat"
+exec --no-startup-id xterm
+exec --no-startup-id hexchat
 for_window [class="Hexchat"] move scratchpad
 for_window [class="Hexchat"] sticky enable
-exec --no-startup-id "google-chrome"
+exec --no-startup-id google-chrome
 for_window [class="Google-chrome"] move container to workspace number $ws2
-exec --no-startup-id "firefox-esr"
+exec --no-startup-id firefox-esr
 for_window [class="Firefox"] move container to workspace number $ws3
-exec --no-startup-id "signal-desktop"
+exec --no-startup-id signal-desktop
 for_window [class="Signal"] move container to workspace number $ws4
+exec --no-startup-id spotify
+for_window [class="Spotify"] move container to workspace number $ws5
