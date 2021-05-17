@@ -21,6 +21,7 @@ DOTFILES += Xresources
 DOTFILES += bash_aliases
 DOTFILES += bashrc
 DOTFILES += colordiffrc
+DOTFILES += config/dunst/dunstrc
 DOTFILES += config/i3/config
 DOTFILES += config/i3status/config
 DOTFILES += gitconfig
