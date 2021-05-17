@@ -5,6 +5,8 @@
 # disable screen saver
 xset s off
 
+brightnessctl set 40%
+
 # energy saving (standby=10min, suspend=1h, off=2h)
 xset dpms 600 3600 7200
 

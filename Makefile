@@ -32,6 +32,10 @@ DOTFILES += inputrc
 DOTFILES += local/share/applications/defaults.list
 DOTFILES += local/share/applications/evince-previewer.desktop
 DOTFILES += local/share/applications/lessterm.desktop
+DOTFILES += local/share/icons/display-brightness.svg
+DOTFILES += local/share/icons/volume-down.svg
+DOTFILES += local/share/icons/volume-off.svg
+DOTFILES += local/share/icons/volume-up.svg
 DOTFILES += mostrc
 DOTFILES += muttrc
 DOTFILES += notion
@@ -55,9 +59,11 @@ BINFILES += gitweb.perl
 BINFILES += haste
 BINFILES += keyboard_stats.py
 BINFILES += mutt-ldap-search.py
+BINFILES += brightness.sh
 BINFILES += pr_activity.py
 BINFILES += inputplug.sh
 BINFILES += redemo.py
+BINFILES += volume
 BINFILES += yank
 
 .PHONY: scripts

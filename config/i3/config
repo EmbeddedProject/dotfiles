@@ -22,11 +22,12 @@ focus_follows_mouse no
 #font pango:DejaVu Sans Mono 8
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/volume -x 100 -P -e 1000 -p -n up 10
+bindsym XF86AudioLowerVolume exec --no-startup-id  ~/bin/volume -x 100 -P -e 1000 -p -n down 10
+bindsym XF86AudioMute exec --no-startup-id  ~/bin/volume -x 100 -P -e 1000 -p -n mute
+#bindsym XF86AudioMicMute exec --no-startup-id
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/brightness.sh -
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/brightness.sh +
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
