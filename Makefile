@@ -16,7 +16,7 @@ help:
 	@echo "  help           show this help message"
 	@echo
 
-DOTFILES := Xmodmap
+DOTFILES += Xmodmap
 DOTFILES += Xresources
 DOTFILES += bash_aliases
 DOTFILES += bashrc
@@ -51,7 +51,7 @@ $(HOME)/.%: %
 	@ln -srvf $< $@
 	@! [ $(@D) = $(HOME)/.gnupg ] || chmod -c 600 $< $@
 
-BINFILES := gitweb.perl
+BINFILES += gitweb.perl
 BINFILES += haste
 BINFILES += keyboard_stats.py
 BINFILES += mutt-ldap-search.py
