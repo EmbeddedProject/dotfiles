@@ -69,37 +69,35 @@ $(HOME)/bin/%: bin/%
 	@mkdir -pv $(@D)
 	@ln -srvf $< $@
 
-DEBS += bash
+DEBS += brightnessctl
 DEBS += cscope
 DEBS += curl
 DEBS += dbus-user-session
 DEBS += dunst
 DEBS += feh
-DEBS += firefox
+DEBS += firefox-esr
+DEBS += fonts-hack
 DEBS += fonts-terminus
 DEBS += fzf
 DEBS += git
-DEBS += grep
-DEBS += gzip
+DEBS += gnupg
 DEBS += hexchat
 DEBS += htop
 DEBS += inputplug
 DEBS += ipython3
 DEBS += libnotify-bin
-DEBS += lz4
+DEBS += network-manager-gnome
 DEBS += nm-tray
-DEBS += notion
 DEBS += numlockx
 DEBS += ripgrep
+DEBS += rofi
 DEBS += rsync
-DEBS += screen
 DEBS += source-highlight
-DEBS += suckless-tools
 DEBS += tmux
 DEBS += tree
-DEBS += xbacklight
+DEBS += vim-nox
 DEBS += xfonts-terminus
-DEBS += xserver-xorg-input-synaptics
+DEBS += xinput
 DEBS += xss-lock
 DEBS += xterm
 
