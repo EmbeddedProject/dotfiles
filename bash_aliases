@@ -130,9 +130,10 @@ function gpg_update_tty() {
 }
 
 if type _completion_loader &>/dev/null; then
-	_completion_loader pass
-	alias pass-it='PASSWORD_STORE_DIR=~/.passwords-it pass'
-	complete -o filenames -F _pass pass-it
+	_completion_loader task
+	alias t=task
+	complete -F _task t
+	alias tl='task list'
 
 	_completion_loader git
 	function _git_clone() {

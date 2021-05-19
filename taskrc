@@ -1,0 +1,7 @@
+taskd.certificate=~/.config/inthe.am/private.certificate.pem
+taskd.key=~/.config/inthe.am/private.key.pem
+taskd.ca=~/.config/inthe.am/ca.cert.pem
+taskd.server=inthe.am:53589
+taskd.credentials=inthe_am/diabeteman/1f9f5b92-48fd-449b-8932-d9469238ab51
+taskd.trust=strict
+data.location=~/.task
