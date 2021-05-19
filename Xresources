@@ -2,62 +2,55 @@
 
 ! xterm ----------------------------------------------------------------------
 
-xterm*renderFont: true
-xterm*faceSize: 13
-xterm*faceName: terminus
-xterm*background: black
-xterm*foreground: #cccccc
-xterm*dynamicColors: true
-xterm*color0: black
-xterm*color1: #cd0000
-xterm*color2: #00cd00
-xterm*color3: #cdcd00
-xterm*color4: #1e90ff
-xterm*color5: #cd00cd
-xterm*color6: #00cdcd
-xterm*color7: #cccccc
-xterm*color8: #4c4c4c
-xterm*color9: red
-xterm*color10: green
-xterm*color11: yellow
-xterm*color12: #4682b4
-xterm*color13: magenta
-xterm*color14: cyan
-xterm*color15: white
-xterm*cursorColor: green
-xterm*cursorBlink: false
+XTerm*renderFont: true
+XTerm*faceSize: 13
+XTerm*faceName: terminus
+XTerm*background: black
+XTerm*foreground: #cccccc
+XTerm*dynamicColors: true
+XTerm*color0: black
+XTerm*color1: #cd0000
+XTerm*color2: #00cd00
+XTerm*color3: #cdcd00
+XTerm*color4: #1e90ff
+XTerm*color5: #cd00cd
+XTerm*color6: #00cdcd
+XTerm*color7: #cccccc
+XTerm*color8: #4c4c4c
+XTerm*color9: red
+XTerm*color10: green
+XTerm*color11: yellow
+XTerm*color12: #4682b4
+XTerm*color13: magenta
+XTerm*color14: cyan
+XTerm*color15: white
+XTerm*cursorColor: green
+XTerm*cursorBlink: false
 
-xterm*utf8: 1
-xterm*eightBitInput: false
-xterm*eightBitMeta: false
-xterm*eightBitControl: false
-xterm*eightBitOutput: true
-xterm*metaSendsEscape: true
-xterm*termName: xterm-256color
-xterm*saveLines: 65536
-xterm*alternateScroll: true
-xterm*scrollKey: true
-xterm*scrollTtyOutput: false
-xterm*scrollBar: false
-xterm*jumpScroll: true
-xterm*multiScroll: true
-xterm*toolBar: false
-xterm*loginShell: true
-xterm*fullscreen: never
-xterm*VT100*translations: #override\n\
+XTerm*utf8: 1
+XTerm*eightBitInput: false
+XTerm*eightBitMeta: false
+XTerm*eightBitControl: false
+XTerm*eightBitOutput: true
+XTerm*metaSendsEscape: true
+XTerm*termName: xterm-256color
+XTerm*saveLines: 65536
+XTerm*alternateScroll: true
+XTerm*scrollKey: true
+XTerm*scrollTtyOutput: false
+XTerm*scrollBar: false
+XTerm*jumpScroll: true
+XTerm*multiScroll: true
+XTerm*toolBar: false
+XTerm*loginShell: true
+XTerm*fullscreen: never
+XTerm*VT100*translations: #override\n\
 	~Meta Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD)\n\
 	~Meta Shift Ctrl <KeyPress> c:copy-selection(CLIPBOARD)\n\
 	~Meta ~Shift Ctrl <Btn1Down>: exec-formatted("xdg-open '%t'", PRIMARY)
 ! double-click selects filenames (including those starting with ~)
-xterm*charClass: 45-47:48, 64:48, 126:48
-xterm*on2clicks: word
-xterm*on3clicks: line
+XTerm*charClass: 45-47:48, 64:48, 126:48
+XTerm*on2clicks: word
+XTerm*on3clicks: line
 ! allow tmux to use xterm clipboard buffer
-xterm*disallowedWindowOps: 20,21,SetXprop
-Xft.autohint: 0
-Xft.antialias: 1
-Xft.hinting: true
-Xft.hintstyle: hintslight
-Xft.dpi: 96
-Xft.rgba: rgb
-Xft.lcdfilter: lcddefault
+XTerm*disallowedWindowOps: 20,21,SetXprop
