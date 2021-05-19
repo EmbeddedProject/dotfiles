@@ -26,8 +26,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/volume -x 100 -P -e 1000
 bindsym XF86AudioLowerVolume exec --no-startup-id  ~/bin/volume -x 100 -P -e 1000 -p -n down 10
 bindsym XF86AudioMute exec --no-startup-id  ~/bin/volume -x 100 -P -e 1000 -p -n mute
 #bindsym XF86AudioMicMute exec --no-startup-id
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/brightness.sh -
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/brightness.sh +
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/backlight.sh -
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/backlight.sh +
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -180,3 +180,6 @@ exec --no-startup-id signal-desktop
 for_window [class="Signal"] move container to workspace number $ws4
 exec --no-startup-id spotify
 for_window [class="Spotify"] move container to workspace number $ws5
+
+# automatically update screen backlight when AC is plugged/unplugged
+exec --no-startup-id ~/bin/ac-auto-backlight.sh

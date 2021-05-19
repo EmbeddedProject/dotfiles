@@ -58,13 +58,14 @@ $(HOME)/.%: %
 	@ln -srvf $< $@
 	@! [ $(@D) = $(HOME)/.gnupg ] || chmod -c 600 $< $@
 
+BINFILES += ac-auto-backlight.sh
 BINFILES += gitweb.perl
 BINFILES += git-checkpatches
 BINFILES += git-cifixes
 BINFILES += haste
 BINFILES += keyboard_stats.py
 BINFILES += mutt-ldap-search.py
-BINFILES += brightness.sh
+BINFILES += backlight.sh
 BINFILES += pr_activity.py
 BINFILES += inputplug.sh
 BINFILES += redemo.py
@@ -95,6 +96,7 @@ DEBS += gnupg
 DEBS += hexchat
 DEBS += htop
 DEBS += inputplug
+DEBS += inotify-tools
 DEBS += ipython3
 DEBS += libnotify-bin
 DEBS += network-manager-gnome

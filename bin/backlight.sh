@@ -12,14 +12,11 @@ case "$action" in
 	brightnessctl set 10%-
 	;;
 *)
-	echo "error: invalid action: $action" >&2
-	exit 1
+	brightnessctl "$@"
 	;;
 esac
 
-
-
 notify-send -u normal -t 1000 -a "Display Brightness" \
-	-h string:synchronous:volume \
+	-h string:synchronous:backlight \
 	-i ~/.local/share/icons/display-brightness.svg \
 	"Display Brightness" $(brightnessctl i -m | cut -d, -f4)
