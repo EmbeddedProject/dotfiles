@@ -1,0 +1,40 @@
+#!/bin/sh
+
+user_message=TODO
+
+i=0
+max=$#
+while [ $i -lt $max ]; do
+	i=$((i + 1))
+	case "$1" in
+	-m)
+		user_message=$2
+		shift
+		shift
+		continue
+		;;
+	-*)
+		arg=$1
+		shift
+		;;
+	*)
+		if [ -z "$sha1" ] && ! [ -f "$1" ]; then
+			sha1=$1
+			shift
+			continue
+		fi
+		arg=$1
+		shift
+		;;
+	esac
+	set -- "$@" "$arg"
+done
+
+message="$(git log --format=%s -n1 $sha1) (fix)
+
+$user_message
+
+$(git log --format=%b -n1 $sha1 | grep '^PR=')
+$(git lfixes -n1 $sha1)"
+
+git commit -s -m "$message" -e "$@"

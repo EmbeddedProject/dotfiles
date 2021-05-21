@@ -58,6 +58,8 @@ $(HOME)/.%: %
 	@! [ $(@D) = $(HOME)/.gnupg ] || chmod -c 600 $< $@
 
 BINFILES += gitweb.perl
+BINFILES += git-checkpatches
+BINFILES += git-cifixes
 BINFILES += haste
 BINFILES += keyboard_stats.py
 BINFILES += mutt-ldap-search.py
