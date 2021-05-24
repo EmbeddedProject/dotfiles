@@ -51,13 +51,6 @@ class KeyMap:
 
 XINPUT_RE = re.compile(r'^key\s+(press|release)\s+(\d+)$')
 
-def get_keyboard_id(name):
-    out = subprocess.check_output(['xinput', '--list']).decode()
-    match = re.search(rf'{name}\s+id=(\d+)', out)
-    if not match:
-        raise FileNotFoundError(f'no such keyboard: {name}')
-    return match.group(1)
-
 
 class KeyPress:
 
@@ -163,9 +156,8 @@ def main():
     if args.keyboard_name is None:
         parser.error('--keyboard-name is required')
 
-    device_id = get_keyboard_id(args.keyboard_name)
     proc = subprocess.Popen(
-        ['xinput', '--test', device_id],
+        ['xinput', 'test', args.keyboard_name],
         stdout=subprocess.PIPE, stdin=subprocess.DEVNULL)
 
     try:
