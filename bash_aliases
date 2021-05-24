@@ -30,7 +30,11 @@ alias e="emacs -nw"
 alias grep='grep --color=auto'
 
 function gg() {
-	rg --color=always --no-heading -n --sort=path "$@" | less -RSXF
+	if [ -t 1 ]; then
+		command rg --color=always --no-heading -n --sort=path "$@" | less -RSXF
+	else
+		command rg --no-heading -n --sort=path "$@"
+	fi
 }
 
 if dircolors &>/dev/null; then
