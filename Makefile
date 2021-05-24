@@ -28,6 +28,7 @@ DOTFILES += config/polybar/launch.sh
 DOTFILES += config/polybar/ssh-vpn-status.sh
 DOTFILES += config/polybar/ssh-vpn-toggle.sh
 DOTFILES += config/polybar/spotify.py
+DOTFILES += config/polybar/irc_status.py
 DOTFILES += gitconfig
 DOTFILES += gnupg/gpg-agent.conf
 DOTFILES += gnupg/gpg.conf

@@ -5,7 +5,7 @@ bg = #000
 active-bg = #285577
 active-border = #4c7899
 active-text = #fff
-urgent-bg = #900000
+urgent-bg = #900
 urgent-border = #c74e4e
 inactive-bg = #222
 inactive-text = #888
@@ -25,7 +25,7 @@ padding = 0
 module-margin = 1
 dpi-x = 0
 dpi-y = 0
-enable-ipc = false
+enable-ipc = true
 
 font-0 = Terminus:pixelsize=17
 font-1 = Symbola:size=12:weight=bold
@@ -41,14 +41,15 @@ tray-padding = 1
 wm-restack = i3
 modules-left = i3
 modules-center = spotify
-modules-right = ssh-vpn battery backlight pulseaudio cpu date
+modules-right = ssh-vpn irc battery backlight pulseaudio cpu date
 
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
+format = <label-state><label-mode>
 label-mode = %mode%
-label-mode-padding = 0
-label-mode-background = #e60053
+label-mode-padding = 1
+label-mode-background = ${colors.urgent-bg}
+label-mode-underline = ${colors.urgent-border}
 label-focused = %name%
 label-focused-foreground = ${colors.active-text}
 label-focused-background = ${colors.active-bg}
@@ -71,7 +72,13 @@ label-urgent-padding = 1
 type = custom/script
 exec = ~/.config/polybar/ssh-vpn-status.sh
 tail = true
-double-click-left = ~/.config/polybar/ssh-vpn-toggle.sh &
+double-click-left = ~/.config/polybar/ssh-vpn-toggle.sh
+
+[module/irc]
+type = custom/script
+exec = ~/.config/polybar/irc_status.py
+tail = true
+click-left = i3-msg scratchpad show
 
 [module/backlight]
 type = internal/backlight
@@ -99,8 +106,8 @@ label-discharging = %percentage:2%%
 label-full = %percentage:2%%
 animation-charging-0 = ""
 animation-charging-font = 1
-ramp-capacity-0 = ""
-ramp-capacity-1 = ""
+ramp-capacity-0 = "%{F#f00}%{F-}"
+ramp-capacity-1 = "%{F#f90}%{F-}"
 ramp-capacity-2 = ""
 ramp-capacity-3 = ""
 ramp-capacity-4 = ""
@@ -124,7 +131,7 @@ click-left = ~/bin/volume -x 100 -P -e 1000 -p -n mute
 [module/spotify]
 type = custom/script
 interval = 2
-format-prefix = "%{F#1db954}%{F-} "
+format-prefix = "%{F#1db954}%{F-} "
 format = <label>
 exec = python3 ~/.config/polybar/spotify.py -t 60
 format-underline = #1db954
@@ -135,7 +142,7 @@ type = internal/date
 interval = 1
 date = %H:%M
 date-alt = %a. %Y-%m-%d %H:%M:%S
-format = <label>
+format = %{F#aaa}%{F-} <label>
 label = %date%
 
 [module/cpu]
@@ -144,4 +151,8 @@ interval = 3
 format = <ramp-load> <label>
 label = %percentage:2%%
 ramp-load-0 = ""
+ramp-load-1 = ""
+ramp-load-1-foreground = #fc0
+ramp-load-2 = ""
+ramp-load-2-foreground = #f00
 ramp-load-font = 2

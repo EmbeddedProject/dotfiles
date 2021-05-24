@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# Terminate already running bar instances
-pkill -x polybar
+if polybar-msg cmd show >/dev/null 2>&1; then
+	for pgid in $(ps -o pgid= $(pgrep -P $(pgrep polybar))); do
+		kill -- -$pgid
+	done
+fi
 
-# Wait until the processes have been shut down
-while pgrep -x polybar >/dev/null; do
-	sleep 1
-done
-
-polybar foo &
+if ! polybar-msg cmd restart; then
+	polybar -p ~/.polybar.png foo &
+fi
