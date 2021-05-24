@@ -27,7 +27,8 @@ mailboxes +INBOX
 set editor = "vim +/^$ ++1"
 set edit_headers
 
-set header_cache = "~/.mutt/cache/headers"
+set header_cache = "~/.cache/mutt/headers"
+set message_cachedir = "~/.cache/mutt/messages"
 set header_cache_backend = "tokyocabinet"
 set certificate_file = "~/.mutt/certificates"
 
@@ -93,7 +94,7 @@ unignore BCC:
 hdr_order Date: From: To: CC: BCC: Subject: \
 	Organization: User-Agent: X-Mailer: Message-ID:
 
-set query_command = "mutt-ldap-search.py %s"
+set query_command = "ssh dio-ext bin/mutt-ldap-search.py '%s'"
 
 bind editor <Tab> complete-query
 bind editor ^T complete
