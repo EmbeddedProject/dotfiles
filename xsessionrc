@@ -12,16 +12,3 @@ xset dpms 600 3600 7200
 xset mouse 3/2 0
 
 xsettingsd &
-
-# change desktop background
-feh --image-bg '#0e1624' --bg-center ~/.wallpaper.jpg
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock screen.
-xss-lock --transfer-sleep-lock -- i3lock --nofork &
-
-# add network manager applet in system tray
-nm-applet &
-
-# monitor input devices activity to apply settings
-inputplug -0 -c ~/bin/inputplug.sh &
