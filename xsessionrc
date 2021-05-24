@@ -11,6 +11,8 @@ xset dpms 600 3600 7200
 # mouse speed (ratio threshold)
 xset mouse 3/2 0
 
+xsettingsd &
+
 # change desktop background
 feh --image-bg '#0e1624' --bg-center ~/.wallpaper.jpg
 

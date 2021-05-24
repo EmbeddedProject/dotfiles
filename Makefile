@@ -49,6 +49,7 @@ DOTFILES += tmux.conf
 DOTFILES += vim
 DOTFILES += wallpaper.jpg
 DOTFILES += xsessionrc
+DOTFILES += xsettingsd
 
 .PHONY: dotfiles
 dotfiles: $(addprefix $(HOME)/.,$(DOTFILES))
