@@ -22,7 +22,7 @@ function RipGrep()
 	if l:expr == ''
 		return
 	endif
-	exec 'Rg ' . l:expr
+	call fzf#vim#grep("rg --column --line-number --no-heading --color=always " . l:expr, 1, fzf#vim#with_preview(), 0)
 endfunction
 "Tell FZF to use RG - so we can skip .gitignore files even if not using git
 "grep
