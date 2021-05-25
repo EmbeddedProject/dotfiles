@@ -64,7 +64,7 @@ class KeyPress:
         tokens = sorted(self.modifiers) + [raw]
         if modified and modified != raw:
             tokens.append(f'({modified})')
-        return ' '.join(tokens)
+        return ' '.join(str(t) for t in tokens)
 
     def __hash__(self):
         return hash((self.keynum, self.modifiers))
@@ -89,7 +89,8 @@ def usage_report(stats, samples):
         print(f'=============={"=" * len(section)}')
         print()
         for seq, num in ordered_seqences[:samples]:
-            print(f'{num / total:-8.1%}  {seq}')
+            n = f'{num}/{total}'
+            print(f'{n:>14}  {num / total:-5.1%}  {seq}')
 
 
 def main():
