@@ -76,10 +76,8 @@ if has("autocmd")
 	augroup END
 endif
 
-set scrolloff=1
-
 "lookahead when scrolling
-set scrolloff=1
+set scrolloff=3
 set sidescrolloff=5
 set display+=lastline
 
