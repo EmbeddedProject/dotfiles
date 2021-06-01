@@ -2,7 +2,9 @@
 
 ! xterm ----------------------------------------------------------------------
 
-XTerm*font: -*-terminus-medium-*-*-*-17-*-*-*-*-*-*-*
+XTerm*renderFont: true
+XTerm*faceName: terminus
+XTerm*faceSize: 13
 XTerm*background: black
 XTerm*foreground: #cccccc
 XTerm*dynamicColors: true
@@ -53,7 +55,7 @@ XTerm*on3clicks: line
 ! allow tmux to use xterm clipboard buffer
 XTerm*disallowedWindowOps: 20,21,SetXprop
 
-Xft.autohint: 1
+Xft.autohint: 0
 Xft.antialias: 1
 Xft.hinting: true
 Xft.hintstyle: hintslight
