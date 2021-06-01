@@ -37,7 +37,8 @@ bindsym $mod+Return exec xterm
 bindsym $mod+Shift+k kill
 
 # run program
-bindsym $mod+d exec "rofi -modi run,drun -show run"
+bindsym $mod+d exec "rofi -modi drun,run -show drun"
+bindsym $mod+l exec "loginctl lock-session"
 
 # change focus
 bindsym $mod+Left focus left
@@ -172,11 +173,11 @@ exec --no-startup-id xterm -name mutt -e neomutt
 for_window [instance="mutt"] move container to workspace number $ws6
 
 # change desktop background
-exec --no-startup-id feh --image-bg '#0e1624' --bg-center ~/.wallpaper.jpg
+exec_always --no-startup-id feh --image-bg '#0e1624' --bg-center ~/.wallpaper.png
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/lock.sh
 
 # add network manager applet in system tray
 exec --no-startup-id nm-applet
