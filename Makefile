@@ -75,7 +75,6 @@ BINFILES += pr_activity.py
 BINFILES += inputplug.sh
 BINFILES += redemo.py
 BINFILES += volume
-BINFILES += yank
 
 .PHONY: scripts
 scripts: $(addprefix $(HOME)/bin/,$(BINFILES))

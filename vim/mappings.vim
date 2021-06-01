@@ -117,26 +117,6 @@ nnoremap <F9> :set spell!<CR>
 
 nnoremap bb :bd<CR>
 
-" copy to attached terminal using the yank(1) script:
-" https://github.com/sunaku/home/blob/master/bin/yank
-function! Yank(text) abort
-	let escape = system('~/bin/yank', a:text)
-	if v:shell_error
-		echoerr escape
-	else
-		call writefile([escape], '/dev/tty', 'b')
-	endif
-endfunction
-
-" automatically run yank(1) whenever yanking in Vim
-" (this snippet was contributed by Larry Sanderson)
-function! CopyYank() abort
-	call Yank(join(v:event.regcontents, "\n"))
-endfunction
-autocmd TextYankPost * call CopyYank()
-
-nnoremap <silent> P :let @t=system('tmux show-buffer')<CR>"tp
-
 "-----------------------------------------------------------------------------
 "6WIND
 "-----------------------------------------------------------------------------
