@@ -9,7 +9,7 @@ if ! [ -f $image ]; then
 	convert ~/.wallpaper.png \
 		-background '#0e1624' -gravity center -extent "$resolution" \
 		-font FontAwesome -pointsize 70 -fill grey -stroke grey \
-		-gravity center -annotate "+0+$(((y / 2) - 100))" "" \
+		-gravity center -annotate "+0+$(((y / 2) - 50))" "" \
 		$image
 fi
 
