@@ -1,4 +1,4 @@
-# A basic .muttrc for use with Gmail
+# vim: filetype=neomuttrc
 
 set from = "robin.jarry@6wind.com"
 set realname = "Robin Jarry"
@@ -9,10 +9,8 @@ source ~/.muttrc.local
 set imap_user = $from
 set imap_pass = $smtp_pass
 unset imap_passive
-set imap_idle
 set imap_keepalive = 300
-set timeout = 30
-set mail_check = 10
+set mail_check = 6
 
 set ts_enabled = yes
 set ts_status_format = "6WIND Mutt [%n new messages]"
@@ -159,3 +157,15 @@ message-hook '~h "Subject: .*\\[PATCH"' "color body red     default '^-[^-].*$'"
 message-hook '~h "Subject: .*\\[PATCH"' "color body green   default '^[\+][^\+].*$'"
 message-hook '~h "Subject: .*\\[PATCH"' "color body red     default '^-$'"
 message-hook '~h "Subject: .*\\[PATCH"' "color body green   default '^[\+]$'"
+message-hook '~h "Subject: .*\\[PATCH"' "color body cyan   default '^[A-Za-z0-9-]+[:=].*'"
+
+message-hook '~h "X-Git-Branch:"' "color body magenta default '^diff --git .*$'"
+message-hook '~h "X-Git-Branch:"' "color body magenta default '^index [a-f0-9].*$'"
+message-hook '~h "X-Git-Branch:"' "color body magenta default '^--- .*$'"
+message-hook '~h "X-Git-Branch:"' "color body magenta default '^[\+]{3} .*$'"
+message-hook '~h "X-Git-Branch:"' "color body cyan    default '^@@ [^@]+ @@'"
+message-hook '~h "X-Git-Branch:"' "color body red     default '^-[^-].*$'"
+message-hook '~h "X-Git-Branch:"' "color body green   default '^[\+][^\+].*$'"
+message-hook '~h "X-Git-Branch:"' "color body red     default '^-$'"
+message-hook '~h "X-Git-Branch:"' "color body green   default '^[\+]$'"
+message-hook '~h "X-Git-Branch:"' "color body cyan   default '^[A-Za-z0-9-]+[:=].*'"
