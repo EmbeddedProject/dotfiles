@@ -31,9 +31,9 @@ alias grep='grep --color=auto'
 
 function gg() {
 	if [ -t 1 ]; then
-		command rg --no-heading --color=always -n "$@" | less -RSXF
+		command rg --no-heading --color=always --sort=path -n "$@" | less -RSXF
 	else
-		command rg --no-heading -n "$@"
+		command rg --no-heading --sort=path -n "$@"
 	fi
 }
 

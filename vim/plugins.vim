@@ -22,11 +22,11 @@ function RipGrep()
 	if l:expr == ''
 		return
 	endif
-	call fzf#vim#grep("rg --column --line-number --no-heading --color=always " . l:expr, 1, fzf#vim#with_preview(), 0)
+	call fzf#vim#grep("/usr/bin/rg --column --line-number --no-heading --color=always --with-filename --sort=path " . l:expr, 1, fzf#vim#with_preview(), 0)
 endfunction
 "Tell FZF to use RG - so we can skip .gitignore files even if not using git
 "grep
-let $FZF_DEFAULT_COMMAND = 'rg --files'
+let $FZF_DEFAULT_COMMAND = '/usr/bin/rg --files'
 function FindDir(path)
 	if a:path == ''
 		return
