@@ -48,7 +48,7 @@ let g:jedi#goto_command = "<F3>"
 "ale
 "let g:ale_virtualenv_dir_names = ['.venv']
 let g:ale_linters_explicit = 1
-let g:ale_linters = { 'python': ['flake8', 'pylint'] }
+let g:ale_linters = { 'python': ['flake8', 'pylint'], 'rust': ['analyzer'] }
 "let g:ale_python_pylint_executable = 'pylint3'
 let g:ale_set_signs = 0
 let g:ale_cache_executable_check_failures = 1
@@ -70,6 +70,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'neomutt/neomutt.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
