@@ -6,7 +6,7 @@ XTerm*renderFont: true
 XTerm*faceName: terminus
 XTerm*faceSize: 13
 XTerm*background: black
-XTerm*foreground: #cccccc
+XTerm*foreground: #dfdfdf
 XTerm*dynamicColors: true
 XTerm*color0: black
 XTerm*color1: #cd0000
@@ -15,7 +15,7 @@ XTerm*color3: #cdcd00
 XTerm*color4: #1e90ff
 XTerm*color5: #cd00cd
 XTerm*color6: #00cdcd
-XTerm*color7: #cccccc
+XTerm*color7: #dfdfdf
 XTerm*color8: #4c4c4c
 XTerm*color9: red
 XTerm*color10: green
