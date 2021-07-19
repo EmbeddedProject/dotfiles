@@ -13,7 +13,7 @@ endif
 let colors_name = "tir_black"
 
 " General colors
-hi Normal           ctermfg=white
+hi Normal           ctermfg=none
 hi NonText          ctermfg=232
 
 hi Cursor           ctermfg=0 ctermbg=15
@@ -29,9 +29,9 @@ hi Visual           cterm=reverse
 
 hi SpecialKey       ctermfg=236 ctermbg=233
 
-hi Error            ctermfg=white ctermbg=red
-hi ErrorMsg         ctermfg=white ctermbg=203 cterm=bold
-hi WarningMsg       ctermfg=white ctermbg=203 cterm=bold
+hi Error            ctermfg=none ctermbg=red
+hi ErrorMsg         ctermfg=none ctermbg=203 cterm=bold
+hi WarningMsg       ctermfg=none ctermbg=203 cterm=bold
 hi LongLineWarning  cterm=underline
 
 hi ModeMsg          ctermfg=0 ctermbg=189 cterm=bold
@@ -39,7 +39,7 @@ hi ModeMsg          ctermfg=0 ctermbg=189 cterm=bold
 hi CursorLine       ctermbg=233 cterm=none
 hi ColorColumn      ctermbg=234 cterm=none
 hi CursorColumn     ctermbg=233 cterm=none
-hi MatchParen       ctermfg=white ctermbg=darkgray
+hi MatchParen       ctermfg=none ctermbg=darkgray
 
 hi TabLine          ctermfg=102 ctermbg=233 cterm=NONE
 hi TabLineSel       ctermfg=15 ctermbg=59 cterm=NONE
@@ -74,7 +74,7 @@ hi Special          ctermfg=173
 hi Delimiter        ctermfg=37
 hi Operator         ctermfg=110
 
-hi SpellBad         ctermfg=white ctermbg=52
+hi SpellBad         ctermfg=none ctermbg=52
 hi clear SpellCap
 hi clear SpellRare
 hi clear SpellLocal
