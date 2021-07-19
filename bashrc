@@ -33,7 +33,6 @@ export LC_ALL LANG XDG_CONFIG_HOME
 if [ -S ~/.ssh/ssh_auth_sock ]; then
 	export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 fi
-export DISPLAY="localhost:10.0"
 
 if shopt -q progcomp && [ -z "$BASH_COMPLETION_COMPAT_DIR" ]; then
 	if [ -r /usr/share/bash-completion/bash_completion ]; then
