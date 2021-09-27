@@ -67,6 +67,7 @@ BINFILES += ac-auto-backlight.sh
 BINFILES += gitweb.perl
 BINFILES += git-checkpatches
 BINFILES += git-cifixes
+BINFILES += git-people
 BINFILES += haste
 BINFILES += keyboard_stats.py
 BINFILES += mutt-ldap-search.py

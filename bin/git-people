@@ -1,0 +1,63 @@
+#!/usr/bin/python3
+
+import argparse
+import re
+import subprocess
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        'names',
+        metavar='NAME',
+        type=lambda n: n.lower(),
+        nargs='+',
+        help='Name or part of name.')
+    parser.add_argument(
+        '-r', '--reported-by',
+        help='Prefix with Reported-by instead of Acked-by.',
+        default=False,
+        action='store_true')
+    parser.add_argument(
+        '-s', '--signed-off-by',
+        help='Prefix with Signed-off-by instead of Acked-by.',
+        default=False,
+        action='store_true')
+    parser.add_argument(
+        '-t', '--tested-by',
+        help='Prefix with Tested-by instead of Acked-by.',
+        default=False,
+        action='store_true')
+    args = parser.parse_args()
+    if args.signed_off_by:
+        prefix = 'Signed-off-by'
+    elif args.reported_by:
+        prefix = 'Reported-by'
+    elif args.tested_by:
+        prefix = 'Tested-by'
+    else:
+        prefix = 'Acked-by'
+
+    out = subprocess.check_output(
+        ['git', 'shortlog', '-se', '-w0', '--group=author', '--group=committer',
+         '--group=trailer:acked-by', '--group=trailer:reviewed-by'])
+
+    results = {}
+
+    for line in out.decode('utf-8').splitlines():
+        match = re.match(r'\s*\d+\s+(?P<name>.+)\s+<(?P<email>.+@.+)>', line)
+        if match:
+            name = match.group('name')
+            name = re.sub(r'[A-Z][A-Z]+', lambda m: m.group(0).title(), name)
+            name = re.sub(r'\b[a-z][a-z]+\b', lambda m: m.group(0).title(), name)
+            email = match.group('email').lower()
+            key = f'{name.lower()}***{email.lower()}'
+            for n in args.names:
+                if n in key:
+                    results[key] = (name, email)
+
+    for name, email in sorted(results.values()):
+        print(f'{prefix}: {name} <{email}>')
+
+if __name__ == '__main__':
+    main()
