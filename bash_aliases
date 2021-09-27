@@ -28,14 +28,7 @@ alias vi="vim"
 alias e="emacs -nw"
 
 alias grep='grep --color=auto'
-
-function gg() {
-	if [ -t 1 ]; then
-		command rg --no-heading --color=always --sort=path -n "$@" | less -RSXF
-	else
-		command rg --no-heading --sort=path -n "$@"
-	fi
-}
+alias gg='git grep --untracked'
 
 if dircolors &>/dev/null; then
 	eval `dircolors`

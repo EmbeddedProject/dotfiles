@@ -17,12 +17,12 @@ function GitRoot()
 endfunction
 
 "fzf
-function RipGrep()
+function GitGrep()
 	let l:expr = input('grep: ')
 	if l:expr == ''
 		return
 	endif
-	call fzf#vim#grep("/usr/bin/rg --column --line-number --no-heading --color=always --with-filename --sort=path " . l:expr, 1, fzf#vim#with_preview(), 0)
+	call fzf#vim#grep("git grep --untracked --color " . l:expr, 1, fzf#vim#with_preview(), 0)
 endfunction
 "Tell FZF to use RG - so we can skip .gitignore files even if not using git
 "grep
@@ -35,10 +35,10 @@ function FindDir(path)
 endfunction
 nnoremap <C-f> :call FindDir(input('find in dir: '))<Cr>
 nnoremap <C-p> :call FindDir(GitRoot())<Cr>
-nnoremap <C-g> :call RipGrep()<CR>
+nnoremap <C-g> :call GitGrep()<CR>
 
 "fugitive
-nnoremap <C-b> :Gblame<CR>
+nnoremap <C-b> :Git blame<CR>
 
 "jedi
 "let g:jedi#popup_on_dot = 0
