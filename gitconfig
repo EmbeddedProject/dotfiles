@@ -24,7 +24,7 @@
 
 [pretty]
 	fixes = Fixes: %h (\"%s\")
-	lineauthor = %C(auto)%h %C(auto,cyan)%ad %C(auto,magenta)%<(10,trunc)%an%C(auto)%d %C(auto,reset)%s
+	lineauthor = %C(auto)%h %C(auto,cyan)%ad %C(auto,magenta)%<(14,trunc)%an%C(auto)%d %C(auto,reset)%s
 	linepr = %C(auto)%h %C(auto,cyan)%>(5)%(trailers:only=true,key=PR,valueonly,unfold,separator=%x)%C(auto)%d %C(auto,reset)%s
 
 [sendemail]
