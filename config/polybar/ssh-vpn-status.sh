@@ -20,7 +20,8 @@ refresh_status() {
 		echo '%{F#888} vpn%{F-}'
 		msg="Disconnected"
 	fi
-	notify-send "SSH VPN" "$msg"
+	notify-send -u normal -t 1000 -a "SSH VPN" \
+		-h string:synchronous:ssh-vpn "SSH VPN" "$msg"
 }
 
 refresh_status
