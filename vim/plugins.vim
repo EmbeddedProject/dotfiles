@@ -53,6 +53,9 @@ let g:ale_linters = { 'python': ['flake8', 'pylint'], 'rust': ['analyzer'] }
 let g:ale_set_signs = 0
 let g:ale_cache_executable_check_failures = 1
 let g:ale_use_global_executables = 0
+let g:ale_completion_enabled = 1
+set completeopt=menu,menuone,noselect,noinsert
+nnoremap <F3> :ALEGoToDefinition<CR>
 
 "------------------------------------------------------------------------------
 "initialization
@@ -71,6 +74,7 @@ Plug 'neomutt/neomutt.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
