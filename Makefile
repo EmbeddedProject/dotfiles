@@ -33,6 +33,7 @@ DOTFILES += config/polybar/irc_status.py
 DOTFILES += gitconfig
 DOTFILES += gnupg/gpg-agent.conf
 DOTFILES += gnupg/gpg.conf
+DOTFILES += gnupg/scdaemon.conf
 DOTFILES += gtkrc-2.0
 DOTFILES += inputrc
 DOTFILES += local/share/applications/defaults.list
