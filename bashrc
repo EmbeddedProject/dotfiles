@@ -42,6 +42,10 @@ fi
 #--------------#
 # shell prompt #
 #--------------#
+if [ -r /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+	. /usr/share/git-core/contrib/completion/git-prompt.sh
+fi
+
 fancy_prompt() {
 	local Z="\[\e[0m\]"		# unset all colors
 
