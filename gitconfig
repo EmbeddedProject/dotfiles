@@ -1,7 +1,7 @@
 # vim: ft=gitconfig
 
 [user]
-	email = robin.jarry@6wind.com
+	email = robin@jarry.cc
 	name = Robin Jarry
 
 [core]
@@ -116,8 +116,10 @@
 [protocol]
 	version = 2
 [completion]
-	commands = -checkpatches -restore
+	commands = -checkpatches -restore -instaweb
 [rebase]
 	autoSquash = true
 [trailer]
 	separators = :=
+[init]
+	defaultBranch = main
