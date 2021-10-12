@@ -2,6 +2,6 @@
 Version=1.0
 Encoding=UTF-8
 Type=Application
-Name=evince-previewer
-Exec=/usr/bin/evince-previewer
+Name=mupdf
+Exec=/usr/bin/mupdf
 MIMEType=application/pdf;
