@@ -75,6 +75,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
+Plug 'evanleck/vim-svelte'
 
 call plug#end()
 
