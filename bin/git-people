@@ -44,7 +44,7 @@ def main():
 
     results = {}
 
-    for line in out.decode('utf-8').splitlines():
+    for line in out.decode('utf-8', errors='surrogateescape').splitlines():
         match = re.match(r'\s*\d+\s+(?P<name>.+)\s+<(?P<email>.+@.+)>', line)
         if match:
             name = match.group('name')

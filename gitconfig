@@ -73,7 +73,6 @@
 	web = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-web
 	wip = commit -asm 'wip'
 	grep-all-components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-grep-all-components
-	grep-all-branches = !git archive --remote=git://scm/delivery/branches.git master branches.config | tar -xO | grep ^[A-Za-z0-9] | cut -d ' ' -f 1 | sed s,^,origin/, | xargs git grep
 	find-all-components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-find-all-components
 	components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-components
 	list-pr = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-list-pr
