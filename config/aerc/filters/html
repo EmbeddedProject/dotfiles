@@ -1,0 +1,5 @@
+#!/bin/sh
+
+exec html2markdown --wrap-list-items --no-automatic-links \
+	--unicode-snob --reference-links --ignore-images \
+	--ignore-tables --mark-code

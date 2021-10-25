@@ -1,0 +1,5 @@
+
+{{(index .OriginalFrom 0).Name}}, {{dateFormat (.OriginalDate | toLocal) "Jan 02, 2006 at 15:04"}}:
+{{if eq .OriginalMIMEType "text/html"}}{{exec `~/.config/aerc/filters/html` .OriginalText | wrap 72 | quote}}
+{{else}}{{.OriginalText | quote}}
+{{end}}

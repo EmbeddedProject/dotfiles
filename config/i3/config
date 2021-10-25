@@ -79,7 +79,7 @@ set $ws2 "2:www-6WIND"
 set $ws3 "3:www-perso"
 set $ws4 "4:signal"
 set $ws5 "5:spotify"
-set $ws6 "6:mutt"
+set $ws6 "6:email"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -107,15 +107,11 @@ bindsym $mod+Shift+eacute move container to workspace number $ws2
 bindsym $mod+Shift+quotedbl move container to workspace number $ws3
 bindsym $mod+Shift+apostrophe move container to workspace number $ws4
 bindsym $mod+Shift+parenleft move container to workspace number $ws5
-bindsym $mod+Shift+section move container to workspace number $ws6
+bindsym $mod+Shift+minus move container to workspace number $ws6
 bindsym $mod+Shift+egrave move container to workspace number $ws7
-bindsym $mod+Shift+exclam move container to workspace number $ws8
+bindsym $mod+Shift+underscore move container to workspace number $ws8
 bindsym $mod+Shift+ccedilla move container to workspace number $ws9
 bindsym $mod+Shift+agrave move container to workspace number $ws10
-bindsym Ctrl+$mod+Shift+Left move container to workspace prev
-bindsym $mod+Shift+Delete move container to workspace prev
-bindsym Ctrl+$mod+Shift+Right move container to workspace next
-bindsym $mod+Shift+End move container to workspace next
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -157,21 +153,6 @@ bindsym $mod+r mode "resize"
 # restart status bar every time i3 is restarted
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-exec --no-startup-id xterm
-exec --no-startup-id hexchat
-for_window [class="Hexchat"] move scratchpad
-for_window [class="Hexchat"] sticky enable
-exec --no-startup-id google-chrome
-for_window [class="Google-chrome"] move container to workspace number $ws2
-exec --no-startup-id firefox-esr
-for_window [class="Firefox"] move container to workspace number $ws3
-exec --no-startup-id signal-desktop
-for_window [class="Signal"] move container to workspace number $ws4
-exec --no-startup-id spotify
-for_window [class="Spotify"] move container to workspace number $ws5
-exec --no-startup-id xterm -name mutt -e neomutt
-for_window [instance="mutt"] move container to workspace number $ws6
-
 # change desktop background
 exec_always --no-startup-id feh --image-bg '#0e1624' --bg-center ~/.wallpaper.png
 
@@ -187,3 +168,18 @@ exec --no-startup-id inputplug -0 -c ~/bin/inputplug.sh
 
 # automatically update screen backlight when AC is plugged/unplugged
 exec --no-startup-id ~/bin/ac-auto-backlight.sh
+
+for_window [class="Hexchat"] move scratchpad
+for_window [class="Hexchat"] sticky enable
+for_window [class="Google-chrome"] move container to workspace number $ws2
+for_window [class="Firefox"] move container to workspace number $ws3
+for_window [class="Signal"] move container to workspace number $ws4
+for_window [class="Spotify"] move container to workspace number $ws5
+for_window [instance="aerc"] move container to workspace number $ws6
+exec --no-startup-id xterm
+exec --no-startup-id hexchat
+exec --no-startup-id google-chrome
+exec --no-startup-id firefox-esr
+exec --no-startup-id signal-desktop
+exec --no-startup-id spotify
+exec --no-startup-id xterm -name aerc -e aerc
