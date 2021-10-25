@@ -151,7 +151,7 @@ function InsertLicense()
 
 	if b:current_syntax == 'rst'
 		let copyright = '.. ' . license
-	elseif b:current_syntax == 'c' || b:current_syntax == 'c+ifdef'
+	elseif b:current_syntax == 'c' || b:current_syntax == 'c+ifdef' || b:current_syntax == 'javascript'
 		let copyright = '/* ' . license . ' */'
 	elseif b:current_syntax == 'vim'
 		let copyright = '"' . license
