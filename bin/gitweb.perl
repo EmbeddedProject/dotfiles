@@ -2093,7 +2093,7 @@ sub format_log_line_html {
         )
         \b
     }{
-		$cgi->a({-href => href(action=>"object", hash=>$1),
+		$cgi->a({-href => href(action=>"commitdiff", hash=>$1),
 					-class => "text"}, $1);
 	}egx;
 
