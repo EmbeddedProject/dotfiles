@@ -86,6 +86,7 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'evanleck/vim-svelte'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
