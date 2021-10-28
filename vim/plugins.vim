@@ -24,6 +24,14 @@ function GitGrep()
 	endif
 	call fzf#vim#grep("git grep --untracked --color " . l:expr, 1, fzf#vim#with_preview(), 0)
 endfunction
+
+function GitGrepSymbol()
+	let l:expr = expand('<cword>')
+	if l:expr == ''
+		return
+	endif
+	call fzf#vim#grep("git grep --untracked --color " . l:expr, 1, fzf#vim#with_preview(), 0)
+endfunction
 "Tell FZF to use RG - so we can skip .gitignore files even if not using git
 "grep
 let $FZF_DEFAULT_COMMAND = '/usr/bin/rg --files'
@@ -36,6 +44,7 @@ endfunction
 nnoremap <C-f> :call FindDir(input('find in dir: '))<Cr>
 nnoremap <C-p> :call FindDir(GitRoot())<Cr>
 nnoremap <C-g> :call GitGrep()<CR>
+nnoremap <C-*> :call GitGrepSymbol()<CR>
 
 "fugitive
 nnoremap <C-b> :Git blame<CR>
