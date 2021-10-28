@@ -113,7 +113,7 @@ alias ncal='ncal -Mw3'
 
 function termcolors() {
 	for i in {0..255}; do
-		printf "%3d \e[48;5;%sm   \e[0m " "$i" "$i"
+		printf "\e[38;5;%sm%3d\e[0m \e[48;5;%sm%3d\e[0m " "$i" "$i" "$i" "$i"
 		if (( i == 7 )) || (( i == 15 )); then
 			printf '\n'
 		elif (( i > 15 )) && (( (i-15) % 6 == 0 )); then
