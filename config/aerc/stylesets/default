@@ -5,7 +5,6 @@ title.bg=#005f87
 title.fg=white
 title.bold=true
 *.selected.bg=#005f87
-*.selected.bold=true
 
 header.bold=true
 header.fg=#ffafaf
@@ -24,7 +23,6 @@ msglist_unread.fg=#ffff87
 msglist_unread.bold=true
 msglist_deleted.fg=#666666
 msglist_*.selected.bg=#303030
-msglist_*.selected.bold=true
 
 completion_pill.reverse=true
 

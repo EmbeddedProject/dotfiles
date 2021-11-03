@@ -31,8 +31,8 @@ def main():
     for p in args.patterns:
         if p.lower() == 'jmg':
             p = 'guerin'
-        ldap_filter += '(cn=*%s*)' % p
-        ldap_filter += '(mail=*%s*)' % p
+        ldap_filter += f'(cn=*{p}*)'
+        ldap_filter += f'(mail=*{p}*)'
     ldap_filter += ')'
 
     l = ldap.initialize(LDAP_URI)
@@ -54,9 +54,8 @@ def main():
                 email = attrs['mail'][0].decode().lower()
                 name = attrs['cn'][0].decode()
                 matches.append((email, name))
-        print(len(matches), 'entries found')
         for email, name in sorted(matches):
-            print('%s\t%s' % (email, name))
+            print(f'{email}\t{name}')
     finally:
         l.unbind()
 

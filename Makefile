@@ -72,6 +72,7 @@ $(HOME)/.%: %
 	@! [ $(@D) = $(HOME)/.gnupg ] || chmod -c 600 $< $@
 
 BINFILES += ac-auto-backlight.sh
+BINFILES += aerc-address-book.sh
 BINFILES += gitweb.perl
 BINFILES += git-checkpatches
 BINFILES += git-cifixes
