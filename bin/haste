@@ -1,52 +1,7 @@
 #!/bin/sh
 
-server=${HASTE_SERVER:-http://paste.dev.6wind.com}
-
 if [ $# -eq 0 ]; then
-	contents=$(cat)
-
-elif ! [ $# -eq 1 ] || echo "$1" | grep -Eq -- "-h|--help"; then
-	cat <<EOF
-Usage: haste FILE
-
-Upload contents of plaintext document to $server.
-
-Invocation with no arguments takes input from stdin or pipe.
-Terminate stdin by EOF (Ctrl-D).
-EOF
-	exit 1
-
-elif [ -e "$1" ] && ! [ -f "$1" ]; then
-	echo "Error: Not a regular file." >&2
-	exit 1
-
-elif ! [ -e "$1" ]; then
-	echo "Error: No such file." >&2
-	exit 1
-
-elif [ $(stat -c %s -- "$1") -gt 524288 ]; then
-	echo "Error: File must be smaller than 512 KiB." >&2
-	exit 1
+	exec curl -F file=@- https://0x0.st
+else
+	exec curl -F file=@"$1" https://0x0.st
 fi
-
-if [ -z "$contents" ] && [ -n "$1" ]; then
-	contents=$(cat "$1")
-fi
-
-if [ -z "$contents" ]; then
-	echo "Error: Pasted nothing." >&2
-	exit 1
-fi
-
-output=$(curl -s -XPOST "$server/documents" -d"$contents") &&
-if echo "$output" | grep -q '"key"'; then
-	key=$(printf "%s" "$output" | sed -rne 's,^.*"key":.*"([^"]+)".*,\1,p')
-	if [ -n $key ]; then
-		echo "$server/$key"
-		exit 0
-	fi
-fi
-
-echo "Error: Upload failed." >&2
-
-exit 1
