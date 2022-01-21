@@ -3,6 +3,7 @@
 [user]
 	email = robin@jarry.cc
 	name = Robin Jarry
+	signingKey = 46957EC08FD0FE90
 
 [core]
 	editor = vim

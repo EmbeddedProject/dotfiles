@@ -126,6 +126,12 @@ function gpg_update_tty() {
 	gpg-connect-agent updatestartuptty /bye
 }
 
+function resetcard() {
+	rm -rf ~/.gnupg/private-keys-v1.d
+	gpgconf --kill gpg-agent
+	gpg --card-status
+}
+
 if type _completion_loader &>/dev/null; then
 	_completion_loader task
 	alias t=task
