@@ -56,6 +56,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+Next move right
 
+# split current container
+bindsym $mod+h split vertical
+bindsym $mod+v split horizontal
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
@@ -182,4 +186,4 @@ exec --no-startup-id google-chrome
 exec --no-startup-id firefox-esr
 exec --no-startup-id signal-desktop
 exec --no-startup-id spotify
-exec --no-startup-id xterm -name aerc -e aerc
+exec --no-startup-id xterm -name aerc
