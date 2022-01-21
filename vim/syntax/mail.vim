@@ -69,7 +69,7 @@ syn match mailQuoteExp4	contained "\v^(\> ?){4}"
 syn match mailQuoteExp5	contained "\v^(\> ?){5}"
 syn match mailQuoteExp6	contained "\v^(\> ?){6}"
 
-syn match mailQuoteDiffChunk	contained contains=@NoSpell "\v^\> \zs(\@\@[^\@]+\@\@)"
+syn match mailQuoteDiffChunk	contained contains=@NoSpell "\v^\> \zs(\@\@[^\@]+\@\@.*)$"
 syn match mailQuoteDiffRemoved	contained contains=@NoSpell "\v^\> \zs(\-.*)$"
 syn match mailQuoteDiffAdded	contained contains=@NoSpell "\v^\> \zs(\+.*)$"
 syn match mailQuoteDiffMeta	contained contains=@NoSpell "\v^\> \zs(diff --git a/.*)$"
