@@ -4,7 +4,6 @@
 Colorize plaintext email. Write to stdout.
 """
 
-import argparse
 import re
 import sys
 
@@ -50,62 +49,32 @@ def replace_match(color, context_color):
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "file",
-        metavar="FILE",
-        default=sys.stdin.buffer,
-        type=argparse.FileType(mode="rb"),
-        nargs="?",
-        help="""
-        Read text from file. If "-" or not specified, read from stdin.
-        """,
-    )
-    parser.add_argument(
-        "-d",
-        "--debug",
-        action="store_true",
-        help="""
-        Print debugging info on stderr.
-        """,
-    )
-    args = parser.parse_args()
-
-    def debug(msg):
-        if args.debug:
-            sys.stderr.write(f"{TERM_BG_GRAY}DEBUG {msg.rstrip()}{TERM_RESET}\n")
-            sys.stderr.flush()
-
     in_patch = in_signature = in_headers = in_body = False
 
-    for line in args.file:
+    for line in sys.stdin.buffer:
         line = line.decode("utf-8", errors="replace").rstrip("\r\n")
         if in_patch:
-            debug(f"in patch: {line!r}")
             if line in ("--", "-- "):
-                debug(f"begin sigature: {line!r}")
                 in_signature = True
                 in_body = in_patch = in_headers = False
                 line = TERM_FG_PURPLE + line + TERM_RESET
-            elif line.startswith("+"):
-                line = TERM_FG_GREEN + line + TERM_RESET
-            elif line.startswith("-"):
-                line = TERM_FG_RED + line + TERM_RESET
             elif line.startswith("@@ "):
                 line = TERM_FG_CYAN + line + TERM_RESET
             elif any(line.startswith(m) for m in DIFF_META):
                 line = TERM_BOLD + TERM_FG_WHITE + line + TERM_RESET
+            elif line.startswith("+"):
+                line = TERM_FG_GREEN + line + TERM_RESET
+            elif line.startswith("-"):
+                line = TERM_FG_RED + line + TERM_RESET
 
         elif in_signature:
-            debug(f"in signature: {line!r}")
             line = (
                 TERM_FG_PURPLE
-                + URL_RE.sub(replace_match(TERM_FG_YELLOW, TERM_FG_GRAY), line)
+                + URL_RE.sub(replace_match(TERM_FG_YELLOW, TERM_FG_PURPLE), line)
                 + TERM_RESET
             )
 
         elif in_headers:
-            debug(f"in headers: {line!r}")
             if line == "":
                 in_body = True
                 in_headers = False
@@ -114,7 +83,6 @@ def main():
                 line = URL_RE.sub(replace_match(TERM_FG_YELLOW, TERM_RESET), line)
 
         elif in_body:
-            debug(f"in body: {line!r}")
             if line.startswith(">"):
                 level = 0
                 quotes = ""
@@ -122,19 +90,16 @@ def main():
                     quotes += ">"
                     line = line[1:]
                     level += 1
-                    if line.startswith(" "):
+                    while line.startswith(" "):
                         quotes += " "
                         line = line[1:]
                 quote_color = QUOTE_COLORS.get(quotes.count(">"), TERM_FG_GRAY)
 
                 if line.startswith("+"):
-                    debug(f"  quote{level} diff {line!r}")
                     line = quote_color + quotes + TERM_FG_GREEN + line + TERM_RESET
                 elif line.startswith("-"):
-                    debug(f"  quote{level} diff {line!r}")
                     line = quote_color + quotes + TERM_FG_RED + line + TERM_RESET
                 else:
-                    debug(f"  quote{level} {line!r}")
                     line = (
                         quote_color
                         + quotes
@@ -144,12 +109,10 @@ def main():
                         + TERM_RESET
                     )
             elif line.startswith("diff --git "):
-                debug(f"begin patch: {line!r}")
                 in_patch = True
                 in_body = in_headers = False
                 line = TERM_BOLD + TERM_FG_WHITE + line + TERM_RESET
             elif line in ("--", "-- "):
-                debug(f"begin signature: {line!r}")
                 in_signature = True
                 in_body = in_patch = in_headers = False
                 line = TERM_FG_PURPLE + line + TERM_RESET
@@ -157,28 +120,23 @@ def main():
                 line = URL_RE.sub(replace_match(TERM_FG_YELLOW, TERM_RESET), line)
 
         elif line.startswith("diff --git "):
-            debug(f"begin patch: {line!r}")
             in_patch = True
             in_body = in_headers = False
             line = TERM_BOLD + TERM_FG_WHITE + line + TERM_RESET
 
         elif line in ("--", "-- "):
-            debug(f"begin signature: {line!r}")
             in_signature = True
             in_body = in_patch = in_headers = False
             line = TERM_FG_PURPLE + line + TERM_RESET
 
         elif HEADER_RE.search(line):
-            debug(f"begin headers: {line!r}")
             in_headers = True
             line = HEADER_RE.sub(replace_match(TERM_FG_PURPLE, TERM_RESET), line)
             line = URL_RE.sub(replace_match(TERM_FG_YELLOW, TERM_RESET), line)
 
         else:
-            debug(f"begin body: {line!r}")
             in_body = True
 
-        debug(f"output: {line!r}")
         sys.stdout.write(line + "\r\n")
         sys.stdout.flush()
 
