@@ -40,7 +40,7 @@ def main():
 
     out = subprocess.check_output(
         ['git', 'shortlog', '-se', '-w0', '--group=author', '--group=committer',
-         '--group=trailer:acked-by', '--group=trailer:reviewed-by'])
+         '--group=trailer:acked-by', '--group=trailer:reviewed-by', 'HEAD'])
 
     results = {}
 
