@@ -126,7 +126,7 @@ function InsertAckedBy()
 	if expr == ''
 		return
 	endif
-	let cmd = '/mnt/sources/clones/infrastructure/admin-tools/acked-by.py ' . expr
+	let cmd = 'git people ' . expr
 	put =system(cmd)
 endfunction
 
@@ -143,11 +143,8 @@ endfunction
 
 nnoremap <F2> :call InsertFixes()<CR>
 
-"Pipe selection to hastebin and print URL in statusbar
-vnoremap Y <esc>:'<,'>:w !haste<CR>
-
 function InsertLicense()
-	let license = 'Copyright ' . strftime('%Y') . ' 6WIND S.A.'
+	let license = 'Copyright (c) ' . strftime('%Y') . ' Robin Jarry'
 
 	if b:current_syntax == 'rst'
 		let copyright = '.. ' . license
