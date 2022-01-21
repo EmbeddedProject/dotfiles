@@ -55,7 +55,6 @@ DOTFILES += local/share/icons/volume-off.svg
 DOTFILES += local/share/icons/volume-up.svg
 DOTFILES += mostrc
 DOTFILES += muttrc
-DOTFILES += notion
 DOTFILES += screenrc
 DOTFILES += taskrc
 DOTFILES += tmux.conf
