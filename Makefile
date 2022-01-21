@@ -83,6 +83,7 @@ BINFILES += gitweb.perl
 BINFILES += haste
 BINFILES += inputplug.sh
 BINFILES += keyboard_stats.py
+BINFILES += mbsyncwatch.py
 BINFILES += mutt-ldap-search.py
 BINFILES += pr_activity.py
 BINFILES += redemo.py
