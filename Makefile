@@ -75,16 +75,16 @@ $(HOME)/.%: %
 
 BINFILES += ac-auto-backlight.sh
 BINFILES += aerc-address-book.sh
-BINFILES += gitweb.perl
+BINFILES += backlight.sh
 BINFILES += git-checkpatches
 BINFILES += git-cifixes
 BINFILES += git-people
+BINFILES += gitweb.perl
 BINFILES += haste
+BINFILES += inputplug.sh
 BINFILES += keyboard_stats.py
 BINFILES += mutt-ldap-search.py
-BINFILES += backlight.sh
 BINFILES += pr_activity.py
-BINFILES += inputplug.sh
 BINFILES += redemo.py
 BINFILES += volume
 
