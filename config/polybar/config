@@ -40,7 +40,7 @@ tray-padding = 1
 
 wm-restack = i3
 modules-left = i3
-modules-center = spotify
+modules-center = music
 modules-right = ssh-vpn irc battery backlight pulseaudio cpu date
 
 [module/i3]
@@ -128,14 +128,14 @@ ramp-volume-2 = "🔊"
 ramp-volume-font = 1
 click-left = ~/bin/volume -x 100 -P -e 1000 -p -n mute
 
-[module/spotify]
+[module/music]
 type = custom/script
 interval = 2
 format-prefix = "%{F#1db954}%{F-} "
 format = <label>
-exec = python3 ~/.config/polybar/spotify.py -t 60
+exec = python3 ~/.config/polybar/music.py -t 60
 format-underline = #1db954
-click-left = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+click-left = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.clementine /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
 [module/date]
 type = internal/date
