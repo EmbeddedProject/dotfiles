@@ -79,9 +79,9 @@ bindsym $mod+at scratchpad show
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:term"
-set $ws2 "2:www-6WIND"
+set $ws2 "2:www-work"
 set $ws3 "3:www-perso"
-set $ws4 "4:signal"
+set $ws4 "4:comms"
 set $ws5 "5:music"
 set $ws6 "6:email"
 set $ws7 "7"
@@ -187,4 +187,4 @@ exec --no-startup-id google-chrome
 exec --no-startup-id firefox-esr
 exec --no-startup-id signal-desktop
 exec --no-startup-id clementine
-exec --no-startup-id xterm -name aerc
+exec --no-startup-id xterm -name aerc -e bash -c 'aerc.sh; exec bash -li'
