@@ -116,7 +116,7 @@ ramp-capacity-font = 1
 [module/pulseaudio]
 type = internal/pulseaudio
 use-ui-max = true
-interval = 5
+interval = 10
 format-volume = <ramp-volume> <label-volume>
 format-muted = %{T1}🔇%{T-} <label-muted>
 format-muted-foreground = #666
@@ -130,7 +130,7 @@ click-left = ~/bin/volume -x 100 -P -e 1000 -p -n mute
 
 [module/music]
 type = custom/script
-interval = 2
+interval = 5
 format-prefix = "%{F#1db954}%{F-} "
 format = <label>
 exec = python3 ~/.config/polybar/music.py -t 60
@@ -139,7 +139,7 @@ click-left = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.clementine /o
 
 [module/date]
 type = internal/date
-interval = 1
+interval = 30
 date = %a %d %b %H:%M
 date-alt = %a. %Y-%m-%d %H:%M:%S
 format = %{F#aaa}%{F-} <label>
@@ -147,7 +147,7 @@ label = %date%
 
 [module/cpu]
 type = internal/cpu
-interval = 3
+interval = 5
 format = <ramp-load> <label>
 label = %percentage:2%%
 ramp-load-0 = ""
