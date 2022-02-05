@@ -32,6 +32,7 @@ DOTFILES += config/aerc/templates/forward_as_body
 DOTFILES += config/aerc/templates/new_message
 DOTFILES += config/aerc/templates/quoted_reply
 DOTFILES += config/dunst/dunstrc
+DOTFILES += config/foot/foot.ini
 DOTFILES += config/i3/config
 DOTFILES += config/i3/lock.sh
 DOTFILES += config/polybar/config
