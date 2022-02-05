@@ -32,7 +32,7 @@ URL_RE = re.compile(
     (
         https?://[\w,;:!/#%^=@~\&\*\+\?\.\-]+
         |
-        [\w\-\+\.]*\w@\w[\w\-\.]+\w
+        [\w\-\+\.~/]*\w@\w[\w\-\.]+\w
     )
     """,
     re.VERBOSE,
@@ -136,6 +136,31 @@ def main():
 
         else:
             in_body = True
+            if line.startswith(">"):
+                level = 0
+                quotes = ""
+                while line.startswith(">"):
+                    quotes += ">"
+                    line = line[1:]
+                    level += 1
+                    while line.startswith(" "):
+                        quotes += " "
+                        line = line[1:]
+                quote_color = QUOTE_COLORS.get(quotes.count(">"), TERM_FG_GRAY)
+
+                if line.startswith("+"):
+                    line = quote_color + quotes + TERM_FG_GREEN + line + TERM_RESET
+                elif line.startswith("-"):
+                    line = quote_color + quotes + TERM_FG_RED + line + TERM_RESET
+                else:
+                    line = (
+                        quote_color
+                        + quotes
+                        + URL_RE.sub(
+                            replace_match(TERM_FG_YELLOW, quote_color), line
+                        )
+                        + TERM_RESET
+                    )
 
         sys.stdout.write(line + "\r\n")
         sys.stdout.flush()
