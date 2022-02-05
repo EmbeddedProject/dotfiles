@@ -42,6 +42,7 @@ DOTFILES += config/polybar/music.py
 DOTFILES += config/polybar/ssh-vpn-status.sh
 DOTFILES += config/polybar/ssh-vpn-toggle.sh
 DOTFILES += config/sway/config
+DOTFILES += config/user-dirs.dirs
 DOTFILES += gitconfig
 DOTFILES += gnupg/gpg-agent.conf
 DOTFILES += gnupg/gpg.conf
