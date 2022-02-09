@@ -27,6 +27,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/backlight.sh -
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/backlight.sh +
 bindsym $mod+p exec --no-startup-id test "$(autorandr --current)" = "common" && autorandr -c || autorandr -l common
 
+# take a screenshot with PrintScreen
+bindsym Print exec deepin-screenshot -n -s ~/screenshot.png
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

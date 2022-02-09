@@ -103,6 +103,7 @@ $(HOME)/bin/%: bin/%
 DEBS += brightnessctl
 DEBS += cscope
 DEBS += curl
+DEBS += deepin-screenshot
 DEBS += dbus-user-session
 DEBS += dunst
 DEBS += feh
