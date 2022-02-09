@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 ac_online_sysfs="/sys/class/power_supply/AC/online"
 ac_online=x
 
@@ -20,6 +22,7 @@ update_backlight() {
 
 update_backlight
 
-while inotifywait -qq -e access "$ac_online_sysfs"; do
+while inotifywait -qq -t 30 -e access "$ac_online_sysfs"; do
 	update_backlight
+	sleep 10
 done
