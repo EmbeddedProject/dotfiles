@@ -16,46 +16,22 @@ help:
 	@echo "  help           show this help message"
 	@echo
 
+xkb_config := $(shell find config/ -type f)
+xkb_local := $(shell find local/ -type f)
+
 DOTFILES += Xmodmap
 DOTFILES += Xresources
 DOTFILES += bash_aliases
 DOTFILES += bashrc
 DOTFILES += colordiffrc
-DOTFILES += config/aerc/aerc.conf
-DOTFILES += config/aerc/binds.conf
-DOTFILES += config/aerc/filters/html
-DOTFILES += config/aerc/filters/plaintext
-DOTFILES += config/aerc/stylesets/blue
-DOTFILES += config/aerc/stylesets/default
-DOTFILES += config/aerc/stylesets/pink
-DOTFILES += config/aerc/templates/forward_as_body
-DOTFILES += config/aerc/templates/new_message
-DOTFILES += config/aerc/templates/quoted_reply
-DOTFILES += config/dunst/dunstrc
-DOTFILES += config/foot/foot.ini
-DOTFILES += config/i3/config
-DOTFILES += config/i3/lock.sh
-DOTFILES += config/polybar/config
-DOTFILES += config/polybar/irc_status.py
-DOTFILES += config/polybar/launch.sh
-DOTFILES += config/polybar/music.py
-DOTFILES += config/polybar/ssh-vpn-status.sh
-DOTFILES += config/polybar/ssh-vpn-toggle.sh
-DOTFILES += config/sway/config
-DOTFILES += config/user-dirs.dirs
+DOTFILES += $(xkb_config)
 DOTFILES += gitconfig
 DOTFILES += gnupg/gpg-agent.conf
 DOTFILES += gnupg/gpg.conf
 DOTFILES += gnupg/scdaemon.conf
 DOTFILES += gtkrc-2.0
 DOTFILES += inputrc
-DOTFILES += local/share/applications/defaults.list
-DOTFILES += local/share/applications/lessterm.desktop
-DOTFILES += local/share/applications/mupdf.desktop
-DOTFILES += local/share/icons/display-brightness.svg
-DOTFILES += local/share/icons/volume-down.svg
-DOTFILES += local/share/icons/volume-off.svg
-DOTFILES += local/share/icons/volume-up.svg
+DOTFILES += $(xkb_local)
 DOTFILES += mostrc
 DOTFILES += muttrc
 DOTFILES += screenrc
@@ -76,24 +52,10 @@ $(HOME)/.%: %
 	@ln -srvf $< $@
 	@! [ $(@D) = $(HOME)/.gnupg ] || chmod -c 600 $< $@
 
-BINFILES += ac-auto-backlight.sh
-BINFILES += aerc-address-book.sh
-BINFILES += backlight.sh
-BINFILES += git-checkpatches
-BINFILES += git-cifixes
-BINFILES += git-people
-BINFILES += gitweb.perl
-BINFILES += haste
-BINFILES += inputplug.sh
-BINFILES += keyboard_stats.py
-BINFILES += mbsyncwatch.py
-BINFILES += mutt-ldap-search.py
-BINFILES += pr_activity.py
-BINFILES += redemo.py
-BINFILES += volume
+BINFILES = $(wildcard bin/*)
 
 .PHONY: scripts
-scripts: $(addprefix $(HOME)/bin/,$(BINFILES))
+scripts: $(addprefix $(HOME)/,$(BINFILES))
 	@:
 
 $(HOME)/bin/%: bin/%
