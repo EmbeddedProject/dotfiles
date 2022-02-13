@@ -2,7 +2,7 @@
 "Key mappings
 "-----------------------------------------------------------------------------
 
-if &term =~ '\v^(tmux|screen)'
+if &term =~ '\v^(tmux|screen|foot)'
 	" tmux will send xterm-style keys when its xterm-keys option is on
 	execute "set <F13>=\e[5;5~"
 	execute "map <F13> <C-PageUp>"
