@@ -10,28 +10,29 @@ help:
 	@echo
 	@echo "The following targets are available:"
 	@echo
+	@echo "  install        install user config files and scripts"
 	@echo "  dotfiles       install user config files"
 	@echo "  scripts        install user scripts in ~/bin"
 	@echo "  deb            install system deb packages"
 	@echo "  help           show this help message"
 	@echo
 
-xkb_config := $(shell find config/ -type f)
-xkb_local := $(shell find local/ -type f)
+xdg_config := $(shell find config/ -type f)
+xdg_local := $(shell find local/ -type f)
 
 DOTFILES += Xmodmap
 DOTFILES += Xresources
 DOTFILES += bash_aliases
 DOTFILES += bashrc
 DOTFILES += colordiffrc
-DOTFILES += $(xkb_config)
+DOTFILES += $(xdg_config)
 DOTFILES += gitconfig
 DOTFILES += gnupg/gpg-agent.conf
 DOTFILES += gnupg/gpg.conf
 DOTFILES += gnupg/scdaemon.conf
 DOTFILES += gtkrc-2.0
 DOTFILES += inputrc
-DOTFILES += $(xkb_local)
+DOTFILES += $(xdg_local)
 DOTFILES += mostrc
 DOTFILES += muttrc
 DOTFILES += screenrc
