@@ -1,0 +1,9 @@
+daemonize
+ignore-empty-password
+show-failed-attempts
+image=~/.wallpaper.png
+scaling=center
+color=0e1624
+indicator-radius=100
+indicator-thickness=15
+indicator-idle-visible

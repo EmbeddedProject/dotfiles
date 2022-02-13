@@ -1,0 +1,9 @@
+// ex: ft=xkb
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+	include "pc+fr+capslock(none)+nbsp(none)"
+	replace key <TLDE> { [ at ] };
+	replace key <AD12> { [ dollar, grave ] };
+	replace key <BKSL> { [ asterisk, backslash ] };
+	replace key <AB10> { [ exclam, bar ] };
+};

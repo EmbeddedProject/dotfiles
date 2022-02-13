@@ -1,0 +1,102 @@
+// vim: ft=json
+
+{
+	"layer": "top",
+	"position": "top",
+	"height": 22,
+
+	"modules-left": [
+		"sway/workspaces",
+		"sway/mode"
+	],
+	"modules-center": [
+		"custom/music"
+	],
+	"modules-right": [
+		"custom/irc",
+		"battery",
+		"backlight",
+		"pulseaudio",
+		"cpu",
+		"clock",
+		"tray"
+	],
+
+	"sway/workspaces": {
+		"tooltip": false
+	},
+	"sway/mode": {
+
+		"tooltip": false
+	},
+
+	"custom/music": {
+		"format": "♪ {}",
+		"max-length": 40,
+		"exec": "playerctl -aF metadata",
+		"tooltip": false
+	},
+
+	"custom/irc": {
+		"exec": "~/.config/waybar/irc_status.py",
+		"return-type": "json",
+		"on-click": "swaymsg scratchpad show",
+		"tooltip": false
+	},
+
+	"battery": {
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-icons": {
+			"charging": [""],
+			"discharging": ["", "", "", "", "" ]
+		},
+		"tooltip": false
+	},
+
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{icon} {percent}%",
+		"format-icons": ["🌕", "🌔", "🌓", "🌒", "🌑" ],
+		"interval": 10,
+		"tooltip": false
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume:2}%",
+		"format-bluetooth": "{icon} {volume:2}%",
+		"format-muted": "🔇 MUTE",
+		"format-icons": {
+			"default": ["🔈", "🔉", "🔊"]
+		},
+		"on-click": "~/bin/volume -x 100 -P -e 1000 -n mute",
+		"tooltip": false
+	},
+
+	"cpu": {
+		"states": {
+			"good": 25,
+			"warning": 50,
+			"critical": 75
+		},
+		"interval": 2,
+		"format": " {usage:3}%",
+		"format-icons": [],
+		"tooltip": false
+	},
+
+	"clock": {
+		"format": " {:%a %d %b %H:%M}",
+		"tooltip": false
+	},
+
+	"tray": {
+		"icon-size": 20,
+		"show-passive-items": true,
+		"spacing": 10
+	}
+}

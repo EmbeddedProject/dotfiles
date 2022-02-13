@@ -40,6 +40,7 @@ DOTFILES += taskrc
 DOTFILES += tmux.conf
 DOTFILES += vim
 DOTFILES += wallpaper.png
+DOTFILES += xkb/symbols/fr-devel
 DOTFILES += xsessionrc
 DOTFILES += xsettingsd
 

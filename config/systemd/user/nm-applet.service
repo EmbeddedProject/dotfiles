@@ -1,0 +1,11 @@
+[Unit]
+PartOf=waybar.service
+After=waybar.service
+Requisite=waybar.service
+
+[Service]
+ExecStart=/usr/bin/nm-applet --indicator
+Restart=on-failure
+
+[Install]
+WantedBy=waybar.service
