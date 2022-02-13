@@ -16,7 +16,11 @@ case "$action" in
 	;;
 esac
 
+current=$(brightnessctl i -m | cut -d, -f4)
+
 notify-send -u normal -t 1000 -a "Display Brightness" \
 	-h string:synchronous:backlight \
+	-h string:x-canonical-private-synchronous:backlight \
+	-h int:value:${current#%} \
 	-i ~/.local/share/icons/display-brightness.svg \
-	"Display Brightness" $(brightnessctl i -m | cut -d, -f4)
+	"Display Brightness" "$current"
