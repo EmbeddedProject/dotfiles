@@ -20,7 +20,7 @@ __prompt_command() {
 }
 export PROMPT_COMMAND='__prompt_command'
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export PAGER='less'
 export LESS='-RS'
 export LESSSECURE=1

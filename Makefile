@@ -99,6 +99,7 @@ DEBS += lsof
 DEBS += mako-notifier
 DEBS += mpc
 DEBS += mpd
+DEBS += neovim
 DEBS += network-manager-gnome
 DEBS += nm-tray
 DEBS += numlockx

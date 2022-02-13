@@ -28,6 +28,7 @@ hi Title            ctermfg=187 cterm=bold
 hi Visual           cterm=reverse
 
 hi SpecialKey       ctermfg=236 ctermbg=233
+hi Whitespace       ctermfg=236 ctermbg=233
 
 hi Error            ctermfg=none ctermbg=red
 hi ErrorMsg         ctermfg=none ctermbg=203 cterm=bold

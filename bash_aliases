@@ -23,8 +23,9 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 alias du='du -kh'       # Makes a more readable output.
 alias df='df -kTh'
 
-alias v="vim"
-alias vi="vim"
+alias vim="nvim"
+alias v="nvim"
+alias vi="nvim"
 alias e="emacs -nw"
 
 alias grep='grep --color=auto'

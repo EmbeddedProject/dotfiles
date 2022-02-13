@@ -13,7 +13,7 @@ set lazyredraw
 set mouse=
 
 "Yank-into/paste-from X selection clipboard (paste with middle mouse) by default
-set clipboard=unnamed
+set clipboard=unnamed,unnamedplus
 
 "Show tabs, trailing spaces, etc.
 set list
