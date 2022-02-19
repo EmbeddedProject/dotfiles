@@ -27,6 +27,7 @@ alias vim="nvim"
 alias v="nvim"
 alias vi="nvim"
 alias e="emacs -nw"
+alias imv=imv-wayland
 
 alias grep='grep --color=auto'
 alias gg='git grep --untracked'
