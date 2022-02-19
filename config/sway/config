@@ -128,7 +128,7 @@ bindsym Mod4+Shift+ccedilla move container to workspace number $ws9
 bindsym Mod4+Shift+agrave move container to workspace number $ws10
 
 # reload the configuration file
-bindsym Mod4+Shift+c exec swaymsg reload && systemctl --user reload waybar
+bindsym Mod4+Shift+c exec swaymsg reload
 
 set $exit "EXIT sway? [y/N]"
 mode $exit {
@@ -182,5 +182,6 @@ exec foot
 exec hexchat
 exec firefox
 exec foot -a aerc
+exec ashuffle --by-album
 
 exec ~/.config/sway/systemd-session.sh --with-cleanup
