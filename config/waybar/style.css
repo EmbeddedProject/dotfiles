@@ -1,28 +1,37 @@
-#waybar {
+window#waybar {
   background-color: black;
+  border-bottom: none;
+  transition-property: none;
 }
 
 #workspaces button {
-  padding: 0 5px;
+  padding: 0 6px;
   color: #888;
-  background-color: #222;
-  font-size: 17px;
-  font-family: Terminus;
+  background: #222;
+  box-shadow: none;
+  border: none;
   border-radius: 0;
-  margin: 0;
+  transition-property: none;
 }
 
-#workspace button:hover {
+#workspaces button label {
+  margin: 0;
+  padding: 0;
+}
+
+#workspaces button:hover {
   color: #888;
-  background-color: #222;
+  background: #222;
   box-shadow: none;
   text-shadow: none;
+  border: none;
 }
 
 #workspaces button.focused {
   color: white;
   background-color: #285577;
   box-shadow: inset 0 -3px #4c7899;
+  transition-property: none;
 }
 
 #workspaces button.urgent {
@@ -34,21 +43,31 @@
 #mode {
   padding: 0 4px;
   color: white;
-  font-size: 17px;
-  font-family: Terminus;
   background-color: #900;
   box-shadow: inset 0 -3px #c74e4e;
+}
+
+#workspaces button label,
+#mode,
+.modules-center > widget > label,
+.modules-right > widget > label {
+  font-size: 17px;
+  font-family: Terminus, "Font Awesome", "Symbola";
+}
+
+#custom-music {
+  padding: 0 2px;
+  color: white;
+  box-shadow: inset 0 -3px #1db954;
 }
 
 .modules-right > widget > label {
   padding: 0 10px;
   color: white;
-  font-size: 17px;
-  font-family: Terminus;
 }
 
 .modules-right > widget > label#pulseaudio.muted {
-  color: #888;
+  color: #555;
 }
 
 #battery.warning,
@@ -61,7 +80,7 @@
 }
 
 #custom-irc.disabled {
-  color: #888;
+  color: #555;
 }
 #custom-irc.urgent {
   color: #f22;

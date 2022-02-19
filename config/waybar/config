@@ -23,17 +23,19 @@
 	],
 
 	"sway/workspaces": {
+		"all-outputs": true,
+		"disable-scroll": true,
 		"tooltip": false
 	},
 	"sway/mode": {
-
 		"tooltip": false
 	},
 
 	"custom/music": {
-		"format": "♪ {}",
-		"max-length": 40,
-		"exec": "playerctl -aF metadata",
+		"exec": "playerctl -aF metadata -f '{{emoji(status)}} {{artist}} - {{title}}'",
+		"max-length": 50,
+		"on-click": "playerctl play-pause",
+		"on-click-right": "mpc clear",
 		"tooltip": false
 	},
 
