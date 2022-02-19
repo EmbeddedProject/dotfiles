@@ -62,26 +62,8 @@ function env() {
 	fi
 }
 
-alias acked-by.py=/mnt/sources/clones/infrastructure/admin-tools/acked-by.py
-alias docker.py=/mnt/sources/clones/infrastructure/vm-manager/docker.py
-alias find_build.py=/mnt/sources/clones/delivery/buildbot-server/find_build.py
-alias gather_results.py=/mnt/sources/clones/delivery/buildbot-server/gather_results.py
-alias http_serve.py=/mnt/sources/clones/infrastructure/admin-tools/http_serve.py
-alias nics.py=/mnt/sources/clones/infrastructure/admin-tools/nics.py
-alias trk=/mnt/sources/clones/infrastructure/tracker/trk
-alias vm.py=/mnt/sources/clones/infrastructure/vm-manager/vm.py
-
-tracker=/mnt/sources/clones/infrastructure/tracker
-if [ -f $tracker/extras/bash_completion.d/trk ]; then
-	. $tracker/extras/bash_completion.d/trk
-fi
-unset tracker
-
 alias sshunsafe='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 alias scpunsafe='scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
-key=/mnt/sources/clones/delivery/buildbot-server/keys/robobuild.ssh-rsa.priv
-alias sshrbb="ssh -i $key -l robobuild"
-alias scprbb="scp -i $key -o User=robobuild"
 
 # fuzzy find (case insensitive)
 function ff() {
@@ -93,11 +75,8 @@ function ff() {
 	find "$@" | grep -i -- "$pattern"
 }
 
-if type colordiff >/dev/null 2>&1; then
-	alias diff='colordiff -up'
-else
-	alias diff='diff -up'
-fi
+alias diff='diff -up'
+
 if type pinfo >/dev/null 2>&1; then
 	alias info=pinfo
 fi
@@ -133,34 +112,3 @@ function resetcard() {
 	gpgconf --kill gpg-agent
 	gpg --card-status
 }
-
-if type _completion_loader &>/dev/null; then
-	_completion_loader task
-	alias t=task
-	complete -F _task t
-	alias tl='task list'
-
-	_completion_loader git
-	function _git_clone() {
-		local prefix path
-		case "$cur" in
-		git://*/*)
-			path=${cur#git://}
-			path=${path#*/}
-			prefix=${cur%$path}
-			prefix=${prefix#git:}
-			COMPREPLY=($(cd /mnt/sources/git; \
-				compgen -d -S / -X '.*' -P $prefix -- $path))
-			;;
-		git://*)
-			COMPREPLY=($(compgen -W '//scm/' -- ${cur#git:}))
-			;;
-		--*)
-			__gitcomp_builtin clone
-			;;
-		esac
-	}
-	function _git_tag_auto() {
-		_git_tag "$@"
-	}
-fi
