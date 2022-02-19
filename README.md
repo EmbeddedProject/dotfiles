@@ -5,7 +5,7 @@ These are my configuration files.
 ## installation
 
 ```
-make
+make install
 ```
 
 Attention, this will replace all your configuration files with mine.

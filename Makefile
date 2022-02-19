@@ -1,12 +1,8 @@
 # Copyright 2021 Robin Jarry
 
-.PHONY: install
-install: dotfiles scripts
-	@:
-
 .PHONY: help
 help:
-	@echo "Bonjour, this is Robin config repo."
+	@echo "Bonjour, this is Robin config files."
 	@echo
 	@echo "The following targets are available:"
 	@echo
@@ -16,6 +12,10 @@ help:
 	@echo "  deb            install system deb packages"
 	@echo "  help           show this help message"
 	@echo
+
+.PHONY: install
+install: dotfiles scripts
+	@:
 
 xdg_config := $(shell find config/ -type f)
 xdg_local := $(shell find local/ -type f)
