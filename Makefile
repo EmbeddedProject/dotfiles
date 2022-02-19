@@ -35,6 +35,7 @@ DOTFILES += inputrc
 DOTFILES += $(xdg_local)
 DOTFILES += mostrc
 DOTFILES += muttrc
+DOTFILES += sbuildrc
 DOTFILES += screenrc
 DOTFILES += taskrc
 DOTFILES += tmux.conf
