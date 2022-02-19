@@ -27,10 +27,6 @@ export LESSSECURE=1
 export DEBFULLNAME='Robin Jarry'
 export DEBEMAIL='robin@jarry.cc'
 export LESSOPEN='|/usr/share/source-highlight/src-hilite-lesspipe.sh "%s"'
-: ${LC_ALL:=en_US.utf-8}
-: ${LANG:=$LC_ALL}
-: ${XDG_CONFIG_HOME:=$HOME/.config}
-export LC_ALL LANG XDG_CONFIG_HOME
 
 if shopt -q progcomp && [ -z "$BASH_COMPLETION_COMPAT_DIR" ]; then
 	if [ -r /usr/share/bash-completion/bash_completion ]; then
