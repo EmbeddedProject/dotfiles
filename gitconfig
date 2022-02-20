@@ -26,7 +26,6 @@
 [pretty]
 	fixes = Fixes: %h (\"%s\")
 	lineauthor = %C(auto)%h %C(auto,cyan)%ad %C(auto,magenta)%<(14,trunc)%an%C(auto)%d %C(auto,reset)%s
-	linepr = %C(auto)%h %C(auto,cyan)%>(5)%(trailers:only=true,key=PR,valueonly,unfold,separator=%x)%C(auto)%d %C(auto,reset)%s
 
 [sendemail]
 	chainreplyto = false
@@ -45,19 +44,8 @@
 	lineNumber = green
 	separator = blue
 
-[color "grep-all-components"]
-	filename = magenta
-	component = green
-	branch = cyan
-
-[color "find-all-components"]
-	branch = magenta
-	component = green
-
 [alias]
-	chpick = cherry-pick -sxe
 	s = status --short --branch
-	g = grep
 	ri = rebase -i
 	ra = rebase --abort
 	rc = rebase --continue
@@ -67,31 +55,11 @@
 	can = commit --amend --no-edit
 	co = checkout
 	a = add -u
-	l = log --pretty=linepr --topo-order
+	l = log --oneline --topo-order
 	ll = log --pretty=lineauthor --date=short --topo-order
 	lfixes = log --pretty=fixes
 	fixup = commit --fixup
-	web = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-web
 	wip = commit -asm 'wip'
-	grep-all-components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-grep-all-components
-	find-all-components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-find-all-components
-	components = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-components
-	list-pr = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-list-pr
-	remote-add-backport = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-remote-add-backport
-	w = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-web add
-	next-tag = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-next-tag
-	tag-auto = !/mnt/sources/clones/infrastructure/git-tools/scripts/git-tag-auto
-
-[url "git://scm/"]
-	InsteadOf = "/aston/h_debit/scm/git/projects/"
-	InsteadOf = "/mnt/sources/git/"
-
-[url "git@scm:/mnt/sources/git/"]
-	pushInsteadOf = "git://scm/"
-	pushInsteadOf = "/aston/h_debit/scm/git/projects/"
-	pushInsteadOf = "/mnt/sources/git/"
-	pushInsteadOf = "git@core:projects/"
-	pushInsteadOf = "git@core:/aston/h_debit/scm/git/projects/"
 
 [log]
 	decorate = true
@@ -119,7 +87,5 @@
 	commands = -checkpatches -restore -instaweb
 [rebase]
 	autoSquash = true
-[trailer]
-	separators = :=
 [init]
 	defaultBranch = main
