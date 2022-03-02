@@ -21,13 +21,9 @@ msglist_unread.bold=true
 msglist_deleted.fg=#666666
 msglist_*.selected.bg=#303030
 msglist_marked.fg=white
-msglist_flagged.fg=white
 msglist_marked.selected.fg=white
-msglist_flagged.selected.fg=white
 msglist_marked.bg=#005f87
-msglist_flagged.bg=#005f87
 msglist_marked.selected.bg=#005fff
-msglist_flagged.selected.bg=#005fff
 
 completion_pill.reverse=true
 
@@ -44,3 +40,5 @@ selector_chooser.fg=white
 default.selected.bold=true
 default.selected.fg=white
 default.selected.bg=#005f87
+
+completion_default.selected.bg=#005f87
