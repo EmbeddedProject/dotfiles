@@ -24,6 +24,7 @@ export EDITOR="nvim"
 export PAGER='less'
 export LESS='-RS'
 export LESSSECURE=1
+export CLICOLOR=1
 export DEBFULLNAME='Robin Jarry'
 export DEBEMAIL='robin@jarry.cc'
 export LESSOPEN='|/usr/share/source-highlight/src-hilite-lesspipe.sh "%s"'
