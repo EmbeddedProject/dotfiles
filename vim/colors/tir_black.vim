@@ -27,7 +27,8 @@ hi Folded           ctermfg=103 ctermbg=60
 hi Title            ctermfg=187 cterm=bold
 hi Visual           cterm=reverse
 
-hi SpecialKey       ctermfg=236 ctermbg=233
+hi SpecialKey       ctermfg=15 ctermbg=9
+hi ExtraWhitespace  ctermfg=15 ctermbg=9
 hi Whitespace       ctermfg=236 ctermbg=233
 
 hi Error            ctermfg=none ctermbg=red
@@ -159,3 +160,6 @@ hi mailQuoteDiffRemoved ctermbg=NONE ctermfg=9
 
 hi diffAdded        ctermbg=NONE ctermfg=10
 hi diffRemoved      ctermbg=NONE ctermfg=9
+
+" Show trailing whitespace and spaces before a tab:
+match ExtraWhitespace /\s\+$\| \+\ze\t/
