@@ -41,7 +41,7 @@ tray-padding = 1
 wm-restack = i3
 modules-left = i3
 modules-center = music
-modules-right = ssh-vpn irc battery backlight pulseaudio cpu date
+modules-right = irc battery backlight pulseaudio cpu date
 
 [module/i3]
 type = internal/i3
@@ -67,12 +67,6 @@ label-urgent-foreground = ${colors.active-text}
 label-urgent-background = ${colors.urgent-bg}
 label-urgent-underline = ${colors.urgent-border}
 label-urgent-padding = 1
-
-[module/ssh-vpn]
-type = custom/script
-exec = ~/.config/polybar/ssh-vpn-status.sh
-tail = true
-double-click-left = ~/.config/polybar/ssh-vpn-toggle.sh
 
 [module/irc]
 type = custom/script
