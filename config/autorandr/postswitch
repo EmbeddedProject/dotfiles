@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sleep 2
+polybar-msg cmd restart
+notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
