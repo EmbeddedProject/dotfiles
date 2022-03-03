@@ -1,9 +1,0 @@
-#!/bin/sh
-
-for d in `find . -type d -not -path '*/.git/*'`; do
-	curdir=`pwd`
-	cd $d
-	echo "+ctags --languages=C,C++ --exclude='.*' $d"
-	ctags --languages=C,C++ --exclude='.*' *
-	cd $curdir
-done
