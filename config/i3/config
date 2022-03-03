@@ -184,7 +184,6 @@ for_window [instance="aerc"] move container to workspace number $ws6
 exec --no-startup-id xterm
 exec --no-startup-id hexchat
 exec --no-startup-id google-chrome
-exec --no-startup-id firefox-esr
+exec --no-startup-id firefox
 exec --no-startup-id signal-desktop
-exec --no-startup-id clementine
-exec --no-startup-id xterm -name aerc -e bash -c 'aerc.sh; exec bash -li'
+exec --no-startup-id xterm -name aerc -e bash -c 'aerc; exec bash -li'
