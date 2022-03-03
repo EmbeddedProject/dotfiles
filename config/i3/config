@@ -173,9 +173,6 @@ exec --no-startup-id nm-applet
 # monitor input devices activity to apply settings
 exec --no-startup-id inputplug -0 -c ~/bin/inputplug.sh
 
-# automatically update screen backlight when AC is plugged/unplugged
-exec --no-startup-id ~/bin/ac-auto-backlight.sh
-
 for_window [class="Hexchat"] move scratchpad
 for_window [class="Hexchat"] sticky enable
 for_window [class="Google-chrome"] move container to workspace number $ws2
