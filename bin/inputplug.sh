@@ -14,29 +14,21 @@ device_name="$4"
 
 case "$event-$device_type" in
 XIDeviceEnabled-XISlaveKeyboard)
-	. /etc/default/keyboard
-	set --
-	if [ -n "$XKBMODEL" ]; then
-		set -- "$@" -model "$XKBMODEL"
-	fi
-	if [ -n "$XKBLAYOUT" ]; then
-		set -- "$@" -layout "$XKBLAYOUT"
-	fi
-	if [ -n "$XKBVARIANT" ]; then
-		set -- "$@" -variant "$XKBVARIANT"
-	fi
-	for opt in $XKBOPTIONS; do
-		set -- "$@" -option "$opt"
-	done
-	if [ $# -gt 0 ]; then
-		setxkbmap "$@"
-	fi
-	# key repeat rate, 200ms delay, 40 repeats/sec.
-	xset r rate 200 40
-	if [ -r ~/.Xmodmap ]; then
-		xmodmap ~/.Xmodmap
-	fi
-	# enable numlock when starting X
-	numlockx on
+	case "$device_name" in
+	*YubiKey*)
+		# force querty for HOTP digits
+		setxkbmap -device $device_id us
+		;;
+	*)
+		setxkbmap -device $device_id fr
+		# key repeat rate, 200ms delay, 40 repeats/sec.
+		xset r rate 200 40
+		if [ -r ~/.Xmodmap ]; then
+			xmodmap ~/.Xmodmap
+		fi
+		# enable numlock when starting X
+		numlockx on
+		;;
+	esac
 	;;
 esac
