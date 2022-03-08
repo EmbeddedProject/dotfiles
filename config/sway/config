@@ -9,6 +9,10 @@ input type:keyboard {
 	xkb_capslock disabled
 }
 
+input 4176:1031:Yubico_YubiKey_OTP+FIDO+CCID {
+	xkb_layout us
+}
+
 input type:touchpad {
 	tap enabled
 	dwt enabled
