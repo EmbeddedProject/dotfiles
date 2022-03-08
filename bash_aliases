@@ -29,6 +29,10 @@ alias vi="nvim"
 alias e="emacs -nw"
 alias imv=imv-wayland
 
+_completion_loader task
+alias t=task
+complete -F _task t
+
 alias grep='grep --color=auto'
 alias gg='git grep --untracked'
 
