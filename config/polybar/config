@@ -124,12 +124,13 @@ click-left = ~/bin/volume -x 100 -P -e 1000 -p -n mute
 
 [module/music]
 type = custom/script
-interval = 5
-format-prefix = "%{F#1db954}%{F-} "
+#format-prefix = "%{F#1db954}%{F-} "
 format = <label>
-exec = python3 ~/.config/polybar/music.py -t 60
+exec = playerctl -aF metadata -f '{{emoji(status)}} {{playerName}}: {{artist}} - {{title}}'
+tail = true
 format-underline = #1db954
-click-left = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.clementine /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+click-left = playerctl -p spotify,%any play-pause
+click-right = mpc clear
 
 [module/date]
 type = internal/date

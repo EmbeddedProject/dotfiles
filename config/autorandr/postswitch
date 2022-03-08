@@ -1,5 +1,6 @@
 #!/bin/sh
 
 sleep 2
-polybar-msg cmd restart
+~/.config/polybar/launch.sh
+feh --image-bg '#0e1624' --bg-center ~/.wallpaper.png
 notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
