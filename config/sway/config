@@ -16,6 +16,9 @@ input 4176:1031:Yubico_YubiKey_OTP+FIDO+CCID {
 input type:touchpad {
 	tap enabled
 	dwt enabled
+	drag enabled
+	pointer_accel 0.35
+	middle_emulation enabled
 }
 
 seat * keyboard_grouping smart
@@ -41,7 +44,7 @@ bindsym XF86MonBrightnessUp exec ~/bin/backlight.sh +
 floating_modifier Mod4
 
 # start a terminal
-bindsym Mod4+Return exec foot
+bindsym Mod4+Return exec footclient
 
 # kill focused window
 bindsym Mod4+Shift+k kill
@@ -93,11 +96,11 @@ bindsym Mod4+Shift+p   exec grimshot save window ~/screenshot.png
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:term"
-set $ws2 "2:www"
-set $ws3 "3:comms"
-set $ws4 "4:music"
-set $ws5 "5:email"
-set $ws6 "6"
+set $ws2 "2:www-work"
+set $ws3 "3:www-perso"
+set $ws4 "4:comms"
+set $ws5 "5:music"
+set $ws6 "6:email"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -175,17 +178,22 @@ exec swayidle -w \
 for_window [class="Hexchat"] move scratchpad
 for_window [class="Hexchat"] sticky enable
 for_window [class="Google-chrome"] move container to workspace number $ws2
-for_window [class="Firefox"] move container to workspace number $ws2
-for_window [class="Signal"] move container to workspace number $ws3
-for_window [class="Spotify"] move container to workspace number $ws4
-for_window [class="Clementine"] move container to workspace number $ws4
-for_window [app_id="aerc"] move container to workspace number $ws5
+for_window [app_id="firefox"] move container to workspace number $ws3
+for_window [class="Signal"] move container to workspace number $ws4
+for_window [class="Spotify"] move container to workspace number $ws5
+for_window [class="Clementine"] move container to workspace number $ws5
+for_window [app_id="aerc"] move container to workspace number $ws6
 
+include /etc/sway/config.d/*
+
+exec swaylock
 # startup apps
-exec foot
+exec kanshi
+exec foot -s
+exec footclient
 exec hexchat
+exec google-chrome
 exec firefox
-exec foot -a aerc
-exec ashuffle --by-album
-
-exec ~/.config/sway/systemd-session.sh --with-cleanup
+exec signal-desktop
+exec spotify
+exec footclient -a aerc bash -c 'aerc; exec bash -li'
