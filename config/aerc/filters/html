@@ -1,5 +1,4 @@
 #!/bin/sh
 
-exec html2markdown --wrap-list-items --no-automatic-links \
-	--unicode-snob --reference-links --ignore-images \
-	--ignore-tables --mark-code
+exec pandoc -f html-raw_html-native_divs-native_spans -t gfm-raw_html \
+	--markdown-headings=setext
