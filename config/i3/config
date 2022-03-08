@@ -157,11 +157,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# restart status bar every time i3 is restarted
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id ~/.config/polybar/launch.sh
 
-# change desktop background
-exec_always --no-startup-id feh --image-bg '#0e1624' --bg-center ~/.wallpaper.png
+# set desktop background
+exec --no-startup-id feh --image-bg '#0e1624' --bg-center ~/.wallpaper.png
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock screen.
