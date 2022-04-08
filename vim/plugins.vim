@@ -58,13 +58,16 @@ let g:jedi#goto_command = "<F3>"
 "let g:ale_virtualenv_dir_names = ['.venv']
 let g:ale_linters_explicit = 1
 let g:ale_linters = { 'python': ['flake8', 'pylint'], 'rust': ['analyzer'], 'javascript': ['eslint'] }
-"let g:ale_python_pylint_executable = 'pylint3'
+let g:ale_python_pylint_executable = 'pylint-3'
 let g:ale_set_signs = 0
 let g:ale_cache_executable_check_failures = 1
 let g:ale_use_global_executables = 0
 let g:ale_completion_enabled = 1
 set completeopt=menu,menuone,noselect,noinsert
-nnoremap <F3> :ALEGoToDefinition<CR>
+
+let g:go_def_mapping_enabled = 0
+autocmd FileType go nnoremap <buffer> <silent> <F3> :GoDef<cr>
+autocmd FileType go nnoremap <buffer> <silent> <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>
 
 "------------------------------------------------------------------------------
 "initialization

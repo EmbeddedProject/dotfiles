@@ -190,6 +190,4 @@ elseif $CSCOPE_DB != ""
 	cscope add $CSCOPE_DB
 endif
 
-"Basic keymaps
-nnoremap <F3> :cs find g <C-R>=expand("<cword>")<CR><CR>   " global definition
-nnoremap <F8> :cs find c <C-R>=expand("<cword>")<CR><CR>   " functions calling
+autocmd FileType c nnoremap <buffer> <silent> <F3> :cs find g <C-R>=expand("<cword>")<CR><CR>
