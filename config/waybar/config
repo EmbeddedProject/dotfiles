@@ -32,10 +32,9 @@
 	},
 
 	"custom/music": {
-		"exec": "playerctl -aF metadata -f '{{emoji(status)}} {{artist}} - {{title}}'",
+		"exec": "playerctl -p clementine,spotify -F metadata -f '{{emoji(status)}} {{playerName}}: {{artist}} - {{title}}'",
 		"max-length": 50,
-		"on-click": "playerctl play-pause",
-		"on-click-right": "mpc clear",
+		"on-click": "playerctl -p clementine,spotify play-pause",
 		"tooltip": false
 	},
 
