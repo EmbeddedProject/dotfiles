@@ -10,6 +10,7 @@ help:
 	@echo "  dotfiles       install user config files"
 	@echo "  scripts        install user scripts in ~/bin"
 	@echo "  deb            install system deb packages"
+	@echo "  rpm            install system rpm packages"
 	@echo "  help           show this help message"
 	@echo
 
@@ -144,3 +145,76 @@ DEBS += xwayland
 deb:
 	sudo apt update
 	sudo apt install $(DEBS)
+
+RPMS += NetworkManager-openvpn-gnome
+RPMS += NetworkManager-tui
+RPMS += NetworkManager-wifi
+RPMS += alsa-sof-firmware
+RPMS += ansible
+RPMS += brightnessctl
+RPMS += cscope
+RPMS += cups
+RPMS += fedora-workstation-repositories
+RPMS += file-roller
+RPMS += firefox
+RPMS += fontawesome-fonts
+RPMS += foot
+RPMS += fzf
+RPMS += gdouros-symbola-fonts
+RPMS += git
+RPMS += git-email
+RPMS += google-chrome-stable
+RPMS += grimshot
+RPMS += hexchat
+RPMS += hplip
+RPMS += htop
+RPMS += imv
+RPMS += inotify-tools
+RPMS += iwlax2xx-firmware
+RPMS += kanshi
+RPMS += libindicator-gtk3
+RPMS += lm_sensors
+RPMS += mako
+RPMS += msmtp
+RPMS += neovim
+RPMS += network-manager-applet
+RPMS += nm-connection-editor
+RPMS += openldap-clients
+RPMS += opensc
+RPMS += pandoc
+RPMS += pcsc-tools
+RPMS += pinentry-gtk
+RPMS += pipewire
+RPMS += pipewire-pulseaudio
+RPMS += playerctl
+RPMS += pulseaudio-utils
+RPMS += python3-dnf-plugin-system-upgrade
+RPMS += python3-google-api-client
+RPMS += python3-html2text
+RPMS += python3-i3ipc
+RPMS += python3-ipython
+RPMS += python3-neovim
+RPMS += python3-oauth2client
+RPMS += ripgrep
+RPMS += scdoc
+RPMS += sqlite
+RPMS += strace
+RPMS += sway
+RPMS += swayidle
+RPMS += task
+RPMS += terminus-fonts
+RPMS += terminus-fonts-console
+RPMS += terminus-fonts-grub2
+RPMS += tmate
+RPMS += tmux
+RPMS += waybar
+RPMS += wev
+RPMS += xdg-desktop-portal-wlr
+RPMS += yubikey-manager
+RPMS += yubikey-personalization-gui
+RPMS += zathura
+RPMS += zathura-pdf-mupdf
+
+.PHONY: rpm
+rpm:
+	sudo dnf install $(RPMS)
