@@ -189,7 +189,7 @@ include /etc/sway/config.d/*
 exec swaylock
 # startup apps
 exec kanshi
-exec foot -s
+exec foot -s 2>/dev/null
 exec sleep 1 && footclient
 exec hexchat
 exec google-chrome
