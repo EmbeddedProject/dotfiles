@@ -24,6 +24,7 @@ xdg_local := $(shell find local/ -type f)
 DOTFILES += Xmodmap
 DOTFILES += Xresources
 DOTFILES += bash_aliases
+DOTFILES += bash_profile
 DOTFILES += bashrc
 DOTFILES += colordiffrc
 DOTFILES += $(xdg_config)
