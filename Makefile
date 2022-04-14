@@ -46,6 +46,8 @@ DOTFILES += wallpaper.png
 DOTFILES += xkb/symbols/fr-devel
 DOTFILES += xsessionrc
 DOTFILES += xsettingsd
+DOTFILES += zprofile
+DOTFILES += zshrc
 
 .PHONY: dotfiles
 dotfiles: $(addprefix $(HOME)/.,$(DOTFILES))
