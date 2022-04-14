@@ -5,12 +5,18 @@ HISTSIZE=1000
 SAVEHIST=10000
 setopt NOTIFY LIST_PACKED
 unsetopt AUTOCD BEEP EXTENDEDGLOB
-WORDCHARS="*?_-.[]~&;$%^+"
+
+WORDCHARS="_"
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
 
 # bindings
 bindkey -e  # emacs mode
-bindkey "^[[A" history-beginning-search-backward  # up
-bindkey "^[[B" history-beginning-search-forward  # down
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search  # up
+bindkey "^[[B" down-line-or-beginning-search  # down
 bindkey "^[[1;5C" forward-word  # ctrl-right
 bindkey "^[[1;5D" backward-word  # ctrl-left
 bindkey "^[[3;5~" kill-word  # ctrl-delete
