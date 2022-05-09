@@ -52,7 +52,7 @@ window#waybar {
 .modules-center > widget > label,
 .modules-right > widget > label {
   font-size: 17px;
-  font-family: Terminus, "Font Awesome", "Symbola";
+  font-family: Terminus, Symbola, FontAwesome;
 }
 
 #custom-music {
