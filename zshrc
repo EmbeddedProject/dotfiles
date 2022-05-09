@@ -1,5 +1,7 @@
 # vim: ft=zsh
 
+fpath=(~/.zsh $fpath)
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=10000
@@ -8,11 +10,10 @@ unsetopt AUTOCD BEEP EXTENDEDGLOB
 
 WORDCHARS="_"
 
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-
 # bindings
 bindkey -e  # emacs mode
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search  # up
@@ -24,6 +25,8 @@ bindkey "^[[H" beginning-of-line  # home
 bindkey "^[[F" end-of-line  # end
 bindkey "^[[3~" delete-char  # delete
 bindkey "^[[Z" reverse-menu-complete  # shift-tab
+zmodload -i zsh/complist
+bindkey -M menuselect "^M" .accept-line  # enter
 
 # completion
 zstyle ':completion:*' menu select
@@ -51,15 +54,16 @@ function term_title() {
 	print -D "zsh:" "$PWD"
 	tput fsl
 }
-autoload -Uz vcs_info
-precmd_functions+=( vcs_info term_title )
+precmd_functions+=( term_title )
+
 setopt prompt_subst
-zstyle ':vcs_info:git:*' formats ' %F{197}%b%f'
-zstyle ':vcs_info:*' enable git
+if [ -r /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+	. /usr/share/git-core/contrib/completion/git-prompt.sh
+fi
 PROMPT='%B%F{39}%n%b@%m%f'  # *user*@host (blue 39)
 PROMPT+=':'
 PROMPT+='%F{47}%~%f'  # current dir (green 47)
-PROMPT+='${vcs_info_msg_0_}'  # git info (pink 197)
+PROMPT+='%F{197}$(__git_ps1 " %s")%f'  # git info (pink 197)
 PROMPT+='%F{220}\$%f ' # dollar (yellow 220)
 
 # aliases
