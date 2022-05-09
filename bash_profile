@@ -15,5 +15,5 @@ fi
 
 if [ "$(tty)" = "/dev/tty1" ]; then
 	export XDG_CURRENT_DESKTOP=sway
-	exec systemd-cat --identifier=sway sway
+	exec systemd-cat --identifier=sway sway --debug
 fi
