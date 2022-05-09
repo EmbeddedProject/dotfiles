@@ -51,7 +51,7 @@ bindsym Mod4+Shift+k kill
 
 # run program
 bindsym Mod4+d exec wofi
-bindsym Mod4+l exec swaylock
+bindsym Mod4+l exec loginctl lock-session
 
 # change focus
 bindsym Mod4+Left focus left
@@ -170,9 +170,10 @@ mode "resize" {
 bindsym Mod4+r mode "resize"
 
 exec swayidle -w \
-	timeout 600 swaylock \
-	timeout 610 'swaymsg "output * dpms off"' \
+	timeout 600 'loginctl lock-session' \
+	timeout 700 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"' \
+	lock swaylock \
 	before-sleep swaylock
 
 for_window [class="Hexchat"] move scratchpad
@@ -186,7 +187,7 @@ for_window [app_id="aerc"] move container to workspace number $ws6
 
 include /etc/sway/config.d/*
 
-exec swaylock
+exec loginctl lock-session
 # startup apps
 exec kanshi
 exec foot -s 2>/dev/null
