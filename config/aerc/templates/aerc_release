@@ -1,0 +1,18 @@
+To: aerc-announce <~rjarry/aerc-announce@lists.sr.ht>
+Cc: aerc-devel <~rjarry/aerc-devel@lists.sr.ht>, aerc <~sircmpwn/aerc@lists.sr.ht>
+Reply-to: aerc-devel <~rjarry/aerc-devel@lists.sr.ht>
+X-Mailer: aerc/{{version}}
+Subject: aerc {{exec `git describe --abbrev=0` ""}}
+
+Hi all,
+
+I am glad to announce the release of aerc {{exec `git describe --abbrev=0` ""}}.
+
+https://git.sr.ht/~rjarry/aerc/refs/{{exec `git describe --abbrev=0` ""}}
+
+{{exec `git tag -l --format="%(contents)" $(git describe --abbrev=0)` ""}}
+
+Thanks a lot to all contributors!
+
+~$ git shortlog -sn {{exec `git describe --abbrev=0 HEAD^` ""}}..{{exec `git describe --abbrev=0` ""}}
+{{exec `git shortlog -sn $(git describe --abbrev=0 HEAD^)..$(git describe --abbrev=0)` ""}}
