@@ -195,6 +195,6 @@ exec sleep 1 && footclient
 exec hexchat
 exec google-chrome
 exec firefox
-exec signal-desktop
+exec signal-desktop --disable-seccomp-filter-sandbox --enable-features=UseOzonePlatform --ozone-platform=wayland
 exec spotify
 exec sleep 1 && footclient -a aerc bash -c 'aerc; exec bash -li'
