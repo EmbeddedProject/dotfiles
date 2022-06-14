@@ -95,3 +95,8 @@
 	pushInsteadOf = https://github.com/
 [url "git@git.sr.ht:"]
 	pushInsteadOf = https://git.sr.ht/
+[format]
+	notes = true
+[notes]
+	rewriteRef = refs/notes/commits
+	rewriteMode = concatenate
