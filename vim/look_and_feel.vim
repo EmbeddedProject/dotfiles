@@ -26,6 +26,7 @@ let c_ansi_typedefs=1
 let c_ansi_constants=1
 let c_posix=1
 let c_math=1
+let c_gnu=1
 let python_highlight_all=1
 let python_highlight_space_errors=0
 let g:jinja_syntax_html=0
