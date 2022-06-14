@@ -176,9 +176,8 @@ exec swayidle -w \
 	lock swaylock \
 	before-sleep swaylock
 
-for_window [class="Hexchat"] move scratchpad
-for_window [class="Hexchat"] sticky enable
-for_window [class="Google-chrome"] move container to workspace number $ws2
+for_window [class="Hexchat"] move scratchpad, sticky enable
+for_window [app_id="google-chrome"] move container to workspace number $ws2
 for_window [app_id="firefox"] move container to workspace number $ws3
 for_window [class="Signal"] move container to workspace number $ws4
 for_window [class="Spotify"] move container to workspace number $ws5
@@ -197,4 +196,4 @@ exec google-chrome
 exec firefox
 exec signal-desktop --disable-seccomp-filter-sandbox --enable-features=UseOzonePlatform --ozone-platform=wayland
 exec spotify
-exec sleep 1 && footclient -a aerc bash -c 'aerc; exec bash -li'
+exec sleep 1 && footclient -a aerc bash -c 'cd ~/upstream/aerc; aerc; exec bash -li'
