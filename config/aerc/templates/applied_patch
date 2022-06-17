@@ -1,4 +1,4 @@
-X-Mailer: aerc/{{version}}
+User-Agent: aerc/{{version}}
 X-Sourcehut-Patchset-Update: APPLIED
 
 {{(index .OriginalFrom 0).Name}}, {{dateFormat (.OriginalDate | toLocal) "Jan 02, 2006 at 15:04"}}:
