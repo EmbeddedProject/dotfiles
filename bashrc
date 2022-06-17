@@ -16,7 +16,11 @@ shopt -s histappend histreedit histverify
 __prompt_command() {
 	history -a
 	# set terminal title to the current directory
-	echo -en "\e]0;bash: ${PWD/#$HOME/\~}\a"
+	if tput hs; then
+		tput tsl
+		printf 'bash: %s' "${PWD/#$HOME/\~}"
+		tput fsl
+	fi
 }
 export PROMPT_COMMAND='__prompt_command'
 
