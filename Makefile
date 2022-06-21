@@ -18,6 +18,10 @@ help:
 install: dotfiles scripts
 	@:
 
+.PHONY: uninstall
+uninstall: uninstall-dotfiles uninstall-scripts
+	@:
+
 xdg_config := $(shell find config/ -type f)
 xdg_local := $(shell find local/ -type f)
 
@@ -59,6 +63,10 @@ $(HOME)/.%: %
 	@ln -srvf $< $@
 	@! [ $(@D) = $(HOME)/.gnupg ] || chmod -c 600 $< $@
 
+.PHONY: uninstall-dotfiles
+uninstall-dotfiles:
+	@$(foreach f,$(addprefix $(HOME)/.,$(DOTFILES)), rm -fv $f;)
+
 BINFILES = $(wildcard bin/*)
 
 .PHONY: scripts
@@ -69,6 +77,10 @@ $(HOME)/bin/%: bin/%
 	@! [ -e $@ ] || rm -rf -- $@
 	@mkdir -pv $(@D)
 	@ln -srvf $< $@
+
+.PHONY: uninstall-scripts
+uninstall-scripts:
+	@$(foreach f,$(addprefix $(HOME)/,$(BINFILES)), echo rm -fv $f;)
 
 DEBS += brightnessctl
 DEBS += clementine
