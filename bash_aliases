@@ -29,9 +29,11 @@ alias vi="nvim"
 alias e="emacs -nw"
 alias imv=imv-wayland
 
-_completion_loader task
-alias t=task
-complete -F _task t
+if [ "$(type -t _completion_loader 2>/dev/null)" = function ]; then
+	_completion_loader task
+	alias t=task
+	complete -F _task t
+fi
 
 alias grep='grep --color=auto'
 alias gg='git grep --untracked'
