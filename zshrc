@@ -31,7 +31,7 @@ bindkey -M menuselect "^M" .accept-line  # enter
 # completion
 zstyle ':completion:*' menu select
 zstyle ':completion:*' verbose false
-eval $(TERM=xterm-256color dircolors)
+eval $(TERM=xterm-256color dircolors ~/.dir_colors)
 zstyle ":completion:*:default" list-colors ${(s.:.)LS_COLORS} "ma=48;5;25;1"
 zstyle ':completion:*:git:*' tag-order - '! plumbing-sync-commands plumbing-sync-helper-commands plumbing-internal-helper-commands plumbing-manipulator-commands'
 zstyle ':completion:*:complete:git:argument-1:*' ignored-patterns restore

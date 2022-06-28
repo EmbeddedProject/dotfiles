@@ -37,7 +37,7 @@ alias grep='grep --color=auto'
 alias gg='git grep --untracked'
 
 if dircolors &>/dev/null; then
-	eval `dircolors`
+	eval $(dircolors ~/.dir_colors)
 elif uname -s | grep -qE 'Darwin|FreeBSD'; then
 	export CLICOLOR=1
 	export LSCOLORS=ExgxfxdxCxegedabagacad
@@ -99,7 +99,8 @@ alias ncal='ncal -Mw3'
 
 function termcolors() {
 	for i in {0..255}; do
-		printf "\e[38;5;%sm%3d\e[0m \e[48;5;%sm%3d\e[0m " "$i" "$i" "$i" "$i"
+		printf "\e[38;5;%sm%3d\e[0m \e[1;38;5;%sm%3d\e[0m \e[48;5;%sm%3d\e[0m " \
+			"$i" "$i" "$i" "$i" "$i" "$i"
 		if (( i == 7 )) || (( i == 15 )); then
 			printf '\n'
 		elif (( i > 15 )) && (( (i-15) % 6 == 0 )); then
