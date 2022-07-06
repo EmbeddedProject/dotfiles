@@ -81,7 +81,7 @@ $(HOME)/bin/%: bin/%
 
 .PHONY: uninstall-scripts
 uninstall-scripts:
-	@$(foreach f,$(addprefix $(HOME)/,$(BINFILES)), echo rm -fv $f;)
+	@$(foreach f,$(addprefix $(HOME)/,$(BINFILES)), rm -fv $f;)
 
 DEBS += brightnessctl
 DEBS += clementine
