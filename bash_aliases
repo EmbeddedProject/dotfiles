@@ -60,6 +60,8 @@ alias lla="ls -lA"
 
 alias pg='pgrep -a'
 
+alias ldapsearch='ldapsearch -Q -o ldif-wrap=no -LLL'
+
 function env() {
 	if [ $# -eq 0 ]; then
 		command env | sort
