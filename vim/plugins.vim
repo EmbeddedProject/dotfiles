@@ -30,7 +30,7 @@ function GitGrepSymbol()
 	if l:expr == ''
 		return
 	endif
-	call fzf#vim#grep("git grep -n --untracked --color " . l:expr, 1, fzf#vim#with_preview(), 0)
+	call fzf#vim#grep("git grep -n --untracked --color -w " . l:expr, 1, fzf#vim#with_preview(), 0)
 endfunction
 "Tell FZF to use RG - so we can skip .gitignore files even if not using git
 "grep
