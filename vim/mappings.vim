@@ -117,9 +117,8 @@ nnoremap <F9> :set spell!<CR>
 
 nnoremap bb :bd<CR>
 
-"-----------------------------------------------------------------------------
-"6WIND
-"-----------------------------------------------------------------------------
+"Pipe selection to pastebin and print URL in statusbar
+vnoremap Y <esc>:'<,'>:w !curl -LSsF file=@- https://0x0.st<CR>
 
 function InsertAckedBy()
 	let expr = input('Acked-by: ')
