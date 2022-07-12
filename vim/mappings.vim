@@ -171,22 +171,16 @@ nnoremap <silent> ! :silent tnext<CR>
 "Cscope
 "-----------------------------------------------------------------------------
 
-set cscopetag " use cscope with ctags shortcuts
-set cspc=9 " display full path names
-set cscoperelative
+function InitCscope()
+	set cscopetag " use cscope with ctags shortcuts
+	set cspc=9 " display full path names
+	set nocscoperelative
+	set nocscopeverbose
+	let l:root = GitRoot()
+	call system('cd ' . l:root . ' && cscope -bR')
+	exec 'cscope add ' . l:root . '/cscope.out'
+	set cscopeverbose
+	nnoremap <buffer> <silent> <F3> :cs find g <C-R>=expand("<cword>")<CR><CR>
+endfunction
 
-if filereadable("./cscope.out")
-	cscope add ./cscope.out
-elseif filereadable("../cscope.out")
-	cscope add ../cscope.out
-elseif filereadable("../../cscope.out")
-	cscope add ../../cscope.out
-elseif filereadable("../../../cscope.out")
-	cscope add ../../../cscope.out
-elseif filereadable("../../../../cscope.out")
-	cscope add ../../../../cscope.out
-elseif $CSCOPE_DB != ""
-	cscope add $CSCOPE_DB
-endif
-
-autocmd FileType c nnoremap <buffer> <silent> <F3> :cs find g <C-R>=expand("<cword>")<CR><CR>
+autocmd FileType c call InitCscope()

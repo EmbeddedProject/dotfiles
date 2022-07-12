@@ -7,9 +7,13 @@ let g:buftabline_show = 1
 let g:buftabline_indicators = 1
 
 function GitRoot()
-	let l:d = expand('%:p:h:S')
-	let l:root = system('git -C ' . l:d . ' rev-parse --show-toplevel 2>/dev/null')
-	let l:root = trim(l:root)
+	for l:d in [expand('%:p:h:S'), getcwd()]
+		let l:root = system('git -C ' . l:d . ' rev-parse --show-toplevel 2>/dev/null')
+		let l:root = trim(l:root)
+		if l:root != ''
+			break
+		endif
+	endfor
 	if l:root == ''
 		let l:root = getcwd()
 	endif
