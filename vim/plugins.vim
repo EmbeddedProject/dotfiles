@@ -93,7 +93,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'evanleck/vim-svelte'
 Plug 'fatih/vim-go'
-Plug 'terminalnode/sway-vim-syntax'
 Plug 'https://git.sr.ht/~sircmpwn/hare.vim'
 
 call plug#end()
