@@ -169,6 +169,7 @@ mode "resize" {
 
 bindsym Mod4+r mode "resize"
 
+inhibit_idle fullscreen
 exec swayidle -w \
 	timeout 600 'loginctl lock-session' \
 	timeout 700 'swaymsg "output * dpms off"' \
