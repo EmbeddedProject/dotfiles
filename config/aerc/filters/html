@@ -1,4 +1,13 @@
 #!/bin/sh
 
-exec pandoc -f html-raw_html-native_divs-native_spans -t gfm-raw_html \
-	--markdown-headings=setext
+export http_proxy="127.0.0.1:9"
+export https_proxy="127.0.0.1:9"
+export ftp_proxy="127.0.0.1:9"
+export gopher_proxy="127.0.0.1:9"
+exec w3m \
+	-I UTF-8 \
+	-T text/html \
+	-cols $(tput cols) \
+	-dump \
+	-o display_image=false \
+	-o display_link_number=true
