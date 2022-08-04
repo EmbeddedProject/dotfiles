@@ -27,7 +27,11 @@ hi Folded           ctermfg=103 ctermbg=60
 hi Title            ctermfg=187 cterm=bold
 hi Visual           cterm=reverse
 
-hi SpecialKey       ctermfg=15 ctermbg=9
+if has('nvim')
+	hi SpecialKey       ctermfg=15 ctermbg=9
+else
+	hi SpecialKey       ctermfg=236 ctermbg=233
+endif
 hi ExtraWhitespace  ctermfg=15 ctermbg=9
 hi Whitespace       ctermfg=236 ctermbg=233
 
