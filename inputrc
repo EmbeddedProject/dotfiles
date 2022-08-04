@@ -17,6 +17,8 @@ Meta-RUBOUT: backward-kill-word
 # Adds / @ and * after the completion proposals
 # this allows to differentiate files from directories for example
 set visible-stats on
+set colored-stats on
+set colored-completion-prefix on
 set input-meta   on
 set output-meta  on
 set convert-meta off
