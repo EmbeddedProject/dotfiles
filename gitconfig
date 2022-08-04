@@ -6,7 +6,6 @@
 	signingKey = 46957EC08FD0FE90
 
 [core]
-	editor = nvim
 	abbrev = 12
 	pager = less -RSX
 
