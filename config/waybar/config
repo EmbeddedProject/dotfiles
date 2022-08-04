@@ -74,7 +74,8 @@
 		"format-icons": {
 			"default": ["🔈", "🔉", "🔊"]
 		},
-		"on-click": "~/bin/volume -x 100 -P -e 1000 -n mute",
+		"on-click": "pavucontrol -t 1",
+		"on-click-right": "~/bin/volume -x 100 -P -e 1000 -n mute",
 		"tooltip": false
 	},
 
