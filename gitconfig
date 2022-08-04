@@ -95,6 +95,8 @@
 	pushInsteadOf = https://github.com/
 [url "git@git.sr.ht:"]
 	pushInsteadOf = https://git.sr.ht/
+[url "git@salsa.debian.org:"]
+	pushInsteadOf = https://salsa.debian.org/
 [format]
 	notes = true
 [notes]
