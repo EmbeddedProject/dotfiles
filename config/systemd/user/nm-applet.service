@@ -1,4 +1,5 @@
 [Unit]
+Description=Network Manager System Tray
 PartOf=waybar.service
 After=waybar.service
 Requisite=waybar.service
