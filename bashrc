@@ -24,7 +24,11 @@ __prompt_command() {
 }
 export PROMPT_COMMAND='__prompt_command'
 
-export EDITOR="nvim"
+if type -fP nvim &>/dev/null; then
+	export EDITOR=nvim
+else
+	export EDITOR=vim
+fi
 export PAGER='less'
 export LESS='-RS'
 export LESSSECURE=1
