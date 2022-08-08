@@ -7,7 +7,7 @@ export gopher_proxy="127.0.0.1:9"
 exec w3m \
 	-I UTF-8 \
 	-T text/html \
-	-cols 80 \
+	-cols 72 \
 	-dump \
 	-o display_image=false \
 	-o display_link_number=true

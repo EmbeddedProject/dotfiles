@@ -1,7 +1,7 @@
 To: aerc-announce <~rjarry/aerc-announce@lists.sr.ht>
 Cc: aerc-devel <~rjarry/aerc-devel@lists.sr.ht>, aerc <~sircmpwn/aerc@lists.sr.ht>
 Reply-to: aerc-devel <~rjarry/aerc-devel@lists.sr.ht>
-User-Agent: aerc/{{version}}
+X-Mailer: aerc/{{version}}
 Subject: aerc {{exec `git describe --abbrev=0` ""}}
 
 Hi all,
