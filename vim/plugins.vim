@@ -38,7 +38,7 @@ function GitGrepSymbol()
 endfunction
 "Tell FZF to use RG - so we can skip .gitignore files even if not using git
 "grep
-let $FZF_DEFAULT_COMMAND = 'rg --files'
+let $FZF_DEFAULT_COMMAND = 'git ls-files -com --exclude-standard'
 function FindDir(path)
 	if a:path == ''
 		return
