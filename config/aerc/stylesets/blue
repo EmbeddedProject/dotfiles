@@ -1,12 +1,20 @@
 # vim: ft=dosini
 
 border.bg=#005f87
-dirlist*.selected.fg=white
-dirlist*.selected.bg=#005f87
-dirlist*.selected.bold=true
+title.bg=#005f87
+
+title.fg=white
+title.bold=true
 
 header.bold=true
-header.fg=#005fff
+header.fg=#005f87
+
+tab.selected.fg=white
+tab.selected.bg=#005f87
+tab.selected.bold=true
+dirlist*.selected.bg=#005f87
+dirlist*.selected.fg=white
+dirlist*.selected.bold=true
 
 *error.bold=true
 *error.fg=red
@@ -26,11 +34,6 @@ msglist_marked.bg=#005f87
 msglist_marked.selected.bg=#005fff
 
 completion_pill.reverse=true
-
-tab.selected.fg=white
-tab.selected.bg=#005f87
-tab.selected.bold=true
-
 selector_focused.bold=true
 selector_focused.bg=#005f87
 selector_focused.fg=white
