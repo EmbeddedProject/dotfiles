@@ -45,6 +45,7 @@ DOTFILES += muttrc
 DOTFILES += sbuildrc
 DOTFILES += screenrc
 DOTFILES += taskrc
+DOTFILES += tmate.conf
 DOTFILES += tmux.conf
 DOTFILES += vim
 DOTFILES += wallpaper.png
