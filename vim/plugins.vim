@@ -75,6 +75,12 @@ autocmd FileType go nnoremap <buffer> <silent> <F3> :GoDef<cr>
 autocmd FileType go nnoremap <buffer> <silent> <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>
 autocmd filetype go inoremap <buffer> . .<C-x><C-o>
 
+let g:rustfmt_autosave = 1
+autocmd FileType rust nnoremap <buffer> <silent> <F3> :ALEGoToDefinition<cr>
+autocmd FileType rust let g:ale_completion_enabled = 1
+autocmd FileType rust set omnifunc=ale#completion#OmniFunc
+autocmd filetype rust inoremap <buffer> . .<C-x><C-o>
+
 "------------------------------------------------------------------------------
 "initialization
 "------------------------------------------------------------------------------
