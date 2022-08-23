@@ -1,2 +1,5 @@
 show=drun
 stylesheet=style.css
+allow_images=true
+term=foot
+insensitive=true
