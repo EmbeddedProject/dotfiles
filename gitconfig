@@ -8,6 +8,7 @@
 [core]
 	abbrev = 12
 	pager = less -RSX
+	commitGraph = true
 
 [pager]
 	diff = less -RSFX
@@ -101,3 +102,5 @@
 [notes]
 	rewriteRef = refs/notes/commits
 	rewriteMode = concatenate
+[gc]
+	writeCommitGraph = true
