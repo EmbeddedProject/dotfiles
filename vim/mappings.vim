@@ -183,3 +183,5 @@ function InitCscope()
 endfunction
 
 autocmd FileType c call InitCscope()
+
+command! -nargs=1 -complete=help H :enew | :set buftype=help | :h <args>
