@@ -77,11 +77,15 @@ def main():
             print("---")
             for i,stats in new.items():
                 rx = (stats["ipackets"] - cur[i]["ipackets"]) / args.time
+                drop = (stats["imissed"] - cur[i]["imissed"]) / args.time
                 tx = (stats["opackets"] - cur[i]["opackets"]) / args.time
-                if rx == 0 and tx == 0:
+                if rx == 0 and tx == 0 and drop == 0:
                     continue
                 print(
-                    f"{i}: RX={human_readable(rx)} pkt/s TX={human_readable(tx)} pkt/s"
+                    f"{i}:",
+                    f"RX={human_readable(rx)} pkt/s",
+                    f"DROP={human_readable(drop)} pkt/s",
+                    f"TX={human_readable(tx)} pkt/s",
                 )
             cur = new
 
