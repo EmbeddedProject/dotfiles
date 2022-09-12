@@ -78,7 +78,7 @@ function ff() {
 	local pattern="$1"
 	shift
 	if [ $# -eq 0 ]; then
-		set -- .
+		set -- . -printf '%P\n'
 	fi
 	find "$@" | grep -i -- "$pattern"
 }

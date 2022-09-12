@@ -36,9 +36,7 @@ function GitGrepSymbol()
 	endif
 	call fzf#vim#grep("git grep -n --untracked --color -w " . l:expr, 1, fzf#vim#with_preview(), 0)
 endfunction
-"Tell FZF to use RG - so we can skip .gitignore files even if not using git
-"grep
-let $FZF_DEFAULT_COMMAND = 'git ls-files -com --exclude-standard'
+let $FZF_DEFAULT_COMMAND = "rg --files || git ls-files -com --exclude-standard || find . -type f -printf '%P\n'"
 function FindDir(path)
 	if a:path == ''
 		return
