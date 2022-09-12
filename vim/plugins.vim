@@ -69,6 +69,7 @@ set completeopt=menu,menuone,noselect,noinsert
 
 let g:go_def_mapping_enabled = 0
 let g:go_gopls_gofumpt = 1
+let g:go_fmt_fail_silently = 1
 autocmd FileType go nnoremap <buffer> <silent> <F3> :GoDef<cr>
 autocmd FileType go nnoremap <buffer> <silent> <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>
 autocmd filetype go inoremap <buffer> . .<C-x><C-o>
