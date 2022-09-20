@@ -8,6 +8,7 @@ Convert a bit list into a hex mask or the other way around.
 
 import argparse
 import re
+import typing
 
 
 def main():
@@ -31,7 +32,7 @@ def main():
         dest="mode",
         const=cpu_mask,
         help="""
-        Print the combined args as a hexadecimal mask value.
+        Print the combined args as a hexadecimal mask value (default).
         """
     )
     g.add_argument(
@@ -68,7 +69,7 @@ RANGE_RE = re.compile(r"\d+-\d+")
 INT_RE = re.compile(r"\d+")
 
 
-def mask_or_list(arg: str) -> set[int]:
+def mask_or_list(arg: str) -> typing.Set[int]:
     cpu_ids = set()
     for item in arg.strip().split(","):
         if not item:
@@ -91,21 +92,21 @@ def mask_or_list(arg: str) -> set[int]:
     return cpu_ids
 
 
-def cpu_mask(cpu_ids: set[int]) -> str:
+def cpu_mask(cpu_ids: typing.Set[int]) -> str:
     mask = 0
     for cpu in cpu_ids:
         mask |= 1 << cpu
     return hex(mask)
 
 
-def bit_mask(cpu_ids: set[int]) -> str:
+def bit_mask(cpu_ids: typing.Set[int]) -> str:
     mask = 0
     for cpu in cpu_ids:
         mask |= 1 << cpu
     return f"0b{mask:_b}"
 
 
-def cpu_list(cpu_ids: set[int]) -> str:
+def cpu_list(cpu_ids: typing.Set[int]) -> str:
     groups = []
     cpu_ids = sorted(cpu_ids)
     i = 0
