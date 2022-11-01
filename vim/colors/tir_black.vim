@@ -28,6 +28,7 @@ hi Title            ctermfg=187 cterm=bold
 hi Visual           cterm=reverse
 
 if has('nvim')
+	hi link NormalFloat Normal
 	hi SpecialKey       ctermfg=15 ctermbg=9
 else
 	hi SpecialKey       ctermfg=236 ctermbg=233
