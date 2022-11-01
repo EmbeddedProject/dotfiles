@@ -144,20 +144,42 @@ endfunction
 
 nnoremap <F2> :call InsertFixes()<CR>
 
+let g:spdx_url = 'https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json'
+function SpdxIdsComplete(arglead, cmdline, cursorpos)
+	return system('curl -sL ' . g:spdx_url . ' | jq -r .licenses[].licenseId | grep -i "^' . a:arglead . '"')
+endfunction
+
 function InsertLicense()
-	let license = 'Copyright (c) ' . strftime('%Y') . ' Robin Jarry'
+	let l:spdx = input('SPDX-Identifier: ', '', 'custom,SpdxIdsComplete')
+
+	let l:license_lines = [
+		\'SPDX-Identifier: ' . l:spdx,
+		\'Copyright (c) ' . strftime('%Y') . ' Robin Jarry',
+	\]
 
 	if b:current_syntax == 'rst'
-		let copyright = '.. ' . license
-	elseif b:current_syntax == 'c' || b:current_syntax == 'c+ifdef' || b:current_syntax == 'javascript'
-		let copyright = '/* ' . license . ' */'
+		for l:l in l:license_lines
+			put ='.. ' . l:l
+		endfor
+	elseif b:current_syntax == 'c'
+			\|| b:current_syntax == 'c+ifdef'
+			\|| b:current_syntax == 'javascript'
+		for l:l in l:license_lines
+			put ='/* ' . l:l . ' */'
+		endfor
+	elseif b:current_syntax == 'rust'
+		for l:l in l:license_lines
+			put ='// ' . l:l
+		endfor
 	elseif b:current_syntax == 'vim'
-		let copyright = '"' . license
+		for l:l in l:license_lines
+			put ='"' . l:l
+		endfor
 	else "shell, python, Makefile, etc.
-		let copyright = '# ' . license
+		for l:l in l:license_lines
+			put ='# ' . l:l
+		endfor
 	endif
-
-	put =copyright
 endfunction
 
 nnoremap <C-l> :call InsertLicense()<CR>
