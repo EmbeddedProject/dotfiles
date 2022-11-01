@@ -101,6 +101,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'evanleck/vim-svelte'
 Plug 'fatih/vim-go'
 Plug 'https://git.sr.ht/~sircmpwn/hare.vim'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
