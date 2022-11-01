@@ -32,7 +32,7 @@
 	},
 
 	"custom/music": {
-		"exec": "playerctl -p clementine,spotify -F metadata -f '{{emoji(status)}} {{playerName}}: {{artist}} - {{title}}'",
+		"exec": "playerctl -p clementine,spotify -F metadata -f '{{emoji(status)}} {{markup_escape(playerName)}}: {{markup_escape(artist)}} - {{markup_escape(title)}}'",
 		"max-length": 50,
 		"on-click": "playerctl -p clementine,spotify play-pause",
 		"tooltip": false
