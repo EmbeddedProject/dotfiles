@@ -186,8 +186,11 @@ for_window [title="Signal"] move container to workspace number $ws4
 for_window [class="Spotify"] move container to workspace number $ws5
 for_window [app_id="org.clementine_player.Clementine"] move container to workspace number $ws5
 for_window [app_id="aerc"] move container to workspace number $ws6
+for_window [app_id="calc"] floating enable
 
 include /etc/sway/config.d/*
+
+bindsym Mod4+c exec footclient -T calc -a calc calc
 
 exec loginctl lock-session
 # startup apps
