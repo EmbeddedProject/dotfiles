@@ -138,14 +138,24 @@ nnoremap <F2> :call InsertFixes()<CR>
 
 let g:spdx_url = 'https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json'
 function SpdxIdsComplete(arglead, cmdline, cursorpos)
-	return system('curl -sL ' . g:spdx_url . ' | jq -r .licenses[].licenseId | grep -i "^' . a:arglead . '"')
+	return system(
+		\'curl -sL ' . g:spdx_url .
+		\' | jq -r .licenses[].licenseId | grep -i "^' .
+		\a:arglead . '"')
 endfunction
 
 function InsertLicense()
-	let l:spdx = input('SPDX-Identifier: ', '', 'custom,SpdxIdsComplete')
+	let l:prefix = 'SPDX-Identifier: '
+	let l:spdx = input(l:prefix, '', 'custom,SpdxIdsComplete')
+	if l:spdx == ''
+		let l:spdx = system(
+			\"sed -n 's/.*" .
+			\l:prefix . "//p' `git grep -l " .
+			\l:prefix . "` | head -n1")
+	endif
 
 	let l:license_lines = [
-		\'SPDX-Identifier: ' . l:spdx,
+		\l:prefix . l:spdx,
 		\'Copyright (c) ' . strftime('%Y') . ' Robin Jarry',
 	\]
 
