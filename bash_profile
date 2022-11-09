@@ -13,6 +13,8 @@ if [ -n "$(gpgconf --list-options gpg-agent | \
 	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 fi
 
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+
 if [ "$(tty)" = "/dev/tty1" ]; then
 	export XDG_CURRENT_DESKTOP=sway
 	exec systemd-cat sway
