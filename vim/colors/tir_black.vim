@@ -18,6 +18,7 @@ hi NonText          ctermfg=232
 
 hi Cursor           ctermfg=0 ctermbg=15
 hi LineNr           ctermfg=239
+hi CursorLineNr     ctermfg=227 cterm=none
 
 hi VertSplit        ctermfg=235 ctermbg=235
 hi StatusLine       ctermfg=235 ctermbg=254
