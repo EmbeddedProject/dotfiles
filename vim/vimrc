@@ -35,7 +35,6 @@ filetype plugin indent on
 
 "Line Wrapping
 set wrap
-set linebreak
 
 "Completion menu
 set wildmode=longest,list,full
