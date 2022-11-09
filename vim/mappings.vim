@@ -68,6 +68,11 @@ endfunction
 nnoremap e :call NextError()<CR>
 nnoremap E :call PrevError()<CR>
 
+"Delete line with <ctrl-d>
+inoremap <C-d> <Esc>ddi
+vnoremap <C-d> d
+nnoremap <C-d> dd
+
 "Move lines up and down with <Ctrl-Alt-up> & <Ctrl-Alt-down> keys
 nnoremap <C-A-down> :m+<CR>==
 nnoremap <C-A-up> :m-2<CR>==
@@ -84,6 +89,10 @@ vnoremap <S-tab> <gv
 "Reflow current paragraph with F
 nnoremap F gqap
 vnoremap F gq
+
+"Insert New Line
+map <S-Enter> O<Esc>
+map <Enter> o<Esc>
 
 nnoremap gc /^\(<<<<<<<.*\\|=======\\|>>>>>>>.*\)$<Enter>
 
