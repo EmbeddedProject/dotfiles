@@ -87,12 +87,6 @@ vnoremap F gq
 
 nnoremap gc /^\(<<<<<<<.*\\|=======\\|>>>>>>>.*\)$<Enter>
 
-"Disable cursor blink (t_RC) and cursor style (t_RS) term responses to allow
-"esc-based mappings with recent vim versions
-set t_RC= t_RS=
-nnoremap <Esc>P :set paste!<CR>
-nnoremap <Esc>N :set number!<CR>
-
 "Only tabs (8 spaces per level)
 map <F5> :set shiftwidth=8<CR>:set tabstop=8<CR>:set noexpandtab<CR>:set softtabstop=8<CR>
 "Only spaces (4 spaces by level)
