@@ -104,8 +104,15 @@ nnoremap <F9> :set spell!<CR>
 
 nnoremap bb :bd<CR>
 
+function PasteBin() range
+	let buf = join(getline(a:firstline, a:lastline), "\n")
+	let out = system(['curl', '-LSsF', 'file=@-', 'https://0x0.st'], l:buf)
+	let @+ = trim(l:out)
+	echomsg "Pasted selection to: " . @+
+endfunction
+
 "Pipe selection to pastebin and print URL in statusbar
-vnoremap Y <esc>:'<,'>:w !curl -LSsF file=@- https://0x0.st<CR>
+vnoremap Y <esc>:'<,'>:call PasteBin()<CR>
 
 function InsertAckedBy()
 	let expr = input('Acked-by: ')
