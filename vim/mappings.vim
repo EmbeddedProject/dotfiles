@@ -115,7 +115,7 @@ nnoremap bb :bd<CR>
 
 function PasteBin() range
 	let buf = join(getline(a:firstline, a:lastline), "\n")
-	let out = system(['curl', '-LSsF', 'file=@-', 'https://0x0.st'], l:buf)
+	let out = system(['curl', '-LSsF', 'file=@-;type=text/plain', 'https://0x0.st'], l:buf)
 	let @+ = trim(l:out)
 	echomsg "Pasted selection to: " . @+
 endfunction
