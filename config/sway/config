@@ -187,6 +187,7 @@ for_window [class="Spotify"] move container to workspace number $ws5
 for_window [app_id="org.clementine_player.Clementine"] move container to workspace number $ws5
 for_window [app_id="aerc"] move container to workspace number $ws6
 for_window [app_id="calc"] floating enable
+for_window [shell="xwayland"] title_format "<span>[X] %title</span>"
 
 include /etc/sway/config.d/*
 
