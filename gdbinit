@@ -2329,7 +2329,6 @@ set print array off
 set print array-indexes on
 set python print-stack full
 set auto-load safe-path /
-set debuginfod enabled on
 set history save on
 set history size 1000
 set history remove-duplicates 10

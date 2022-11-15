@@ -33,6 +33,7 @@ DOTFILES += bashrc
 DOTFILES += colordiffrc
 DOTFILES += dir_colors
 DOTFILES += $(xdg_config)
+DOTFILES += gdbinit
 DOTFILES += gitconfig
 DOTFILES += gnupg/gpg-agent.conf
 DOTFILES += gnupg/gpg.conf
