@@ -26,7 +26,7 @@ else
 	export EDITOR=vim
 fi
 export PAGER='less'
-export LESS='-RS --incsearch'
+export LESS='-RS'
 export LESSSECURE=1
 export CLICOLOR=1
 export DEBFULLNAME='Robin Jarry'
