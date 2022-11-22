@@ -50,25 +50,40 @@ fi
 
 fancy_prompt() {
 	local Z="\[\e[0m\]"		# unset all colors
-
 	local y="\[\e[38;5;220m\]"	# prompt char: yellow 220
-	local R="\[\e[1;38;5;196m\]"	# root username: bold red 196
-	local r="\[\e[38;5;160m\]"	# root host: red 160
-	local G="\[\e[1;38;5;39m\]"	# username: bold blue 39
-	local g="\[\e[38;5;39m\]"	# host: blue 39
 	local p="\[\e[38;5;197m\]"	# git: pink 197
 	local c="\[\e[38;5;47m\]"	# current directory: green 47
 	local H='\$'
+	local index=$(echo "prompt $USER@$HOSTNAME" | md5sum | head -c1)
+	declare -a palette
+	declare -A colors
 
 	if [ `id -u` = 0 ]; then
-		# custom color for 'root'
-		PS1="$R\u$Z$r@\h$Z:$c\w$Z$y$H$Z "
+		palette=(196 202 214 213 162 205 197)
 	else
-		if type -t __git_ps1 >/dev/null; then
-			PS1="$G\u$Z$g@\h$Z:$c\w$Z$p\$(__git_ps1 ' %s')$Z$y$H$Z "
-		else
-			PS1="$G\u$Z$g@\h$Z:$c\w$Z$y$H$Z "
-		fi
+		palette=(141 37 75 73 39 108 111)
+	fi
+	local i=0 j=0
+	for i in {0..9} {a..f}; do
+		colors[$i]=${palette[$j]}
+		j=$(((j + 1) % ${#palette[@]}))
+	done
+	#for x in ${!colors[@]}; do
+	#	if [ "$x" = "$index" ]; then
+	#		active="*"
+	#	else
+	#		active=" "
+	#	fi
+	#	printf '%s %s=%s\n' "$active" "$x" "${colors[$x]}"
+	#done
+	local color=${colors[$index]}
+	local U="\[\e[1;38;5;${color}m\]"
+	local u="\[\e[38;5;${color}m\]"
+
+	if type -t __git_ps1 >/dev/null; then
+		PS1="$U\u$Z$u@\h$Z:$c\w$Z$p\$(__git_ps1 ' %s')$Z$y$H$Z "
+	else
+		PS1="$U\u$Z$u@\h$Z:$c\w$Z$y$H$Z "
 	fi
 
 	export PS1
