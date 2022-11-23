@@ -82,6 +82,11 @@ hi Special          ctermfg=173
 hi Delimiter        ctermfg=37
 hi Operator         ctermfg=110
 
+hi DiffAdd     cterm=NONE ctermfg=10 ctermbg=22
+hi DiffChange  cterm=NONE ctermfg=11 ctermbg=52
+hi DiffDelete  cterm=NONE ctermfg=9 ctermbg=52
+hi DiffText    cterm=NONE ctermfg=11 ctermbg=22
+
 hi SpellBad         ctermfg=none ctermbg=52
 hi clear SpellCap
 hi clear SpellRare
