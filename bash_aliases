@@ -113,6 +113,14 @@ function termcolors() {
 	done
 }
 
+function termcolors_text() {
+	local text=$1
+	shift
+	for i in "$@"; do
+		printf "\e[38;5;%sm%s -> %s\e[0m\n" "$i" "$text" "$i"
+	done
+}
+
 function gpg_update_tty() {
 	gpg-connect-agent updatestartuptty /bye
 }

@@ -50,19 +50,14 @@ fi
 
 fancy_prompt() {
 	local Z="\[\e[0m\]"		# unset all colors
-	local y="\[\e[38;5;220m\]"	# prompt char: yellow 220
 	local p="\[\e[38;5;197m\]"	# git: pink 197
 	local c="\[\e[38;5;47m\]"	# current directory: green 47
 	local H='\$'
-	local index=$(echo "prompt $USER@$HOSTNAME" | md5sum | head -c1)
+	local index=$(head -c1 /etc/machine-id)
+	local h U color y
 	declare -a palette
 	declare -A colors
-
-	if [ `id -u` = 0 ]; then
-		palette=(196 202 214 213 162 205 197)
-	else
-		palette=(141 37 75 73 39 108 111)
-	fi
+	palette=(33 121 51 159 208 214 226 219 177 165 39 118 40 106 28)
 	local i=0 j=0
 	for i in {0..9} {a..f}; do
 		colors[$i]=${palette[$j]}
@@ -76,14 +71,19 @@ fancy_prompt() {
 	#	fi
 	#	printf '%s %s=%s\n' "$active" "$x" "${colors[$x]}"
 	#done
-	local color=${colors[$index]}
-	local U="\[\e[1;38;5;${color}m\]"
-	local u="\[\e[38;5;${color}m\]"
+	color=${colors[$index]}
+	h="\[\e[38;5;${color}m\]"  # hostname
+	U="\[\e[1;38;5;${color}m\]"  # username
+	if [ `id -u` = 0 ]; then
+		y="\[\e[1;38;5;9m\]"  # root prompt char in red
+	else
+		y="\[\e[38;5;220m\]"  # prompt char: yellow
+	fi
 
 	if type -t __git_ps1 >/dev/null; then
-		PS1="$U\u$Z$u@\h$Z:$c\w$Z$p\$(__git_ps1 ' %s')$Z$y$H$Z "
+		PS1="$U\u$Z$h@\h$Z:$c\w$Z$p\$(__git_ps1 ' %s')$Z$y$H$Z "
 	else
-		PS1="$U\u$Z$u@\h$Z:$c\w$Z$y$H$Z "
+		PS1="$U\u$Z$h@\h$Z:$c\w$Z$y$H$Z "
 	fi
 
 	export PS1
