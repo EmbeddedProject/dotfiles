@@ -29,6 +29,12 @@ export PAGER='less'
 export LESS='-RS'
 export LESSSECURE=1
 export CLICOLOR=1
+# enable color in man pages: bold is CYAN, underline is GREEN
+export LESS_TERMCAP_md=$'\e[1;36m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;32m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export GROFF_NO_SGR=1
 export DEBFULLNAME='Robin Jarry'
 export DEBEMAIL='robin@jarry.cc'
 export LESSOPEN='|/usr/share/source-highlight/src-hilite-lesspipe.sh "%s"'
