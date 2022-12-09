@@ -59,7 +59,12 @@ fancy_prompt() {
 	local p="\[\e[38;5;197m\]"	# git: pink 197
 	local c="\[\e[38;5;47m\]"	# current directory: green 47
 	local H='\$'
-	local index=$(head -c1 /etc/machine-id)
+	local index
+	if [ -r /etc/machine-id ]; then
+		index=$(head -c1 /etc/machine-id)
+	else
+		index=$(hostname | md5sum | head -c1)
+	fi
 	local h U color y
 	declare -a palette
 	declare -A colors
