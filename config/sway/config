@@ -191,7 +191,7 @@ for_window [shell="xwayland"] title_format "<span>[X] %title</span>"
 
 include /etc/sway/config.d/*
 
-bindsym Mod4+c exec footclient -T calc -a calc calc
+bindsym Mod4+c exec footclient -T calc -a calc -W 100x30 python3
 
 exec loginctl lock-session
 # startup apps
