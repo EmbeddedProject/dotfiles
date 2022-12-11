@@ -2333,12 +2333,16 @@ set history save on
 set history size 1000
 set history remove-duplicates 10
 set history filename ~/.gdb_history
+set follow-fork-mode parent
+set detach-on-fork on
+set debuginfod enabled on
+dir ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/etc
 
 # Start ------------------------------------------------------------------------
 
 python Dashboard.start()
 
-dashboard -layout !assembly breakpoints !expressions !history !memory !registers source stack threads variables
+dashboard -layout !assembly !breakpoints expressions !history !memory !registers source stack !threads variables
 dashboard source -style tab-size 8
 dashboard source -style path True
 dashboard source -style highlight-line True
