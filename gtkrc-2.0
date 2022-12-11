@@ -5,3 +5,5 @@ binding "gtk-emacs-text-entry"
 	bind "<ctrl>w" { "delete-from-cursor" (word-ends, -1) }
 }
 gtk-cursor-blink = 0
+gtk-error-bell = 0
+gtk-enable-event-sounds = 0
