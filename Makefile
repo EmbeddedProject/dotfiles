@@ -85,6 +85,7 @@ $(HOME)/bin/%: bin/%
 uninstall-scripts:
 	@$(foreach f,$(addprefix $(HOME)/,$(BINFILES)), rm -fv $f;)
 
+DEBS += bat
 DEBS += brightnessctl
 DEBS += clementine
 DEBS += cscope
@@ -169,6 +170,7 @@ RPMS += NetworkManager-tui
 RPMS += NetworkManager-wifi
 RPMS += alsa-sof-firmware
 RPMS += ansible
+RPMS += bat
 RPMS += brightnessctl
 RPMS += cscope
 RPMS += cups
