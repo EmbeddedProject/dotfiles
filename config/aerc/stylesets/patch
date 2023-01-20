@@ -1,0 +1,11 @@
+# vim: ft=dosini
+
+msglist_read.fg=#ffffae
+msglist_unread.fg=#ffffae
+msglist_unread.bold=true
+msglist_deleted.fg=#666666
+msglist_*.selected.bg=#303030
+msglist_marked.fg=#ffffae
+msglist_marked.selected.fg=#ffffae
+msglist_marked.bg=#b35900
+msglist_marked.selected.bg=#c76300
