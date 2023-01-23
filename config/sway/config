@@ -182,6 +182,7 @@ for_window [class="vlc"] inhibit_idle fullscreen
 for_window [class="Hexchat"] move scratchpad, sticky enable
 for_window [app_id="google-chrome"] move container to workspace number $ws2
 for_window [app_id="firefox.*"] move container to workspace number $ws3
+for_window [app_id="firefox.*"] inhibit_idle fullscreen
 for_window [class="Signal"] move container to workspace number $ws4
 for_window [class="Spotify"] move container to workspace number $ws5
 for_window [app_id="org.clementine_player.Clementine"] move container to workspace number $ws5

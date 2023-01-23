@@ -2336,7 +2336,6 @@ set history filename ~/.gdb_history
 set follow-fork-mode parent
 set detach-on-fork on
 set debuginfod enabled on
-dir ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/etc
 
 # Start ------------------------------------------------------------------------
 
