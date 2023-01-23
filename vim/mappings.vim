@@ -159,7 +159,7 @@ function SpdxIdsComplete(arglead, cmdline, cursorpos)
 endfunction
 
 function InsertLicense()
-	let l:prefix = 'SPDX-Identifier: '
+	let l:prefix = 'SPDX-License-Identifier: '
 	let l:spdx = input(l:prefix, '', 'custom,SpdxIdsComplete')
 	if l:spdx == ''
 		let l:spdx = system(
@@ -184,6 +184,7 @@ function InsertLicense()
 			put ='/* ' . l:l . ' */'
 		endfor
 	elseif b:current_syntax == 'rust'
+			\|| b:current_syntax == 'go'
 		for l:l in l:license_lines
 			put ='// ' . l:l
 		endfor
