@@ -40,6 +40,11 @@ map <down> gj
 map j gj
 imap <down> <C-o>gj
 
+"disable help on <F1>
+nnoremap <F1> <esc>
+vnoremap <F1> <esc>
+inoremap <F1> <esc>
+
 "Navigate through errors (location list)
 function NextError()
 	try
