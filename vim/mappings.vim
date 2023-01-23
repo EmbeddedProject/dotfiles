@@ -217,8 +217,10 @@ function InitCscope()
 	set cspc=9 " display full path names
 	set nocscoperelative
 	set nocscopeverbose
-	let l:root = GitRoot()
-	exec 'cscope add ' . l:root . '/cscope.out'
+	let l:cscope = findfile('cscope.out', '.;')
+	if filereadable(l:cscope)
+		exec 'cscope add ' . l:cscope
+	endif
 	set cscopeverbose
 	nnoremap <buffer> <silent> <F3> :cs find g <C-R>=expand("<cword>")<CR><CR>
 endfunction
