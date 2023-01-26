@@ -175,11 +175,12 @@ exec swayidle -w \
 	resume 'swaymsg "output * dpms on"' \
 	lock swaylock \
 	before-sleep swaylock
+exec loginctl lock-session
 
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [class="vlc"] inhibit_idle fullscreen
-for_window [class="Hexchat"] move scratchpad, sticky enable
+for_window [app_id="weechat"] move scratchpad, sticky enable, floating_minimum_size 1400x700
 for_window [app_id="google-chrome"] move container to workspace number $ws2
 for_window [app_id="firefox.*"] move container to workspace number $ws3
 for_window [app_id="firefox.*"] inhibit_idle fullscreen
@@ -194,14 +195,13 @@ include /etc/sway/config.d/*
 
 bindsym Mod4+c exec footclient -T calc -a calc -W 100x30 python3
 
-exec loginctl lock-session
 # startup apps
 exec kanshi
 exec foot -s 2>/dev/null
 exec sleep 1 && footclient
-exec hexchat
 exec google-chrome
 exec firefox
 exec flatpak run org.signal.Signal
 exec flatpak run com.spotify.Client
 exec sleep 1 && footclient -a aerc bash -c 'cd ~/upstream/aerc; aerc; exec bash -li'
+exec sleep 1 && footclient -a weechat bash -c 'weechat; exec bash -li'

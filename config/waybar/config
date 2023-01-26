@@ -39,7 +39,7 @@
 	},
 
 	"custom/irc": {
-		"exec": "~/.config/waybar/irc_status.py",
+		"exec": "~/.config/waybar/chat_status.py",
 		"return-type": "json",
 		"on-click": "swaymsg scratchpad show",
 		"tooltip": false

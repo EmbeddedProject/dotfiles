@@ -11,17 +11,32 @@ from i3ipc.aio import Connection
 last_data = None
 
 
+def get_chats(tree):
+    for window in tree:
+        if window.window_class == 'Hexchat':
+            yield window
+        elif getattr(window, 'app_id', None) == 'weechat':
+            yield window
+
+
+def is_chat(container):
+    if container.app_id == 'weechat':
+        return True
+    if container.window_class == 'Hexchat':
+        return True
+    return False
+
+
 async def refresh_block(i3, event=None, tree=None):
     global last_data
     running = urgent = False
 
     if tree is not None:
-        irc = tree.find_classed('Hexchat')
-        if irc:
+        for c in get_chats(tree):
             running = True
-            urgent = any(i.urgent for i in irc)
+            urgent |= c.urgent
 
-    elif event is not None and event.container.window_class == 'Hexchat':
+    elif event is not None and is_chat(event.container):
         if event.change == 'new':
             running = True
         elif event.change == 'urgent':
@@ -31,7 +46,7 @@ async def refresh_block(i3, event=None, tree=None):
     else:
         return
 
-    data = {'text': '\uf075 irc'}
+    data = {'text': '\uf075 chat'}
 
     if running:
         if urgent:
