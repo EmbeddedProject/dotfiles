@@ -135,7 +135,7 @@ bindsym Mod4+Shift+ccedilla move container to workspace number $ws9
 bindsym Mod4+Shift+agrave move container to workspace number $ws10
 
 # reload the configuration file
-bindsym Mod4+Shift+c exec swaymsg reload
+bindsym Mod4+Shift+c exec swaymsg reload && notify-send "sway config reloaded"
 
 set $exit "EXIT sway? [y/N]"
 mode $exit {

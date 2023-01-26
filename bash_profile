@@ -17,5 +17,5 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 if [ "$(tty)" = "/dev/tty1" ]; then
 	export XDG_CURRENT_DESKTOP=sway
-	exec systemd-cat sway
+	exec systemd-cat ~/upstream/sway/build/sway/sway
 fi
