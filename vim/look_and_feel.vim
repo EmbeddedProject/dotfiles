@@ -8,6 +8,10 @@ nnoremap <F12> :syntax sync fromstart<CR>
 set t_Co=256
 colorscheme tir_black
 
+if has("nvim")
+	autocmd BufEnter * lua vim.diagnostic.config({ virtual_text = true, signs = false })
+endif
+
 set sidescrolloff=2
 set numberwidth=4
 set cursorline

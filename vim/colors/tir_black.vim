@@ -175,3 +175,15 @@ hi diffRemoved           ctermfg=9  ctermbg=none             guifg=#ff0000 guibg
 
 " Show trailing whitespace and spaces before a tab:
 match ExtraWhitespace /\s\+$\| \+\ze\t/
+
+hi ALEVirtualTextError           ctermfg=160                 guifg=#d70000
+hi ALEVirtualTextWarning         ctermfg=214                 guifg=#ffaf00
+hi ALEVirtualTextInfo            ctermfg=34                  guifg=#00af00
+hi ALEVirtualTextStyleError      ctermfg=160                 guifg=#d70000
+hi ALEVirtualTextStyleWarning    ctermfg=214                 guifg=#ffaf00
+if has("nvim")
+	hi link DiagnosticError ALEVirtualTextError
+	hi link DiagnosticWarn  ALEVirtualTextWarning
+	hi link DiagnosticInfo  ALEVirtualTextInfo
+	hi link DiagnosticHint  ALEVirtualTextInfo
+endif

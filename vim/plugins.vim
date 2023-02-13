@@ -65,6 +65,9 @@ let g:ale_set_signs = 0
 let g:ale_cache_executable_check_failures = 1
 let g:ale_use_global_executables = 0
 let g:ale_completion_enabled = 0
+if has('nvim')
+	let g:ale_use_neovim_diagnostics_api = 1
+endif
 set completeopt=menu,menuone,noselect,noinsert
 
 let g:go_def_mapping_enabled = 0
