@@ -92,6 +92,7 @@ fi
 alias ncal='ncal -Mw3'
 
 function termcolors() {
+	local i
 	for i in {0..255}; do
 		printf "\e[38;5;%sm%3d\e[0m \e[1;38;5;%sm%3d\e[0m \e[48;5;%sm%3d\e[0m " \
 			"$i" "$i" "$i" "$i" "$i" "$i"
@@ -101,6 +102,23 @@ function termcolors() {
 			printf '\n'
 		fi
 	done
+}
+
+function termcolor() {
+	local rgb i
+	stty -echo
+	for i in "$@"; do
+		if ! [ "$i" -ge 0 ] || ! [ "$i" -lt 256 ]; then
+			echo "error: invalid color index: $i"
+			continue
+		fi
+		printf "\e]4;$i;?\e\\"
+		read -r -d "\\" x < /dev/tty
+		rgb=$(printf '%s\n' "$x" | sed -nre 's,.*;rgb:([a-f0-9][a-f0-9])[a-f0-9][a-f0-9]/([a-f0-9][a-f0-9])[a-f0-9][a-f0-9]/([a-f0-9][a-f0-9])[a-f0-9][a-f0-9].*,\1\2\3,p')
+		printf "\e[38;5;%sm%3d\e[0m \e[48;5;%sm%3d\e[0m \e[38;5;%sm#%s\e[0m \e[48;5;%sm#%s\e[0m\n" \
+			"$i" "$i" "$i" "$i" "$i" "$rgb" "$i" "$rgb"
+	done
+	stty echo
 }
 
 function termcolors_text() {
