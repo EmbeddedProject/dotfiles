@@ -24,6 +24,14 @@ def main():
         action="store_const",
     )
     g.add_argument(
+        "-R",
+        "--reviewed-by",
+        help="Prefix with Reviewed-by instead of Acked-by.",
+        dest="prefix",
+        const="Reviewed-by",
+        action="store_const",
+    )
+    g.add_argument(
         "-s",
         "--signed-off-by",
         help="Prefix with Signed-off-by instead of Acked-by.",
