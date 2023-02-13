@@ -44,7 +44,7 @@ bindsym XF86MonBrightnessUp exec ~/bin/backlight.sh +
 floating_modifier Mod4
 
 # start a terminal
-bindsym Mod4+Return exec footclient
+bindsym Mod4+Return exec foot
 
 # kill focused window
 bindsym Mod4+Shift+k kill
@@ -175,7 +175,7 @@ exec swayidle -w \
 	resume 'swaymsg "output * dpms on"' \
 	lock swaylock \
 	before-sleep swaylock
-exec loginctl lock-session
+exec sleep 0.1s && loginctl lock-session
 
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
@@ -193,15 +193,14 @@ for_window [shell="xwayland"] title_format "<span>[X] %title</span>"
 
 include /etc/sway/config.d/*
 
-bindsym Mod4+c exec footclient -T calc -a calc -W 100x30 python3
+bindsym Mod4+c exec foot -T calc -a calc -W 100x30 python3
 
 # startup apps
 exec kanshi
-exec foot -s 2>/dev/null
-exec sleep 1 && footclient
+exec foot
 exec google-chrome
 exec firefox
 exec flatpak run org.signal.Signal
 exec flatpak run com.spotify.Client
-exec sleep 1 && footclient -a aerc bash -c 'cd ~/upstream/aerc; aerc; exec bash -li'
-exec sleep 1 && footclient -a weechat bash -c 'weechat; exec bash -li'
+exec foot -T weechat -a weechat bash -c 'weechat; exec bash -li'
+exec foot -T aerc -a aerc bash -c 'cd ~/upstream/aerc; aerc; exec bash -li'
