@@ -100,10 +100,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'evanleck/vim-svelte'
 Plug 'fatih/vim-go'
-Plug 'https://git.sr.ht/~sircmpwn/hare.vim'
 Plug 'ap/vim-css-color'
 
 call plug#end()
