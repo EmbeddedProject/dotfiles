@@ -25,7 +25,7 @@ uninstall: uninstall-dotfiles uninstall-scripts
 xdg_config := $(shell find config/ -type f)
 xdg_local := $(shell find local/ -type f)
 
-DOTFILES += Xmodmap
+#DOTFILES += Xmodmap
 DOTFILES += Xresources
 DOTFILES += bash_aliases
 DOTFILES += bash_profile
@@ -34,27 +34,27 @@ DOTFILES += colordiffrc
 DOTFILES += dir_colors
 DOTFILES += $(xdg_config)
 DOTFILES += gdbinit
-DOTFILES += gitconfig
-DOTFILES += gnupg/gpg-agent.conf
-DOTFILES += gnupg/gpg.conf
-DOTFILES += gnupg/scdaemon.conf
+#DOTFILES += gitconfig
+#DOTFILES += gnupg/gpg-agent.conf
+#DOTFILES += gnupg/gpg.conf
+#DOTFILES += gnupg/scdaemon.conf
 DOTFILES += gtkrc-2.0
 DOTFILES += inputrc
 DOTFILES += $(xdg_local)
-DOTFILES += mostrc
-DOTFILES += muttrc
-DOTFILES += sbuildrc
-DOTFILES += screenrc
-DOTFILES += taskrc
+#DOTFILES += mostrc
+#DOTFILES += muttrc
+#DOTFILES += sbuildrc
+#DOTFILES += screenrc
+#DOTFILES += taskrc
 DOTFILES += tmate.conf
 DOTFILES += tmux.conf
 DOTFILES += vim
-DOTFILES += wallpaper.png
+#DOTFILES += wallpaper.png
 DOTFILES += xkb/symbols/fr-devel
-DOTFILES += xsessionrc
-DOTFILES += xsettingsd
-DOTFILES += zprofile
-DOTFILES += zshrc
+#DOTFILES += xsessionrc
+#DOTFILES += xsettingsd
+#DOTFILES += zprofile
+#DOTFILES += zshrc
 
 .PHONY: dotfiles
 dotfiles: $(addprefix $(HOME)/.,$(DOTFILES))
@@ -63,7 +63,7 @@ dotfiles: $(addprefix $(HOME)/.,$(DOTFILES))
 $(HOME)/.%: %
 	@! [ -e $@ ] || rm -rf -- $@
 	@mkdir -pv $(@D)
-	@ln -srvf $< $@
+	@ln -srv $< $@
 	@! [ $(@D) = $(HOME)/.gnupg ] || chmod -c 600 $< $@
 
 .PHONY: uninstall-dotfiles

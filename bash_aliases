@@ -37,6 +37,10 @@ fi
 
 alias grep='grep --color=auto'
 alias gg='git grep --untracked'
+alias grin='grep -rin --exclude-dir=build'
+
+alias gito='git log --oneline'
+alias gs='git status'
 
 if dircolors &>/dev/null; then
 	eval $(dircolors ~/.dir_colors)
@@ -61,6 +65,21 @@ alias lla="ls -lA"
 alias pg='pgrep -a'
 
 alias ldapsearch='ldapsearch -Q -o ldif-wrap=no -LLL'
+
+if command ip -h 2>&1 | grep -qF -- '-c[olor]'; then
+	alias ip="ip -color=auto"
+fi
+bridge_opts=
+if command bridge -h 2>&1 | grep -qF -- '-color'; then
+	bridge_opts="-color=auto"
+fi
+if command bridge -h 2>&1 | grep -qF -- '-c[ompressvlans]'; then
+	bridge_opts="$bridge_opts -compressvlans"
+fi
+if [ -n "$bridge_opts" ]; then
+	alias bridge="bridge $bridge_opts"
+fi
+unset bridge_opts
 
 function env() {
 	if [ $# -eq 0 ]; then
